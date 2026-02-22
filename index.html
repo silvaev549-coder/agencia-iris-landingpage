@@ -366,13 +366,25 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--cyan);
+            background: transparent;
+            /* Alterado de var(--cyan) para transparente */
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .iris-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 2px solid rgba(0, 184, 212, 0.4);
+            flex-shrink: 0;
         }
 
         .wa-status h4 {
@@ -1022,7 +1034,9 @@
                 <div class="hero-visual reveal">
                     <div class="wa-card">
                         <div class="wa-header">
-                            <div class="wa-avatar">I</div>
+                            <div class="wa-avatar">
+                                <img src="./iris.png" alt="Íris — Secretária IA" class="iris-avatar">
+                            </div>
                             <div class="wa-status">
                                 <h4>Íris · ESG Tecnologia</h4>
                                 <span>● online agora</span>
