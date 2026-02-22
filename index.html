@@ -1076,6 +1076,197 @@
                 margin-top: 32px;
             }
         }
+
+        /* ── Seção CRM ────────────────────────────────────── */
+        .section-crm {
+            background: var(--bg-base, #F7F9FC);
+            padding: 100px 0;
+        }
+
+        .crm-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .crm-features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .crm-features-list li {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .crm-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .crm-features-list strong {
+            display: block;
+            font-weight: 600;
+            color: var(--text-heading, #1A1A1E);
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .crm-features-list span {
+            color: var(--text-muted, #8A8A8E);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        /* Mockup CRM */
+        .crm-mockup {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border, #E2E8F0);
+        }
+
+        .crm-mockup-header {
+            background: #F1F5F9;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border, #E2E8F0);
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mockup-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .mockup-dots span:nth-child(1) {
+            background: #FF5F57;
+        }
+
+        .mockup-dots span:nth-child(2) {
+            background: #FFBD2E;
+        }
+
+        .mockup-dots span:nth-child(3) {
+            background: #28CA41;
+        }
+
+        .mockup-url {
+            font-size: 0.78rem;
+            color: var(--text-muted, #8A8A8E);
+            background: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border, #E2E8F0);
+        }
+
+        .crm-mockup-body {
+            padding: 0;
+        }
+
+        .crm-row-header {
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1.2fr 0.8fr;
+            padding: 10px 16px;
+            background: #F8FAFC;
+            border-bottom: 1px solid var(--border, #E2E8F0);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted, #8A8A8E);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .crm-row {
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1.2fr 0.8fr;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border, #E2E8F0);
+            font-size: 0.85rem;
+            color: var(--text-body, #3D3D40);
+            align-items: center;
+        }
+
+        .crm-row:last-child {
+            border-bottom: none;
+        }
+
+        .blur-text {
+            filter: blur(4px);
+            user-select: none;
+        }
+
+        .badge-agendado {
+            background: #ECFDF5;
+            color: #065F46;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge-negociacao {
+            background: #FFF7ED;
+            color: #92400E;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-frio {
+            background: #EFF6FF;
+            color: #1E40AF;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .crm-caption {
+            font-size: 0.75rem;
+            color: var(--text-muted, #8A8A8E);
+            text-align: center;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .crm-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-crm {
+                padding: 64px 0;
+            }
+
+            .crm-row-header,
+            .crm-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 4px;
+            }
+
+            .crm-row span:nth-child(2),
+            .crm-row-header span:nth-child(2) {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -1177,7 +1368,7 @@
                 <div class="stat-item">
                     <span class="stat-number" data-target="48">0</span>
                     <span class="stat-label">e a Íris reengaja o lead frio</span>
-                    <span class="stat-source">— Automação GPT-4</span>
+                    <span class="stat-source">— Automação de IA avançada</span>
                 </div>
             </div>
         </div>
@@ -1296,12 +1487,13 @@
                         falha humana.</p>
                 </div>
                 <div class="feature-card reveal">
-                    <span class="feat-badge badge-amber">GPT-4</span>
+                    <span class="feat-badge badge-amber">IA Avançada</span>
                     <div class="feat-icon-circle" style="background: rgba(245, 158, 11, 0.1); color: var(--amber);">
                         <i class="ph ph-arrows-clockwise"></i>
                     </div>
                     <h3 class="heading-md">Reengajamento Inteligente</h3>
-                    <p>Lead sumiu por 48h? A Íris inicia uma conversa nova e empática usando inteligência GPT-4,
+                    <p>Lead sumiu por 48h? A Íris inicia uma conversa nova e empática usando inteligência de IA
+                        avançada,
                         salvando o agendamento.</p>
                 </div>
                 <div class="feature-card reveal">
@@ -1361,6 +1553,111 @@
         </div>
     </section>
 
+    <!-- SEÇÃO CRM -->
+    <section id="crm" class="section-crm">
+        <div class="container">
+            <div class="crm-layout">
+
+                <div class="crm-texto reveal">
+                    <div class="section-eyebrow">PAINEL DE CONTROLE</div>
+                    <h2 class="section-title" style="text-align:left">
+                        Sua clínica na palma da mão,<br>
+                        em tempo real.
+                    </h2>
+                    <p class="section-sub" style="text-align:left; max-width:480px">
+                        O painel CRM da Íris é atualizado automaticamente a cada atendimento.
+                        Sem planilhas, sem digitação manual — a própria IA registra tudo.
+                    </p>
+
+                    <ul class="crm-features-list">
+                        <li>
+                            <span class="crm-icon">📋</span>
+                            <div>
+                                <strong>Todos os leads em um lugar</strong>
+                                <span>Nome, telefone, status, histórico de conversa e próximos passos.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="crm-icon">🟢</span>
+                            <div>
+                                <strong>Status visual por cores</strong>
+                                <span>Agendado, Em negociação, Lead frio, Concluído — sem confusão.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="crm-icon">📈</span>
+                            <div>
+                                <strong>Previsão de receita do dia</strong>
+                                <span>Quantas consultas confirmadas, qual o faturamento esperado.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="crm-icon">🔔</span>
+                            <div>
+                                <strong>Alertas de reengajamento</strong>
+                                <span>O sistema avisa quais leads precisam de atenção — automaticamente.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="crm-imagem reveal">
+                    <!-- Screenshot do CRM com blur nas infos sensíveis -->
+                    <div class="crm-mockup">
+                        <div class="crm-mockup-header">
+                            <div class="mockup-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="mockup-url">crm.suaclínica.com.br</span>
+                        </div>
+                        <div class="crm-mockup-body">
+                            <div class="crm-row-header">
+                                <span>Paciente</span>
+                                <span>Serviço</span>
+                                <span>Status</span>
+                                <span>Horário</span>
+                            </div>
+                            <div class="crm-row">
+                                <span class="blur-text">Maria S.</span>
+                                <span>Consulta Clínica</span>
+                                <span class="badge-agendado">✅ Agendado</span>
+                                <span>14:00</span>
+                            </div>
+                            <div class="crm-row">
+                                <span class="blur-text">João P.</span>
+                                <span>Retorno</span>
+                                <span class="badge-negociacao">🔄 Negociação</span>
+                                <span>—</span>
+                            </div>
+                            <div class="crm-row">
+                                <span class="blur-text">Ana R.</span>
+                                <span>Avaliação</span>
+                                <span class="badge-agendado">✅ Agendado</span>
+                                <span>16:30</span>
+                            </div>
+                            <div class="crm-row">
+                                <span class="blur-text">Carlos M.</span>
+                                <span>Consulta</span>
+                                <span class="badge-frio">❄️ Lead Frio</span>
+                                <span>—</span>
+                            </div>
+                            <div class="crm-row">
+                                <span class="blur-text">Patrícia L.</span>
+                                <span>Exame</span>
+                                <span class="badge-agendado">✅ Agendado</span>
+                                <span>09:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="crm-caption">
+                        * Dados fictícios para demonstração. Informações reais são protegidas.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- 7. SISTEMA (DARK) -->
     <section class="sistema" id="sistema">
         <div class="container">
@@ -1377,7 +1674,7 @@
                     <div class="pill-group">
                         <div class="pill-item">
                             <i class="ph ph-brain pill-icon"></i>
-                            <span>GPT-4 em cada conversa</span>
+                            <span>IA de última geração em cada conversa</span>
                         </div>
                         <div class="pill-item">
                             <i class="ph ph-lightning pill-icon"></i>
