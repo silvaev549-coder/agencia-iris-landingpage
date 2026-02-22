@@ -1,108 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agência Íris | Transformando Visões em Realidade</title>
-    <meta name="description" content="Agência Íris - Especialistas em estratégias de vendas, marketing digital e design premium.">
-    <link rel="stylesheet" href="style.css">
+    <title>ESG Tecnologia | Íris - CRM Inteligente para Clínicas</title>
+    <meta name="description"
+        content="Aumente o faturamento da sua clínica com Íris, a IA que transforma seu WhatsApp em uma máquina de agendamentos.">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="container">
+
+    <!-- 1. Header -->
+    <header class="header">
+        <div class="container header-container">
             <div class="logo">
-                <span class="iris-glow">ÍRIS</span>
+                <span class="esg">ESG</span> Tecnologia
             </div>
-            <ul class="nav-links">
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-            <button class="cta-button">Falar Agora</button>
-            <div class="mobile-menu-icon" id="menu-toggle">
-                <i data-lucide="menu"></i>
-            </div>
+            <nav class="nav">
+                <a href="https://wa.me/seu-numero" class="btn-outline">Falar com Consultor</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <main>
-        <section id="hero" class="hero">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <h1 class="fade-in">Sua visão, nossa <span class="highlight">estratégia</span>.</h1>
-                <p class="fade-in">A Agência Íris combina design de ponta com táticas de vendas agressivas para escalar seu negócio ao próximo nível.</p>
-                <div class="hero-actions fade-in">
-                    <button class="primary-btn">Começar Projeto</button>
-                    <button class="secondary-btn">Ver Portfolio</button>
+        <!-- 2. Hero Section -->
+        <section class="hero">
+            <div class="container hero-container animate-reveal">
+                <h1 class="hero-title">
+                    Sua clínica não precisa de mais funcionários. Precisamos de <span
+                        class="accent">Inteligência.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Conheça a Íris: O cérebro digital que transforma seu WhatsApp em uma máquina de agendamentos 24/7.
+                    Sem falhas, sem esquecimentos.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/seu-numero" class="btn-primary pulse">
+                        <i class="ph ph-whatsapp-logo"></i> Agendar Demonstração do Sistema
+                    </a>
                 </div>
-            </div>
-        </section>
 
-        <section id="services" class="services">
-            <div class="container">
-                <h2 class="section-title">Nossos Serviços</h2>
-                <div class="service-grid">
-                    <div class="service-card reveal">
-                        <i data-lucide="trending-up"></i>
-                        <h3>Performance Sales</h3>
-                        <p>Funis de vendas otimizados para máxima conversão e ROI.</p>
-                    </div>
-                    <div class="service-card reveal">
-                        <i data-lucide="palette"></i>
-                        <h3>UI/UX Design</h3>
-                        <p>Interfaces que encantam e guiam o usuário intuitivamente.</p>
-                    </div>
-                    <div class="service-card reveal">
-                        <i data-lucide="cpu"></i>
-                        <h3>Automação IA</h3>
-                        <p>Sistemas inteligentes para escalar seu atendimento e operação.</p>
+                <div class="video-container-wrapper">
+                    <div class="video-placeholder cyan-glow">
+                        <i class="ph ph-play"></i>
+                        <span>[Espaço para o Vídeo de Demonstração]</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-wrapper">
-                    <div class="contact-info reveal">
-                        <h2>Vamos Criar algo <span class="highlight">Épico</span>?</h2>
-                        <p>Entre em contato e descubra como podemos revolucionar seu faturamento.</p>
-                        <div class="contact-items">
-                            <div class="item">
-                                <i data-lucide="mail"></i>
-                                <span>contato@agenciairis.com</span>
-                            </div>
-                            <div class="item">
-                                <i data-lucide="instagram"></i>
-                                <span>@agencia.iris</span>
-                            </div>
-                        </div>
+        <!-- 3. Dores (Agitação do Problema) -->
+        <section class="dores section-padding">
+            <div class="container animate-reveal">
+                <h2 class="section-title">O modelo antigo está custando o seu faturamento.</h2>
+                <div class="grid grid-3">
+                    <div class="card card-white">
+                        <i class="ph ph-warning-circle card-icon-danger"></i>
+                        <h3>Pacientes esperando horas por uma resposta.</h3>
                     </div>
-                    <form class="contact-form reveal">
-                        <input type="text" placeholder="Nome Completo" required>
-                        <input type="email" placeholder="Seu melhor E-mail" required>
-                        <textarea placeholder="Como podemos ajudar?" rows="5" required></textarea>
-                        <button type="submit" class="submit-btn gold-glow">Enviar Mensagem</button>
-                    </form>
+                    <div class="card card-white">
+                        <i class="ph ph-calendar-x card-icon-danger"></i>
+                        <h3>Buracos na agenda por falta de confirmações (No-Show).</h3>
+                    </div>
+                    <div class="card card-white">
+                        <i class="ph ph-fire card-icon-danger"></i>
+                        <h3>Recepção apagando incêndios em vez de focar no paciente presencial.</h3>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- 4. A Solução (Features da Íris) -->
+        <section class="solucao section-padding">
+            <div class="container animate-reveal">
+                <h2 class="section-title">A tecnologia por trás das clínicas que mais crescem.</h2>
+                <div class="grid grid-4">
+                    <div class="card glass">
+                        <i class="ph ph-waveform card-icon-accent"></i>
+                        <h3>Áudio Humanizado</h3>
+                        <p>Entende e responde áudios como uma pessoa real.</p>
+                    </div>
+                    <div class="card glass">
+                        <i class="ph ph-calendar-check card-icon-accent"></i>
+                        <h3>Gestão Autônoma</h3>
+                        <p>Sincroniza com Google Calendar automaticamente.</p>
+                    </div>
+                    <div class="card glass">
+                        <i class="ph ph-chart-pie card-icon-accent"></i>
+                        <h3>Painel Visual</h3>
+                        <p>Acompanhe agendamentos e faturamento em tempo real.</p>
+                    </div>
+                    <div class="card glass">
+                        <i class="ph ph-shield-check card-icon-accent"></i>
+                        <h3>Transbordo Seguro</h3>
+                        <p>Detecta urgências e chama a equipe humana.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Destaque Especial (Fundo Escuro para Autoridade) -->
+        <section class="destaque section-padding">
+            <div class="container animate-reveal destaque-wrapper">
+                <div class="destaque-content">
+                    <h2 class="title-white">Controle sua empresa por Comando de Voz.</h2>
+                    <p class="text-white">
+                        O Dono não precisa abrir o computador. Mande um áudio no seu WhatsApp dizendo: 'Cancele a agenda
+                        da tarde e avise a todos'. A IA executa, reagenda pacientes e atualiza o painel
+                        instantaneamente.
+                    </p>
+                </div>
+                <div class="destaque-image-placeholder">
+                    <span>[Mockup da Interface/Smartphone]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Footer -->
+        <section class="final section-padding">
+            <div class="container animate-reveal text-center">
+                <h2 class="section-title">Pronto para evoluir para o próximo nível?</h2>
+                <a href="https://wa.me/seu-numero" class="btn-primary btn-large">
+                    Falar com Especialista em IA
+                </a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Agência Íris. Todos os direitos reservados.</p>
+    <footer class="footer-bg">
+        <div class="container footer-content">
+            <p>© 2026 ESG Evandro Silva Gallina - Especialista em Sistemas de IA.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-      lucide.createIcons();
-    </script>
 </body>
+
 </html>
