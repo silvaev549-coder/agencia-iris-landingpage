@@ -4,160 +4,939 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESG Tecnologia | Íris - CRM Inteligente para Clínicas</title>
-    <meta name="description"
-        content="Aumente o faturamento da sua clínica com Íris, a IA que transforma seu WhatsApp em uma máquina de agendamentos.">
+    <title>Íris | A Secretária de IA que Multiplica sua Agenda</title>
 
-    <!-- Fonts -->
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg-deep: #0A1628;
+            --bg-accent: #0F2038;
+            --electric-blue: #1E90FF;
+            --electric-glow: rgba(30, 144, 255, 0.4);
+            --amber-accent: #F59E0B;
+            --amber-glow: rgba(245, 158, 11, 0.3);
+            --text-pure: #FFFFFF;
+            --text-dim: #94A3B8;
+            --white: #FFFFFF;
+            --danger: #EF4444;
+            --success: #10B981;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Critical Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-pure);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        .heading-display {
+            font-family: 'Syne', sans-serif;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 8rem 0;
+        }
+
+        /* Typography */
+        .headline {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            letter-spacing: -0.02em;
+        }
+
+        .subheadline {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--text-dim);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--white), var(--electric-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Buttons */
+        .btn {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--success);
+            color: white;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--electric-blue);
+            background: rgba(30, 144, 255, 0.1);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        /* 1. Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-img {
+            max-width: 160px;
+            height: auto;
+        }
+
+        /* 2. Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, #0F2038 0%, #0A1628 100%);
+            overflow: hidden;
+        }
+
+        .hero-mesh {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 80% 20%, rgba(30, 144, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(30, 144, 255, 0.1) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--danger);
+            border-radius: 50%;
+            animation: blink 1.2s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-inline: auto;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* 3. Dores */
+        .dores {
+            background: var(--bg-accent);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card {
+            background: var(--glass);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--electric-blue);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--electric-glow);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--danger);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-stat {
+            font-size: 0.9rem;
+            color: var(--amber-accent);
+            font-weight: 700;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        /* 4. Solução */
+        .solucao {
+            background: var(--bg-deep);
+        }
+
+        .grid-6 {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .card-solucao {
+            text-align: left;
+        }
+
+        .card-solucao-icon {
+            font-size: 2.5rem;
+            color: var(--electric-blue);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .card-solucao h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .card-solucao p {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+        }
+
+        /* 5. Voz */
+        .voz {
+            background: var(--electric-blue);
+            color: var(--white);
+            text-align: center;
+            border-radius: 40px;
+            margin: 0 1.5rem;
+        }
+
+        .voz-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem;
+        }
+
+        .voz-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .audio-waves {
+            display: flex;
+            gap: 4px;
+            height: 30px;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .wave-bar {
+            width: 4px;
+            background: white;
+            border-radius: 10px;
+            animation: wave 1s ease-in-out infinite;
+        }
+
+        .wave-bar:nth-child(1) {
+            height: 10px;
+            animation-delay: 0s;
+        }
+
+        .wave-bar:nth-child(2) {
+            height: 25px;
+            animation-delay: 0.2s;
+        }
+
+        .wave-bar:nth-child(3) {
+            height: 15px;
+            animation-delay: 0.4s;
+        }
+
+        .wave-bar:nth-child(4) {
+            height: 28px;
+            animation-delay: 0.6s;
+        }
+
+        .wave-bar:nth-child(5) {
+            height: 12px;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: scaleY(1);
+            }
+
+            50% {
+                transform: scaleY(1.5);
+            }
+        }
+
+        /* 6. Comparação */
+        .comparacao-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-top: 4rem;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .comp-col {
+            padding: 4rem 3rem;
+        }
+
+        .comp-antes {
+            background: #1a0a0a;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comp-depois {
+            background: #0a1a10;
+        }
+
+        .comp-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-family: 'Syne';
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .comp-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .comp-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .comp-item i {
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .text-red {
+            color: var(--danger);
+        }
+
+        .text-green {
+            color: var(--success);
+        }
+
+        /* 7. Vídeo */
+        .demo-video {
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 24px;
+            border: 2px solid var(--electric-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(30, 144, 255, 0.2);
+        }
+
+        .play-btn {
+            font-size: 5rem;
+            color: var(--electric-blue);
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .demo-video:hover .play-btn {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 15px var(--electric-blue));
+        }
+
+        /* 8. Urgência */
+        .urgencia {
+            background: var(--amber-accent);
+            color: var(--bg-deep);
+            text-align: center;
+        }
+
+        .urgencia h2 {
+            color: var(--bg-deep);
+            margin-bottom: 1.5rem;
+        }
+
+        .urgencia p {
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        /* 9. Final CTA */
+        .final-cta {
+            text-align: center;
+        }
+
+        .final-cta-subtitle {
+            color: var(--text-dim);
+            margin-top: 1.5rem;
+            display: block;
+        }
+
+        /* 10. Footer */
+        .footer {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer .logo-img {
+            margin-bottom: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-social a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            color: var(--white);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s all ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+
+            .grid-3,
+            .grid-6 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .comparacao-table {
+                grid-template-columns: 1fr;
+            }
+
+            .comp-antes {
+                border-right: none;
+                border-bottom: 1.5px solid rgba(255, 255, 255, 0.05);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                height: 70px;
+            }
+
+            .logo-img {
+                max-width: 120px;
+            }
+
+            .header-container {
+                justify-content: center;
+            }
+
+            .header .btn-outline {
+                display: none;
+            }
+
+            /* Desktop button hidden on mobile header */
+
+            .section-padding {
+                padding: 5rem 0;
+            }
+
+            .headline {
+                font-size: 2.8rem;
+            }
+
+            .grid-3,
+            .grid-6 {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .voz {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .comparacao-table {
+                border-radius: 0;
+                margin-inline: -1.5rem;
+            }
+
+            .comp-col {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- 1. Header -->
+    <!-- 1. HEADER -->
     <header class="header">
         <div class="container header-container">
-            <div class="logo">
-                <img src="./LOGO1.jpg" alt="Logo ESG" style="height: 50px; width: auto; object-fit: contain;">
-            </div>
-            <nav class="nav">
-                <a href="https://wa.me/seu-numero" class="btn-outline">Falar com Consultor</a>
-            </nav>
+            <img src="./LOGO1.jpg" alt="Logo Íris - ESG Tecnologia" class="logo-img">
+            <a href="https://wa.me/5532984587255?text=Ol%C3%A1%2C+quero+saber+mais+sobre+a+%C3%8Dris+para+minha+cl%C3%ADnica"
+                class="btn btn-outline">Falar com Consultor</a>
         </div>
     </header>
 
-    <main>
-        <!-- 2. Hero Section -->
-        <section class="hero">
-            <div class="container hero-container animate-reveal">
-                <h1 class="hero-title">
-                    Sua clínica não precisa de mais funcionários. Ela precisa de <span
-                        class="text-gradient">Inteligência</span>.
-                </h1>
-                <p class="hero-subtitle">
-                    Transforme seu WhatsApp em uma máquina invisível de agendamentos 24/7. A Íris atende, negocia
-                    horários e preenche sua agenda enquanto você foca no que realmente importa: o paciente.
-                </p>
-                <div class="hero-cta">
-                    <a href="https://wa.me/seu-numero" class="btn-primary pulse">
-                        <i class="ph ph-whatsapp-logo"></i> Ver o Sistema Funcionando na Prática
-                    </a>
-                </div>
+    <!-- 2. HERO -->
+    <section class="hero">
+        <div class="hero-mesh"></div>
+        <div class="container hero-content reveal">
+            <div class="live-badge">
+                <span class="live-dot"></span>
+                AO VIVO — Atendendo pacientes agora
+            </div>
+            <h1 class="headline hero-title">Seu WhatsApp respondendo, agendando e recuperando pacientes. <span
+                    class="text-gradient">Às 3 da manhã. Sem você.</span></h1>
+            <p class="subheadline hero-subtitle">A Íris é a secretária de IA que trabalha 24/7, simula comportamento
+                humano e transforma cada contato em consulta agendada — enquanto você dorme.</p>
+            <div class="hero-cta-group">
+                <a href="#demo" class="btn btn-outline">Ver como funciona <i class="ph ph-arrow-right"></i></a>
+                <a href="https://wa.me/5532984587255?text=Ol%C3%A1%2C+quero+saber+mais+sobre+a+%C3%8Dris+para+minha+cl%C3%ADnica"
+                    class="btn btn-primary pulse">Quero para minha clínica</a>
+            </div>
+        </div>
+    </section>
 
-                <div class="video-container-wrapper">
-                    <div class="video-placeholder cyan-glow">
-                        <i class="ph ph-play"></i>
-                        <span>[Espaço para o Vídeo de Demonstração]</span>
-                    </div>
+    <!-- 3. DOR -->
+    <section class="dores section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="heading-display">O ralo invisível do seu faturamento</h2>
+                <p class="subheadline">Cada mensagem sem resposta é dinheiro indo para a concorrência.</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card reveal">
+                    <i class="ph ph-mask-sad card-icon"></i>
+                    <h3 class="card-title">Paciente espera 15 min → vai para concorrência</h3>
+                    <p>Atendimento imediato não é mais luxo, é sobrevivência.</p>
+                    <span class="card-stat">"Responder em até 5 min aumenta 10x a chance de conversão" (MIT)</span>
+                </div>
+                <div class="card reveal">
+                    <i class="ph ph-calendar-x card-icon"></i>
+                    <h3 class="card-title">No-show destroça sua agenda</h3>
+                    <p>Consultas vazias são o maior prejuízo operacional da sua clínica.</p>
+                    <span class="card-stat">"Clínicas sem confirmação perdem até 30% da receita mensal"</span>
+                </div>
+                <div class="card reveal">
+                    <i class="ph ph-money card-icon"></i>
+                    <h3 class="card-title">Tráfego pago sem gestão = dinheiro no lixo</h3>
+                    <p>O Google Ads traz o lead, mas quem não responde rápido, joga o investimento fora.</p>
+                    <span class="card-stat">"Leads sem resposta em 24h têm 98% de chance de ser perdidos"</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 3. Dores (Agitação do Problema) -->
-        <section class="dores section-padding">
-            <div class="container animate-reveal">
-                <h2 class="section-title">A recepção tradicional está sabotando o seu faturamento diário.</h2>
-                <div class="grid grid-3">
-                    <div class="card card-white">
-                        <i class="ph ph-warning-circle card-icon-danger"></i>
-                        <h3>O Ralo Invisível</h3>
-                        <p>Pacientes implorando por respostas no WhatsApp e indo para a concorrência após 15 minutos de
-                            espera.</p>
-                    </div>
-                    <div class="card card-white">
-                        <i class="ph ph-calendar-x card-icon-danger"></i>
-                        <h3>A Dor do No-Show</h3>
-                        <p>Buracos na agenda e prejuízo oculto pela falta de uma régua de confirmação implacável e
-                            automatizada.</p>
-                    </div>
-                    <div class="card card-white">
-                        <i class="ph ph-fire card-icon-danger"></i>
-                        <h3>Equipe Exausta</h3>
-                        <p>Secretárias perdendo horas preciosas apagando incêndios no celular em vez de encantar quem
-                            está na sala de espera.</p>
-                    </div>
-                </div>
+    <!-- 4. SOLUÇÃO -->
+    <section class="solucao section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="heading-display">Não é um chatbot. É uma secretária completa com IA.</h2>
             </div>
-        </section>
-
-        <!-- 4. A Solução (Features da Íris) -->
-        <section class="solucao section-padding">
-            <div class="container animate-reveal">
-                <h2 class="section-title">Conheça a Íris. O Cérebro Digital da sua Clínica.</h2>
-                <div class="grid grid-4">
-                    <div class="card glass">
-                        <i class="ph ph-waveform card-icon-accent"></i>
-                        <h3>Áudio Humanizado</h3>
-                        <p>Escuta os áudios dos pacientes, entende o contexto e responde com empatia cirúrgica. Não é um
-                            chatbot, é inteligência.</p>
-                    </div>
-                    <div class="card glass">
-                        <i class="ph ph-calendar-check card-icon-accent"></i>
-                        <h3>Sincronia Absoluta</h3>
-                        <p>Cruza dados com o seu Google Calendar em milissegundos e agenda sem a menor chance de choque
-                            de horários ou erro humano.</p>
-                    </div>
-                    <div class="card glass">
-                        <i class="ph ph-chart-pie card-icon-accent"></i>
-                        <h3>CRM em Tempo Real</h3>
-                        <p>Esteja onde estiver, abra o painel visual e saiba exatamente quem agendou, quem cancelou e a
-                            previsão de faturamento do dia.</p>
-                    </div>
-                    <div class="card glass">
-                        <i class="ph ph-shield-check card-icon-accent"></i>
-                        <h3>Guardiã de Segurança</h3>
-                        <p>O sistema detectou um relato de dor aguda ou emergência? A Íris pausa na hora e dispara um
-                            alerta vermelho para sua equipe intervir.</p>
-                    </div>
+            <div class="grid grid-6">
+                <div class="card-solucao reveal">
+                    <i class="ph ph-microphone-stage card-solucao-icon"></i>
+                    <h3>🎙️ VOZ HUMANIZADA</h3>
+                    <p>Envia áudios, escreve com errinhos propositais e emoji. Pacientes não percebem que é IA.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- 5. Destaque Especial (Fundo Escuro para Autoridade) -->
-        <section class="destaque section-padding">
-            <div class="container animate-reveal destaque-wrapper">
-                <div class="destaque-content">
-                    <h2 class="title-white">O controle absoluto da clínica, direto no seu bolso.</h2>
-                    <p class="text-white">
-                        Sem planilhas complexas. Teve um imprevisto médico? Mande um áudio no seu WhatsApp pessoal:
-                        "Íris, bloqueie minha agenda amanhã à tarde". A mágica acontece: ela fecha a agenda, cancela no
-                        sistema e envia mensagens com pedido de desculpas aos afetados. Gestão de elite por voz.
+                <div class="card-solucao reveal">
+                    <i class="ph ph-calendar-check card-solucao-icon"></i>
+                    <h3>📅 AGENDA SEM ERRO</h3>
+                    <p>Cruza Google Calendar + CRM em milissegundos. Zero conflito de horários, zero trabalho manual.
                     </p>
                 </div>
-                <div class="destaque-image-placeholder">
-                    <span>[Mockup da Interface/Smartphone]</span>
+                <div class="card-solucao reveal">
+                    <i class="ph ph-brain card-solucao-icon"></i>
+                    <h3>🧠 REENGAJAMENTO AUTOMÁTICO</h3>
+                    <p>Lead sumiu? Ela detecta, cria uma mensagem única com GPT-4 e reengage automaticamente.</p>
+                </div>
+                <div class="card-solucao reveal">
+                    <i class="ph ph-eye-closed card-solucao-icon"></i>
+                    <h3>👀 PRESENÇA REAL</h3>
+                    <p>Aparece 'digitando...' e 'gravando áudio...' antes de responder. A ilusão perfeita.</p>
+                </div>
+                <div class="card-solucao reveal">
+                    <i class="ph ph-chart-line-up card-solucao-icon"></i>
+                    <h3>📊 CRM VISUAL</h3>
+                    <p>Painel em tempo real: quem agendou, quem cancelou, previsão de receita do dia.</p>
+                </div>
+                <div class="card-solucao reveal">
+                    <i class="ph ph-siren card-solucao-icon"></i>
+                    <h3>🚨 ALERTA DE EMERGÊNCIA</h3>
+                    <p>Relato de dor aguda? O sistema pausa e dispara alerta imediato para sua equipe humana.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 6. Footer -->
-        <section class="final section-padding">
-            <div class="container animate-reveal text-center">
-                <h2 class="section-title">Pare de perder dinheiro para a desorganização.</h2>
-                <p class="footer-cta-subtitle">Agende uma sessão estratégica rápida de 15 minutos. Vou te mostrar, na
-                    sua tela, como a Íris vai tapar os buracos da sua agenda.</p>
-                <a href="https://wa.me/seu-numero" class="btn-primary btn-large">
-                    Agendar minha Demonstração VIP
-                </a>
+    <!-- 5. VOZ -->
+    <section class="voz-section section-padding">
+        <div class="container">
+            <div class="voz reveal">
+                <div class="voz-container">
+                    <i class="ph ph-microphone voz-icon"></i>
+                    <div class="audio-waves">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+                    <h2 class="heading-display">Gestão de elite por comando de voz.</h2>
+                    <p style="margin-top: 1.5rem; max-width: 700px;">Teve um imprevisto? Mande um áudio no seu WhatsApp
+                        pessoal: <strong>'Íris, bloqueia minha agenda amanhã à tarde.'</strong> Em segundos: agenda
+                        bloqueada e pacientes avisados automaticamente.</p>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="footer-bg">
-        <div class="container footer-content">
-            <p>© 2026 ESG Evandro Silva Gallina - Especialista em Sistemas de IA.</p>
+    <!-- 6. COMPARAÇÃO -->
+    <section class="comparacao section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="heading-display">O Salto de Eficiência</h2>
+            </div>
+            <div class="comparacao-table reveal">
+                <div class="comp-col comp-antes">
+                    <div class="comp-header">
+                        <i class="ph ph-x-circle text-red"></i> ANTES
+                    </div>
+                    <ul class="comp-list">
+                        <li class="comp-item"><i class="ph ph-clock text-red"></i> Pacientes sem resposta após as 18h
+                        </li>
+                        <li class="comp-item"><i class="ph ph-warning text-red"></i> No-show destruindo a agenda</li>
+                        <li class="comp-item"><i class="ph ph-user-minus text-red"></i> Leads frios esquecidos para
+                            sempre</li>
+                        <li class="comp-item"><i class="ph ph-hand-pointing text-red"></i> Secretária sobrecarregada com
+                            erros</li>
+                        <li class="comp-item"><i class="ph ph-eye-slash text-red"></i> Zero visibilidade sobre os leads
+                        </li>
+                    </ul>
+                </div>
+                <div class="comp-col comp-depois">
+                    <div class="comp-header">
+                        <i class="ph ph-check-circle text-green"></i> DEPOIS COM ÍRIS
+                    </div>
+                    <ul class="comp-list">
+                        <li class="comp-item"><i class="ph ph-infinity text-green"></i> Atendimento 24/7 sem custo de
+                            pessoal</li>
+                        <li class="comp-item"><i class="ph ph-chart-line-down text-green"></i> Lembretes automáticos
+                            (No-show -60%)</li>
+                        <li class="comp-item"><i class="ph ph-arrows-clockwise text-green"></i> Reengajamento de todos
+                            os leads frios</li>
+                        <li class="comp-item"><i class="ph ph-cloud-check text-green"></i> CRM atualizado sem falha
+                            humana</li>
+                        <li class="comp-item"><i class="ph ph-layout text-green"></i> Painel visual com previsão de
+                            receita</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. VÍDEO -->
+    <section id="demo" class="video section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="heading-display">Veja a Íris em ação</h2>
+                <p class="subheadline">Demonstração ao vivo — como a Íris atende, agenda e recupera pacientes</p>
+            </div>
+            <div class="demo-video reveal" data-youtube="">
+                <!-- INSERIR URL DO YOUTUBE AQUI quando disponível -->
+                <i class="ph ph-play-circle play-btn"></i>
+                <p style="color: var(--text-dim); font-weight: 500;">[ASSISTIR DEMONSTRAÇÃO COMPLETA]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. URGÊNCIA -->
+    <section class="urgencia section-padding">
+        <div class="container reveal">
+            <h2 class="heading-display">⚠️ Atenção: Vagas para implementação são limitadas.</h2>
+            <p>Cada cliente recebe atenção individual de Evandro na configuração. Se você está vendo esta página, ainda
+                há vaga disponível.</p>
+            <a href="https://wa.me/5532984587255?text=Ol%C3%A1%2C+quero+garantir+minha+vaga+na+implementaç%C3%A3o+da+Íris"
+                class="btn btn-primary btn-large"
+                style="margin-top: 2rem; background: var(--bg-deep); color: white;">Garantir Minha Vaga Agora</a>
+        </div>
+    </section>
+
+    <!-- 9. CTA FINAL -->
+    <section class="final-cta section-padding">
+        <div class="container reveal">
+            <h2 class="headline">Sua clínica merece uma secretária que nunca falta e nunca erra.</h2>
+            <p class="subheadline" style="margin-top: 2rem;">Agende uma conversa de 15 minutos com Evandro. Sem custo,
+                sem compromisso.</p>
+            <div style="margin-top: 4rem;">
+                <a href="https://wa.me/5532984587255?text=Ol%C3%A1%2C+falei+com+o+anuncio+e+quero+agendar+minha+sess%C3%A3o+de+15+minutos"
+                    class="btn btn-primary btn-large pulse">Falar com Evandro no WhatsApp <i
+                        class="ph ph-whatsapp-logo"></i></a>
+                <span class="final-cta-subtitle">Você vai falar diretamente com Evandro — não com uma IA.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <img src="./LOGO1.jpg" alt="Logo ESG Tecnologia" class="logo-img">
+            <p style="color: var(--text-dim);">ESG Tecnologia — Sistemas de IA para negócios que levam a sério.</p>
+            <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-dim);">© 2026 Evandro Silva Gallina</p>
+            <div class="footer-social">
+                <a href="https://wa.me/5532984587255">WhatsApp</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Termos de Uso</a>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Intersection Observer for Reveal Animations
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // Smooth scroll secondary protection
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Demo Video Click Logic (Future Proofing)
+            const demoVideo = document.querySelector('.demo-video');
+            demoVideo.addEventListener('click', () => {
+                const youtubeId = demoVideo.getAttribute('data-youtube');
+                if (youtubeId) {
+                    demoVideo.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youtubeId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                } else {
+                    window.location.href = "https://wa.me/5532984587255?text=Ol%C3%A1%2C+vi+o+video+de+demonstra%C3%A3o+e+quero+saber+mais";
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>
