@@ -933,6 +933,39 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* FIX: Forçar visibilidade da logo e remover interferências */
+        header .logo,
+        header img,
+        .site-header img,
+        nav img,
+        .navbar img,
+        .header-logo,
+        .logo-img {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+            visibility: visible !important;
+        }
+
+        /* FIX: Garantir animação com fill-mode forwards se houver */
+        .site-header .logo,
+        header .logo,
+        header .logo-img {
+            animation: headerLogoIn 0.5s ease forwards !important;
+        }
+
+        @keyframes headerLogoIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -1313,16 +1346,28 @@
             }
 
             // 3. Scroll Reveal with Intersection Observer
-            const observerOptions = { threshold: 0.12, rootMargin: "0px 0px -40px 0px" };
+            const observerOptions = {
+                threshold: 0.1, // Ajustado para 0.1 conforme solicitado
+                rootMargin: "0px 0px -40px 0px"
+            };
+
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
+                    // NUNCA processar elementos dentro do header fixo ou nav
+                    if (entry.target.closest('header') || entry.target.closest('nav')) return;
+
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            document.querySelectorAll('.reveal').forEach(el => {
+                // NUNCA adicionar observer em elementos do header ou nav
+                if (!el.closest('header') && !el.closest('nav')) {
+                    revealObserver.observe(el);
+                }
+            });
 
             // 4. Stat Counter Animation
             const countUp = (el) => {
