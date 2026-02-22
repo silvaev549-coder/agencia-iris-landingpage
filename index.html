@@ -92,7 +92,8 @@
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-base);
             color: var(--text-body);
-            line-height: 1.7;
+            line-height: 1.75;
+            /* Alterado de 1.7 */
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
@@ -127,39 +128,73 @@
         }
 
         .eyebrow {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 2.5px;
+            font-size: 0.82rem;
+            /* Alterado de 0.78rem */
+            font-weight: 800;
+            /* Alterado de 700 */
+            letter-spacing: 3px;
+            /* Alterado de 2.5px */
             text-transform: uppercase;
             color: var(--cyan);
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            /* Alterado de 12px */
         }
 
         .heading-xl {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+            /* Alterado de clamp(2.2rem, 5vw, 3.8rem) */
             font-weight: 700;
+            line-height: 1.2;
         }
 
         .heading-lg {
-            font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+            font-size: clamp(2rem, 4vw, 3rem);
+            /* Alterado de clamp(1.7rem, 3.5vw, 2.6rem) */
             font-weight: 700;
+            line-height: 1.2;
         }
 
         .heading-md {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-size: clamp(1.2rem, 2vw, 1.45rem);
+            /* Alterado de clamp(1.1rem, 2vw, 1.3rem) */
             font-weight: 600;
+            line-height: 1.35;
         }
 
         .lead {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            /* Alterado de clamp(1rem, 2vw, 1.2rem) */
             color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        p,
+        li {
+            line-height: 1.75;
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            /* Base size increased */
         }
 
         .italic-accent {
             font-family: 'Lora', serif;
             font-style: italic;
             color: var(--cyan);
+            font-size: 1.08em;
+            /* Rule 5: weight/size increase for final phrase */
+            display: inline;
+        }
+
+        .highlight-pain {
+            color: #DC2626;
+            /* vermelho — dor */
+            font-weight: 700;
+        }
+
+        .highlight-benefit {
+            color: var(--cyan);
+            /* ciano — solução */
+            font-weight: 700;
         }
 
         /* Buttons */
@@ -168,13 +203,16 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 15px 34px;
+            padding: 17px 38px;
+            /* Alterado de 15px 34px */
             border-radius: 10px;
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            /* Alterado de 1.05rem */
             cursor: pointer;
             border: none;
             transition: var(--transition);
+            letter-spacing: 0.2px;
         }
 
         .btn-primary {
@@ -338,7 +376,8 @@
         }
 
         .microtext {
-            font-size: 0.82rem;
+            font-size: 0.9rem;
+            /* Alterado de 0.82rem */
             color: var(--text-muted);
         }
 
@@ -637,10 +676,12 @@
             position: absolute;
             top: 16px;
             right: 16px;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
+            /* Alterado de 0.7rem */
             font-weight: 700;
             border-radius: 999px;
-            padding: 3px 12px;
+            padding: 4px 14px;
+            /* Slightly adjusted padding */
             text-transform: uppercase;
         }
 
@@ -1317,7 +1358,7 @@
                         <a href="#funciona" class="btn btn-outline">Ver como funciona ↓</a>
                     </div>
                     <p class="microtext">✓ Você fala com Evandro, não com IA &nbsp; | &nbsp; ✓ Sem compromisso &nbsp; |
-                        &nbsp; ✓ 15 minutos</p>
+                        &nbsp; ✓ <strong class="highlight-benefit">15 minutos</strong></p>
                 </div>
 
                 <div class="hero-visual reveal">
@@ -1357,11 +1398,12 @@
                 </div>
                 <div class="stat-item">
                     <span class="stat-number" data-target="60">0</span>
-                    <span class="stat-label">de redução em no-show com lembretes</span>
+                    <span class="stat-label">de redução em <strong class="highlight-benefit">60%</strong> no <strong
+                            class="highlight-pain">no-show</strong> com lembretes</span>
                     <span class="stat-source">— HealthTech 2024</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">24/7</span>
+                    <span class="stat-number"><strong class="highlight-benefit">24/7</strong></span>
                     <span class="stat-label">de atendimento sem custo de pessoal</span>
                     <span class="stat-source">— Funcionamento da Íris</span>
                 </div>
@@ -1379,20 +1421,23 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="eyebrow">O PROBLEMA</span>
-                <h2 class="heading-lg">Cada mensagem sem resposta é receita perdida.</h2>
+                <h2 class="heading-lg">Cada mensagem sem resposta é <strong class="highlight-pain">receita
+                        perdida</strong>.</h2>
                 <p class="lead" style="margin-top: 16px;">Você conhece esses cenários na sua clínica?</p>
             </div>
 
             <div class="dor-grid">
                 <div class="dor-card reveal">
                     <div class="dor-icon icon-amber"><i class="ph ph-timer"></i></div>
-                    <h3 class="heading-md">15 minutos. É quanto você tem.</h3>
-                    <p>Após 15 min sem resposta, 80% dos leads escolhem outro prestador. No tráfego pago, você já pagou
+                    <h3 class="heading-md"><strong class="highlight-pain">15 minutos</strong>. É quanto você tem.</h3>
+                    <p>Após <strong class="highlight-pain">15 min</strong> sem resposta, <strong
+                            class="highlight-pain">80% dos leads</strong> escolhem outro <strong
+                            class="highlight-pain">concorrência</strong>. No tráfego pago, você já pagou
                         pelo lead — e ele foi embora.</p>
                 </div>
                 <div class="dor-card reveal">
                     <div class="dor-icon icon-red"><i class="ph ph-calendar-x"></i></div>
-                    <h3 class="heading-md">No-show: o prejuízo oculto.</h3>
+                    <h3 class="heading-md"><strong class="highlight-pain">No-show</strong>: o prejuízo oculto.</h3>
                     <p>Cada consulta não realizada é receita perdida. Sem confirmação automática, a taxa de ausência
                         pode superar 25% ao mês.</p>
                 </div>
@@ -1421,7 +1466,8 @@
                         <span class="step-icon">🤝</span>
                         <div>
                             <h3 class="heading-md">Entendemos o seu negócio</h3>
-                            <p>Em 15 min pelo WhatsApp, Evandro mapeia seu fluxo: horários, serviços e linguagem. Nada
+                            <p>Em <strong class="highlight-benefit">15 min</strong> pelo WhatsApp, Evandro mapeia seu
+                                fluxo: horários, serviços e linguagem. Nada
                                 genérico — cada Íris é única.</p>
                         </div>
                     </div>
@@ -1502,7 +1548,7 @@
                     </div>
                     <h3 class="heading-md">CRM Visual em Tempo Real</h3>
                     <p>Painel web intuitivo com agendamentos, status de leads e previsão de faturamento — tudo
-                        atualizado pela IA.</p>
+                        atualizado em <strong class="highlight-benefit">tempo real</strong> pela IA.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feat-icon-circle" style="background: #E8E8E8; color: var(--graphite);">
@@ -1524,7 +1570,8 @@
                 <h2 class="heading-lg">Veja a Íris em ação</h2>
                 <p class="lead" style="margin-top: 16px;">
                     Assista como a Íris atende um paciente, agenda a consulta e atualiza o CRM —
-                    tudo em tempo real, sem intervenção humana.
+                    tudo em <strong class="highlight-benefit">tempo real</strong>, <strong class="highlight-benefit">sem
+                        intervenção humana</strong>.
                 </p>
 
                 <div class="video-outer">
@@ -1565,7 +1612,8 @@
                         em tempo real.
                     </h2>
                     <p class="section-sub" style="text-align:left; max-width:480px">
-                        O painel CRM da Íris é atualizado automaticamente a cada atendimento.
+                        O painel CRM da Íris é atualizado <strong class="highlight-benefit">automático</strong> em
+                        <strong class="highlight-benefit">tempo real</strong> a cada atendimento.
                         Sem planilhas, sem digitação manual — a própria IA registra tudo.
                     </p>
 
@@ -1725,14 +1773,16 @@
                     Evandro na configuração. O número de projetos simultâneos é restrito para garantir qualidade.</p>
             </div>
             <h2 class="heading-lg">Pronto para transformar<br>o atendimento da sua clínica?</h2>
-            <p class="lead" style="margin-top: 24px;">Agende 15 minutos com Evandro. Você vai ver, na prática, o que a
+            <p class="lead" style="margin-top: 24px;">Agende <strong class="highlight-benefit">15 minutos</strong> com
+                Evandro. Você vai ver, na prática, o que a
                 Íris pode fazer pela sua operação — sem compromisso.</p>
 
             <div style="margin-top: 48px;">
                 <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20conhecer%20a%20%C3%8Dris%20para%20minha%20cl%C3%ADnica"
                     class="btn btn-primary btn-large">Falar com Evandro no WhatsApp →</a>
                 <p class="microtext" style="line-height: 1.8; margin-top: 20px;">
-                    ✓ Atendimento direto com Evandro &nbsp; | &nbsp; ✓ Sem custo &nbsp; | &nbsp; ✓ 15 minutos
+                    ✓ Atendimento direto com Evandro &nbsp; | &nbsp; ✓ Sem custo &nbsp; | &nbsp; ✓ <strong
+                        class="highlight-benefit">15 minutos</strong>
                 </p>
             </div>
         </div>
