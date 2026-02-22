@@ -986,6 +986,96 @@
             text-align: center;
             margin-top: 12px;
         }
+
+        /* ── Seção de Vídeo ────────────────────────────────── */
+        .section-video {
+            background: var(--bg-section, #EEF3F9);
+            padding: 100px 0;
+        }
+
+        .video-outer {
+            position: relative;
+            width: 100%;
+            max-width: 860px;
+            margin: 48px auto 0;
+            /* PROPORÇÃO 16:9 OBRIGATÓRIA */
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 184, 212, 0.1);
+            border: 1px solid rgba(0, 184, 212, 0.2);
+            background: #0D1F3C;
+        }
+
+        .video-outer iframe {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: none;
+        }
+
+        /* PLACEHOLDER enquanto não tem vídeo */
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: linear-gradient(145deg, #0D1F3C 0%, #1E3A5F 100%);
+            cursor: default;
+        }
+
+        .video-play-btn {
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .placeholder-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .placeholder-sub {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            margin: 0;
+            text-align: center;
+            max-width: 340px;
+        }
+
+        .video-cta-text {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.95rem;
+            color: var(--text-muted, #8A8A8E);
+        }
+
+        .video-cta-text a {
+            color: var(--cyan, #00B8D4);
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .video-cta-text a:hover {
+            opacity: 0.75;
+        }
+
+        /* Mobile Adjustments for Video Section */
+        @media (max-width: 768px) {
+            .section-video {
+                padding: 64px 0;
+            }
+
+            .video-outer {
+                border-radius: 12px;
+                margin-top: 32px;
+            }
+        }
     </style>
 </head>
 
@@ -1230,6 +1320,43 @@
                     <p>Mande um áudio no seu Whats: 'Bloqueia amanhã cedo'. A Íris faz tudo e avisa os pacientes em
                         segundos.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE VÍDEO -->
+    <section id="demo" class="section-video">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">DEMONSTRAÇÃO</span>
+                <h2 class="heading-lg">Veja a Íris em ação</h2>
+                <p class="lead" style="margin-top: 16px;">
+                    Assista como a Íris atende um paciente, agenda a consulta e atualiza o CRM —
+                    tudo em tempo real, sem intervenção humana.
+                </p>
+
+                <div class="video-outer">
+                    <!-- PLACEHOLDER: substituir pela URL do YouTube quando disponível -->
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <div class="video-play-btn">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="32" fill="rgba(0,184,212,0.15)" stroke="rgba(0,184,212,0.4)"
+                                    stroke-width="1.5" />
+                                <polygon points="26,20 48,32 26,44" fill="#00B8D4" />
+                            </svg>
+                        </div>
+                        <p class="placeholder-text">Demonstração em breve</p>
+                        <p class="placeholder-sub">A Íris atendendo, agendando e recuperando pacientes</p>
+                    </div>
+                </div>
+
+                <p class="video-cta-text">
+                    Quer ver uma demonstração personalizada para a sua clínica?
+                    <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20da%20%C3%8Dris"
+                        target="_blank" rel="noopener">
+                        Fale com Evandro →
+                    </a>
+                </p>
             </div>
         </div>
     </section>
