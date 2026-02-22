@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agência Íris | Transformando Visões em Realidade</title>
+    <meta name="description" content="Agência Íris - Especialistas em estratégias de vendas, marketing digital e design premium.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="iris-glow">ÍRIS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <button class="cta-button">Falar Agora</button>
+            <div class="mobile-menu-icon" id="menu-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1 class="fade-in">Sua visão, nossa <span class="highlight">estratégia</span>.</h1>
+                <p class="fade-in">A Agência Íris combina design de ponta com táticas de vendas agressivas para escalar seu negócio ao próximo nível.</p>
+                <div class="hero-actions fade-in">
+                    <button class="primary-btn">Começar Projeto</button>
+                    <button class="secondary-btn">Ver Portfolio</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <div class="service-grid">
+                    <div class="service-card reveal">
+                        <i data-lucide="trending-up"></i>
+                        <h3>Performance Sales</h3>
+                        <p>Funis de vendas otimizados para máxima conversão e ROI.</p>
+                    </div>
+                    <div class="service-card reveal">
+                        <i data-lucide="palette"></i>
+                        <h3>UI/UX Design</h3>
+                        <p>Interfaces que encantam e guiam o usuário intuitivamente.</p>
+                    </div>
+                    <div class="service-card reveal">
+                        <i data-lucide="cpu"></i>
+                        <h3>Automação IA</h3>
+                        <p>Sistemas inteligentes para escalar seu atendimento e operação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info reveal">
+                        <h2>Vamos Criar algo <span class="highlight">Épico</span>?</h2>
+                        <p>Entre em contato e descubra como podemos revolucionar seu faturamento.</p>
+                        <div class="contact-items">
+                            <div class="item">
+                                <i data-lucide="mail"></i>
+                                <span>contato@agenciairis.com</span>
+                            </div>
+                            <div class="item">
+                                <i data-lucide="instagram"></i>
+                                <span>@agencia.iris</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form reveal">
+                        <input type="text" placeholder="Nome Completo" required>
+                        <input type="email" placeholder="Seu melhor E-mail" required>
+                        <textarea placeholder="Como podemos ajudar?" rows="5" required></textarea>
+                        <button type="submit" class="submit-btn gold-glow">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Agência Íris. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
