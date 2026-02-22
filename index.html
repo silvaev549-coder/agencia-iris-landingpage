@@ -1308,6 +1308,61 @@
                 display: none;
             }
         }
+
+        /* ─── AVATAR ÍRIS — CORREÇÃO DEFINITIVA ─── */
+        .iris-avatar-wrap {
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            border-radius: 50% !important;
+            overflow: hidden !important;
+            flex-shrink: 0 !important;
+            display: block !important;
+            position: relative !important;
+            background: #00B8D4 !important;
+            /* fallback ciano se imagem falhar */
+            border: 2px solid rgba(0, 184, 212, 0.5) !important;
+        }
+
+        .iris-avatar-img {
+            width: 44px !important;
+            height: 44px !important;
+            object-fit: cover !important;
+            object-position: center top !important;
+            /* foca no rosto */
+            display: block !important;
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+            visibility: visible !important;
+            filter: none !important;
+        }
+
+        .iris-avatar-fallback {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #00B8D4;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            /* Adicionado display flex para centrar */
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Garantir que NENHUMA regra de reveal afete o avatar */
+        .iris-avatar-wrap,
+        .iris-avatar-img,
+        .iris-avatar-wrap img {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+            animation: none !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 
@@ -1364,8 +1419,11 @@
                 <div class="hero-visual reveal">
                     <div class="wa-card">
                         <div class="wa-header">
-                            <div class="wa-avatar">
-                                <img src="./iris.png" alt="Íris — Secretária IA" class="iris-avatar">
+                            <div class="iris-avatar-wrap">
+                                <img src="./iris.png" alt="Íris" class="iris-avatar-img" width="44" height="44"
+                                    loading="eager"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                                <div class="iris-avatar-fallback" style="display:none;">Í</div>
                             </div>
                             <div class="wa-status">
                                 <h4>Íris · ESG Tecnologia</h4>
