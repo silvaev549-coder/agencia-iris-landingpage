@@ -358,3 +358,20 @@ h2.section-title {
         font-size: 1.1rem;
     }
 }
+
+/* Efeito Apple no Título Principal */
+.text-gradient {
+    background: linear-gradient(to right, #00D4FF, #1E293B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.footer-cta-subtitle {
+    font-size: 1.2rem;
+    color: #64748B;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-inline: auto;
+}
