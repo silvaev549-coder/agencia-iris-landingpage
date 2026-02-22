@@ -88,6 +88,36 @@
             scroll-behavior: smooth;
         }
 
+        /* Cursor personalizado — ciano suave nos elementos interativos */
+        a,
+        button,
+        [role="button"],
+        .faq-question,
+        .btn-primary,
+        .btn-cta {
+            cursor: none !important;
+        }
+
+        #custom-cursor {
+            width: 12px;
+            height: 12px;
+            background: var(--cyan, #00B8D4);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+            mix-blend-mode: multiply;
+        }
+
+        #custom-cursor.hovering {
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 184, 212, 0.25);
+            border: 2px solid var(--cyan, #00B8D4);
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-base);
@@ -199,10 +229,11 @@
 
         /* Buttons */
         .btn {
-            display: inline-flex;
-            align-items: center;
+            display: inline-flex !important;
+            /* Rule 4 */
+            align-items: center !important;
             justify-content: center;
-            gap: 10px;
+            gap: 10px !important;
             padding: 17px 38px;
             /* Alterado de 15px 34px */
             border-radius: 10px;
@@ -213,12 +244,46 @@
             border: none;
             transition: var(--transition);
             letter-spacing: 0.2px;
+            position: relative !important;
+            /* Rule 2 */
+            animation: ctaGlowPulse 2.5s ease-in-out infinite !important;
         }
 
-        .btn-primary {
+        .btn-primary,
+        .btn-cta {
             background: var(--grad-cyan);
             color: white;
             box-shadow: var(--shadow-cyan);
+        }
+
+        .btn-primary::before,
+        .btn-cta::before {
+            content: '' !important;
+            position: absolute !important;
+            inset: -4px !important;
+            border-radius: inherit !important;
+            background: linear-gradient(135deg, #00B8D4, #0097B2) !important;
+            filter: blur(16px) !important;
+            opacity: 0 !important;
+            transition: opacity 0.3s ease !important;
+            z-index: -1 !important;
+        }
+
+        .btn-primary:hover::before,
+        .btn-cta:hover::before {
+            opacity: 0.6 !important;
+        }
+
+        @keyframes ctaGlowPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 184, 212, 0.3), 0 4px 20px rgba(0, 184, 212, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 184, 212, 0.5), 0 4px 30px rgba(0, 184, 212, 0.35);
+            }
         }
 
         .btn-primary:hover {
@@ -645,20 +710,78 @@
             gap: 30px;
         }
 
-        .feature-card {
-            background: white;
-            border-radius: 16px;
-            padding: 32px 28px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-xs);
+        .feature-card,
+        .dor-card,
+        .crm-mockup {
+            background: rgba(255, 255, 255, 0.85) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.6) !important;
+            box-shadow: 0 8px 32px rgba(0, 184, 212, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
             position: relative;
-            transition: var(--transition);
         }
 
-        .feature-card:hover {
-            border-color: var(--border-cyan);
-            box-shadow: var(--shadow-cyan);
-            transform: translateY(-4px);
+        .feature-card:hover,
+        .dor-card:hover {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 20px 60px rgba(0, 184, 212, 0.15),
+                0 4px 16px rgba(0, 0, 0, 0.08) !important;
+            transform: translateY(-6px) !important;
+            border-color: rgba(0, 184, 212, 0.35) !important;
+        }
+
+        /* Micro-animações nos ícones */
+        .feature-card [class*="icon"],
+        .dor-card [class*="icon"] {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .reveal.visible [class*="icon"] {
+            animation: iconBounceIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes iconBounceIn {
+            0% {
+                transform: scale(0.5) rotate(-10deg);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.15) rotate(3deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .feature-card:nth-child(1) [class*="icon"] {
+            animation-delay: 0s;
+        }
+
+        .feature-card:nth-child(2) [class*="icon"] {
+            animation-delay: 0.1s;
+        }
+
+        .feature-card:nth-child(3) [class*="icon"] {
+            animation-delay: 0.2s;
+        }
+
+        .feature-card:nth-child(4) [class*="icon"] {
+            animation-delay: 0.3s;
+        }
+
+        .feature-card:nth-child(5) [class*="icon"] {
+            animation-delay: 0.4s;
+        }
+
+        .feature-card:nth-child(6) [class*="icon"] {
+            animation-delay: 0.5s;
         }
 
         .feat-icon-circle {
@@ -1363,6 +1486,260 @@
             animation: none !important;
             visibility: visible !important;
         }
+
+        /* ─── TICKER MARQUEE ─── */
+        .social-proof-ticker {
+            width: 100%;
+            background: linear-gradient(135deg, #0D1F3C 0%, #1A3A5C 100%);
+            padding: 10px 0;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(0, 184, 212, 0.2);
+            position: relative;
+            z-index: 999;
+        }
+
+        .social-proof-ticker::before,
+        .social-proof-ticker::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .social-proof-ticker::before {
+            left: 0;
+            background: linear-gradient(to right, #0D1F3C, transparent);
+        }
+
+        .social-proof-ticker::after {
+            right: 0;
+            background: linear-gradient(to left, #0D1F3C, transparent);
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 32px;
+            white-space: nowrap;
+            align-items: center;
+            animation: tickerScroll 35s linear infinite;
+        }
+
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        .ticker-track span {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.3px;
+        }
+
+        .ticker-dot {
+            color: #00B8D4 !important;
+            font-size: 0.5rem !important;
+        }
+
+        @keyframes tickerScroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ─── HERO MESH ─── */
+        .hero-mesh {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero .container,
+        .hero-content,
+        .hero>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mesh-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.12;
+        }
+
+        .mesh-blob-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #00B8D4 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            animation: meshFloat1 8s ease-in-out infinite;
+        }
+
+        .mesh-blob-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #0097B2 0%, transparent 70%);
+            bottom: -100px;
+            left: 10%;
+            animation: meshFloat2 10s ease-in-out infinite;
+        }
+
+        .mesh-blob-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #00E5D4 0%, transparent 70%);
+            top: 40%;
+            left: 40%;
+            animation: meshFloat3 7s ease-in-out infinite;
+        }
+
+        @keyframes meshFloat1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-30px, 20px) scale(1.05);
+            }
+        }
+
+        @keyframes meshFloat2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(20px, -30px) scale(0.95);
+            }
+        }
+
+        @keyframes meshFloat3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            33% {
+                transform: translate(15px, -15px);
+            }
+
+            66% {
+                transform: translate(-10px, 10px);
+            }
+        }
+
+        /* ─── FAQ SECTION ─── */
+        .section-faq {
+            background: var(--bg-base, #F7F9FC);
+            padding: 100px 0;
+        }
+
+        .faq-list {
+            max-width: 760px;
+            margin: 56px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border, #E2E8F0);
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border, #E2E8F0);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 22px 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-heading, #1A1A1E);
+            transition: color 0.2s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--cyan, #00B8D4);
+        }
+
+        .faq-question[aria-expanded="true"] {
+            color: var(--cyan, #00B8D4);
+        }
+
+        .faq-icon {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--cyan, #00B8D4);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            line-height: 1;
+        }
+
+        .faq-question[aria-expanded="true"] .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+            padding: 0;
+        }
+
+        .faq-answer.open {
+            max-height: 300px;
+            padding-bottom: 22px;
+        }
+
+        .faq-answer p {
+            font-size: 0.98rem;
+            color: var(--text-body, #3D3D40);
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-faq {
+                padding: 64px 0;
+            }
+
+            .faq-question {
+                font-size: 0.95rem;
+            }
+
+            .ticker-track span {
+                font-size: 0.75rem;
+            }
+
+            .mesh-blob {
+                opacity: 0.07;
+            }
+        }
     </style>
 </head>
 
@@ -1380,7 +1757,14 @@
                 <a href="#features" class="nav-link">Funcionalidades</a>
                 <a href="#sistema" class="nav-link">O Sistema</a>
                 <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20conhecer%20a%20%C3%8Dris%20para%20minha%20cl%C3%ADnica"
-                    class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Falar com Evandro →</a>
+                    class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">
+                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"
+                        style="flex-shrink:0">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Falar com Evandro
+                </a>
             </nav>
 
             <button class="mobile-toggle" aria-label="Abrir menu">
@@ -1389,8 +1773,48 @@
         </div>
     </header>
 
+    <!-- SOCIAL PROOF TICKER -->
+    <div class="social-proof-ticker">
+        <div class="ticker-track">
+            <span>✅ Atendimento 24/7 sem custo de pessoal</span>
+            <span class="ticker-dot">◆</span>
+            <span>📅 Agendamento automático no Google Calendar</span>
+            <span class="ticker-dot">◆</span>
+            <span>🔄 Reengajamento automático de leads frios</span>
+            <span class="ticker-dot">◆</span>
+            <span>📊 CRM atualizado em tempo real pela IA</span>
+            <span class="ticker-dot">◆</span>
+            <span>🎙️ Controle por voz direto no WhatsApp</span>
+            <span class="ticker-dot">◆</span>
+            <span>⚡ Resposta em menos de 5 segundos</span>
+            <span class="ticker-dot">◆</span>
+            <span>👁️ Pacientes não percebem que é IA</span>
+            <span class="ticker-dot">◆</span>
+            <!-- REPETIR para loop contínuo: -->
+            <span>✅ Atendimento 24/7 sem custo de pessoal</span>
+            <span class="ticker-dot">◆</span>
+            <span>📅 Agendamento automático no Google Calendar</span>
+            <span class="ticker-dot">◆</span>
+            <span>🔄 Reengajamento automático de leads frios</span>
+            <span class="ticker-dot">◆</span>
+            <span>📊 CRM atualizado em tempo real pela IA</span>
+            <span class="ticker-dot">◆</span>
+            <span>🎙️ Controle por voz direto no WhatsApp</span>
+            <span class="ticker-dot">◆</span>
+            <span>⚡ Resposta em menos de 5 segundos</span>
+            <span class="ticker-dot">◆</span>
+            <span>👁️ Pacientes não percebem que é IA</span>
+            <span class="ticker-dot">◆</span>
+        </div>
+    </div>
+
     <!-- 2. HERO -->
     <section class="hero" id="topo">
+        <div class="hero-mesh" aria-hidden="true">
+            <div class="mesh-blob mesh-blob-1"></div>
+            <div class="mesh-blob mesh-blob-2"></div>
+            <div class="mesh-blob mesh-blob-3"></div>
+        </div>
         <div class="hero-decor decor-1"></div>
         <div class="hero-decor decor-2"></div>
         <div class="container">
@@ -1409,7 +1833,13 @@
 
                     <div class="hero-cta-group">
                         <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20conhecer%20a%20%C3%8Dris%20para%20minha%20cl%C3%ADnica"
-                            class="btn btn-primary">Quero conhecer a Íris →</a>
+                            class="btn btn-primary">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"
+                                style="flex-shrink:0">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            Quero conhecer a Íris</a>
                         <a href="#funciona" class="btn btn-outline">Ver como funciona ↓</a>
                     </div>
                     <p class="microtext">✓ Você fala com Evandro, não com IA &nbsp; | &nbsp; ✓ Sem compromisso &nbsp; |
@@ -1823,7 +2253,94 @@
         </div>
     </section>
 
-    <!-- 8. CTA FINAL -->
+    <!-- 8. FAQ SECTION -->
+    <section id="faq" class="section-faq">
+        <div class="container">
+            <div class="section-eyebrow">PERGUNTAS FREQUENTES</div>
+            <h2 class="heading-lg">Tudo que você quer saber<br>antes de decidir</h2>
+
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>A Íris funciona em qualquer tipo de clínica?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim. A Íris foi projetada para clínicas médicas, odontológicas, psicológicas, estéticas e
+                            qualquer negócio que receba pacientes ou clientes pelo WhatsApp. Cada implementação é
+                            personalizada por Evandro para o contexto específico do seu negócio.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Os pacientes vão perceber que estão falando com uma IA?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Na prática, não. A Íris foi configurada para comunicar-se com naturalidade, usar emojis,
+                            cometer "errinhos" sutis de digitação e, acima de tudo, simular o status "digitando..." e
+                            "gravando áudio..." antes de responder — exatamente como um humano faria. É a diferença
+                            entre um chatbot de menu e uma secretária real.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Preciso saber programação ou tecnologia para usar?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutamente não. Evandro cuida de toda a configuração técnica. Você participa de uma
+                            reunião de 15 minutos para descrever como sua clínica funciona, e o sistema é entregue
+                            pronto para usar. O painel CRM é visual e intuitivo — você acompanha tudo sem digitar uma
+                            linha de código.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>E se a Íris cometer um erro ou não souber responder algo?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A Íris foi treinada com as informações reais da sua clínica. Para perguntas fora do escopo,
+                            ela sinaliza de forma elegante que vai verificar e transfere para a equipe humana quando
+                            necessário. Situações de emergência médica disparam um alerta imediato para você. A IA nunca
+                            inventa informações — ela age dentro do que foi configurado.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Quanto tempo leva para o sistema entrar no ar?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Após a reunião de diagnóstico e a aprovação do orçamento, a implementação leva em média 5 a
+                            10 dias úteis. Evandro entrega o sistema funcionando, treina você para usar o painel CRM e
+                            fica disponível durante o período inicial de operação para ajustes finos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>A Íris funciona no meu número de WhatsApp atual?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, o sistema é integrado ao número WhatsApp Business da sua clínica. Você não precisa
+                            trocar de número nem pedir que seus pacientes salvem um contato novo. A transição é
+                            transparente para quem já conversa com você.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FINAL CTA -->
     <section class="cta-final" id="contato">
         <div class="container reveal">
             <div class="banner-urgencia">
@@ -1837,7 +2354,13 @@
 
             <div style="margin-top: 48px;">
                 <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20conhecer%20a%20%C3%8Dris%20para%20minha%20cl%C3%ADnica"
-                    class="btn btn-primary btn-large">Falar com Evandro no WhatsApp →</a>
+                    class="btn btn-primary btn-large">
+                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"
+                        style="flex-shrink:0">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Falar com Evandro no WhatsApp</a>
                 <p class="microtext" style="line-height: 1.8; margin-top: 20px;">
                     ✓ Atendimento direto com Evandro &nbsp; | &nbsp; ✓ Sem custo &nbsp; | &nbsp; ✓ <strong
                         class="highlight-benefit">15 minutos</strong>
@@ -1996,8 +2519,39 @@
                     }
                 });
             });
+
+            // ── FAQ ACCORDION ──
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+                    // Fechar todos
+                    document.querySelectorAll('.faq-question').forEach(b => {
+                        b.setAttribute('aria-expanded', 'false');
+                        b.nextElementSibling.classList.remove('open');
+                    });
+                    // Abrir o clicado (se estava fechado)
+                    if (!isOpen) {
+                        btn.setAttribute('aria-expanded', 'true');
+                        btn.nextElementSibling.classList.add('open');
+                    }
+                });
+            });
+
+            // ── CURSOR PERSONALIZADO ──
+            const cursor = document.getElementById('custom-cursor');
+            if (cursor && window.matchMedia('(pointer: fine)').matches) {
+                document.addEventListener('mousemove', e => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+                document.querySelectorAll('a, button, .faq-question').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+                });
+            }
         });
     </script>
+    <div id="custom-cursor"></div>
 </body>
 
 </html>
