@@ -1037,6 +1037,93 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ── STATS GRID DEFITINITIVO ── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 24px;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        /* Número + sufixo na mesma linha */
+        .stat-numero-linha {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 14px;
+            line-height: 1;
+        }
+
+        /* Número grande */
+        .stat-numero {
+            font-size: clamp(3.2rem, 5vw, 4.8rem) !important;
+            font-weight: 800 !important;
+            color: #00B8D4 !important;
+            line-height: 1 !important;
+            font-family: inherit !important;
+            display: inline !important;
+        }
+
+        /* Sufixo — IDÊNTICO ao número */
+        .stat-sufixo {
+            font-size: clamp(3.2rem, 5vw, 4.8rem) !important;
+            font-weight: 800 !important;
+            color: #00B8D4 !important;
+            line-height: 1 !important;
+            font-family: inherit !important;
+            display: inline !important;
+            margin-left: 3px !important;
+        }
+
+        .stat-descricao {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: clamp(0.82rem, 1.3vw, 0.92rem);
+            line-height: 1.5;
+            text-align: center;
+            margin: 0 0 8px 0;
+        }
+
+        .stat-fonte {
+            display: block;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 28px 16px;
+            }
+
+            .stat-item:nth-child(3),
+            .stat-item:last-child {
+                border-bottom: none;
+            }
+        }
     </style>
 </head>
 
@@ -1213,7 +1300,7 @@
             <div class="stats-grid reveal">
                 <div class="stat-item">
                     <div class="stat-numero-linha">
-                        <span class="stat-numero" data-target="10">0</span><span class="stat-sufixo">×</span>
+                        <span class="stat-numero">10</span><span class="stat-sufixo">×</span>
                     </div>
                     <p class="stat-descricao">mais conversões respondendo em até 5 min</p>
                     <span class="stat-fonte">— MIT Sloan Management Review</span>
@@ -1221,10 +1308,11 @@
 
                 <div class="stat-item">
                     <div class="stat-numero-linha">
-                        <span class="stat-numero" data-target="60">0</span><span class="stat-sufixo">%</span>
+                        <span class="stat-numero">60</span><span class="stat-sufixo">%</span>
                     </div>
                     <p class="stat-descricao">de redução no <span style="color:#FF6B6B;font-weight:700;">no-show</span>
-                        com lembretes</p>
+                        com
+                        lembretes</p>
                     <span class="stat-fonte">— HealthTech 2024</span>
                 </div>
 
@@ -1238,7 +1326,7 @@
 
                 <div class="stat-item">
                     <div class="stat-numero-linha">
-                        <span class="stat-numero" data-target="48">0</span><span class="stat-sufixo">h</span>
+                        <span class="stat-numero">48</span><span class="stat-sufixo">h</span>
                     </div>
                     <p class="stat-descricao">e a Íris reengaja automaticamente o lead frio</p>
                     <span class="stat-fonte">— Automação de IA avançada</span>
@@ -2244,37 +2332,7 @@
                 }
             });
 
-            // 4. Stat Counter Animation
-            const countUp = (el) => {
-                const target = parseInt(el.getAttribute('data-target'));
-                if (!target) return;
-                let current = 0;
-                const duration = 1800;
-                const increment = target / (duration / 16);
-
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        el.innerText = target;
-                        clearInterval(timer);
-                    } else {
-                        el.innerText = Math.floor(current);
-                    }
-                }, 16);
-            };
-
-            const statObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                        countUp(entry.target);
-                        entry.target.classList.add('counted');
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            document.querySelectorAll('.stat-number[data-target]').forEach(el => statObserver.observe(el));
-
-            // 5. WhatsApp Chat Animation
+            // 4. WhatsApp Chat Animation
             const waChat = document.getElementById('wa-chat');
             const chatObserver = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
