@@ -1,8 +1,10 @@
 /* 
    Íris — Secretária de IA para Clínicas
-   Premium SaaS Design System (Apple/Stripe Inspired)
-   Expert Typography & Visual Hierarchy Overhaul
+   Luxury B2B SaaS Design System
+   Extreme Visual Hierarchy Overhaul
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800;900&display=swap');
 
 :root {
     /* ── Fundos ──────────────────────────────────────── */
@@ -104,60 +106,66 @@ img {
     height: auto;
 }
 
-/* TYPOGRAPHY SCALE - PREMIUM DRAMA */
+/* TYPOGRAPHY SCALE - EXTREME IMPACT */
 
 h1,
+.hero h1,
+.hero-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(3rem, 7vw, 5.5rem) !important;
+    /* Cresce até ficar massivo em telas grandes */
+    font-weight: 900 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em !important;
+    color: #0F172A !important;
+    margin-bottom: 24px !important;
+}
+
+/* Subtítulo (Hero) - Maior e mais legível */
+.hero p,
+.subtitle,
+.lead {
+    font-size: clamp(1.125rem, 2vw, 1.5rem) !important;
+    line-height: 1.6 !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    max-width: 800px !important;
+    margin: 0 auto 40px auto !important;
+}
+
+/* Títulos das Seções (Dores, Soluções) */
 h2,
-h3,
-h4,
-h5,
-h6,
-.logo-text {
-    font-family: var(--font-heading);
-    color: var(--text-heading);
-    line-height: 1.1;
-}
-
-/* Hero H1 */
-h1,
-.heading-xl {
-    font-size: 4.5rem;
-    /* Desktop */
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 24px;
-}
-
-@media (max-width: 768px) {
-
-    h1,
-    .heading-xl {
-        font-size: 2.5rem;
-        /* Mobile */
-    }
-}
-
-/* Section H2 */
-h2,
-.heading-lg,
 .section-title {
-    font-size: 3rem;
-    /* Desktop */
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 48px !important;
+    color: #0F172A !important;
 }
 
-@media (max-width: 768px) {
+/* Títulos dos Cards */
+h3,
+.card-title,
+h3.heading-md {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    margin-bottom: 12px !important;
+    color: #0F172A !important;
+}
 
-    h2,
-    .heading-lg,
-    .section-title {
-        font-size: 2rem;
-        /* Mobile */
-    }
+/* Melhorar Botões (Mais robustos) */
+.btn,
+button,
+a.button {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.125rem !important;
+    padding: 18px 36px !important;
+    letter-spacing: -0.01em !important;
 }
 
 /* Card H3 */
