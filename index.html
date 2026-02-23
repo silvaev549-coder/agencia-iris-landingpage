@@ -638,20 +638,53 @@
             }
         }
 
-        /* ── ESTATÍSTICAS SUFIXOS ── */
-        .stat-suffix {
-            font-size: 0.65em;
-            font-weight: 700;
-            color: inherit;
-            vertical-align: super;
-            margin-left: 1px;
-            line-height: 1;
+        /* ── ESTATÍSTICAS SUFIXOS DEFINITIVO ── */
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 16px;
         }
 
-        .stat-suffix-x {
-            font-size: 0.75em;
-            vertical-align: middle;
+        .stat-numero-linha {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0px;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .stat-numero,
+        .stat-sufixo {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: #00B8D4;
+            line-height: 1;
+            display: inline;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .stat-sufixo {
             margin-left: 2px;
+        }
+
+        .stat-descricao {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            line-height: 1.5;
+            text-align: center;
+            margin: 0 0 6px 0;
+            max-width: 280px;
+        }
+
+        .stat-fonte {
+            display: block;
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.35);
+            font-style: italic;
+            text-align: center;
         }
 
         /* ── FOOTER SOCIALS ── */
@@ -879,25 +912,36 @@
         <div class="container">
             <div class="stats-grid reveal">
                 <div class="stat-item">
-                    <span class="stat-number" data-target="10">0</span><span class="stat-suffix stat-suffix-x">×</span>
-                    <span class="stat-label">mais conversões respondendo em 5 min</span>
-                    <span class="stat-source">— MIT Sloan Management Review</span>
+                    <div class="stat-numero-linha">
+                        <span class="stat-numero" data-target="10">0</span><span class="stat-sufixo">×</span>
+                    </div>
+                    <p class="stat-descricao">mais conversões respondendo em até 5 min</p>
+                    <span class="stat-fonte">— MIT Sloan Management Review</span>
                 </div>
+
                 <div class="stat-item">
-                    <span class="stat-number" data-target="60">0</span><span class="stat-suffix">%</span>
-                    <span class="stat-label">de redução em <strong class="highlight-benefit">60%</strong> no <strong
-                            class="highlight-pain">no-show</strong> com lembretes</span>
-                    <span class="stat-source">— HealthTech 2024</span>
+                    <div class="stat-numero-linha">
+                        <span class="stat-numero" data-target="60">0</span><span class="stat-sufixo">%</span>
+                    </div>
+                    <p class="stat-descricao">de redução no <span style="color:#FF6B6B;font-weight:700;">no-show</span>
+                        com lembretes</p>
+                    <span class="stat-fonte">— HealthTech 2024</span>
                 </div>
+
                 <div class="stat-item">
-                    <span class="stat-number"><strong class="highlight-benefit">24/7</strong></span>
-                    <span class="stat-label">de atendimento sem custo de pessoal</span>
-                    <span class="stat-source">— Funcionamento da Íris</span>
+                    <div class="stat-numero-linha">
+                        <span class="stat-numero">24/7</span>
+                    </div>
+                    <p class="stat-descricao">de atendimento sem custo de pessoal</p>
+                    <span class="stat-fonte">— Funcionamento da Íris</span>
                 </div>
+
                 <div class="stat-item">
-                    <span class="stat-number" data-target="48">0</span><span class="stat-suffix">h</span>
-                    <span class="stat-label">e a Íris reengaja o lead frio</span>
-                    <span class="stat-source">— Automação de IA avançada</span>
+                    <div class="stat-numero-linha">
+                        <span class="stat-numero" data-target="48">0</span><span class="stat-sufixo">h</span>
+                    </div>
+                    <p class="stat-descricao">e a Íris reengaja automaticamente o lead frio</p>
+                    <span class="stat-fonte">— Automação de IA avançada</span>
                 </div>
             </div>
         </div>
