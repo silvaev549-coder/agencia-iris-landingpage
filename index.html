@@ -43,18 +43,30 @@
         }
 
         /* Textos do lado esquerdo — cor branca (seção escura) */
+        #sistema .section-eyebrow,
         .secao-sistema .section-eyebrow {
-            color: #00B8D4;
+            color: #00B8D4 !important;
         }
 
+        #sistema h2,
+        #sistema .section-title,
+        .secao-sistema h2,
         .secao-sistema .section-title {
-            color: #FFFFFF;
+            color: #FFFFFF !important;
         }
 
+        #sistema p,
         .secao-sistema p {
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 255, 255, 0.80) !important;
             line-height: 1.75;
             margin-bottom: 12px;
+        }
+
+        #sistema .pilar,
+        .secao-sistema .pilar,
+        #sistema .pilar span,
+        .secao-sistema .pilar span {
+            color: rgba(255, 255, 255, 0.85) !important;
         }
 
         .sistema-pilares {
@@ -241,14 +253,9 @@
             display: flex;
             flex-direction: column;
             max-width: 85%;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .wa-msg.visible {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            transition: none !important;
         }
 
         .wa-msg-in {
@@ -284,15 +291,25 @@
         }
 
         .wa-bubble-in {
-            background: #1E2D34;
-            color: rgba(255, 255, 255, 0.9);
-            border-top-left-radius: 2px;
+            background-color: #1E2D34 !important;
+            color: rgba(255, 255, 255, 0.92) !important;
+            border-radius: 2px 12px 12px 12px !important;
+            padding: 10px 14px 8px !important;
+            max-width: 210px !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
 
         .wa-bubble-out {
-            background: #005C4B;
-            color: rgba(255, 255, 255, 0.92);
-            border-top-right-radius: 2px;
+            background-color: #005C4B !important;
+            color: #FFFFFF !important;
+            border-radius: 12px 2px 12px 12px !important;
+            padding: 10px 14px 8px !important;
+            max-width: 210px !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
 
         .wa-bubble strong {
@@ -300,12 +317,26 @@
             font-weight: 700;
         }
 
-        .wa-bubble-sender-name {
-            display: block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #00B8D4;
-            margin-bottom: 3px;
+        /* Dr. X — label azul acima do balão verde */
+        .wa-msg-out .wa-remetente,
+        .wa-msg-out .wa-sender-label {
+            display: block !important;
+            font-size: 0.7rem !important;
+            font-weight: 700 !important;
+            color: #53BDEB !important;
+            margin-bottom: 2px !important;
+            text-align: right !important;
+        }
+
+        /* Íris — label ciano acima do balão escuro */
+        .wa-bubble-sender-name,
+        .wa-msg-in .wa-remetente,
+        .wa-msg-in .wa-sender-label {
+            display: block !important;
+            font-size: 0.7rem !important;
+            font-weight: 700 !important;
+            color: #00B8D4 !important;
+            margin-bottom: 3px !important;
         }
 
         /* Metadados (hora + ticks) */
@@ -331,16 +362,17 @@
         }
 
         /* Mensagem de áudio */
-        .wa-msg-audio .wa-bubble-out,
-        .wa-audio-bubble {
-            background: #005C4B;
-            border-radius: 8px;
-            border-top-right-radius: 2px;
+        .wa-audio-bubble,
+        .wa-msg-audio .wa-bubble-out {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            background-color: #005C4B !important;
+            border-radius: 12px 2px 12px 12px !important;
             padding: 10px 12px;
-            display: flex;
             align-items: center;
             gap: 10px;
-            max-width: 220px;
+            max-width: 210px !important;
         }
 
         .wa-audio-avatar-dr {
@@ -1212,42 +1244,52 @@
                             <div class="wa-date-stamp">HOJE</div>
 
                             <!-- Mensagem 1: Dr. X envia áudio -->
-                            <div class="wa-msg wa-msg-out wa-msg-audio" id="waMsg1">
-                                <div class="wa-audio-bubble">
-                                    <div class="wa-audio-avatar-dr">
-                                        <svg viewBox="0 0 32 32" width="32" height="32">
-                                            <circle cx="16" cy="16" r="16" fill="#1D4ED8" />
-                                            <ellipse cx="16" cy="14" rx="6" ry="6.5" fill="rgba(255,255,255,0.9)" />
-                                            <path d="M10 13 Q10 7 16 7 Q22 7 22 13 Q20.5 9 16 9 Q11.5 9 10 13Z"
-                                                fill="#1a1a2e" />
-                                            <path d="M9 22 Q12 19.5 16 20 Q20 19.5 23 22 L24 28 Q16 31 8 28Z"
-                                                fill="#1D4ED8" />
-                                            <text x="16" y="17.5" text-anchor="middle" font-size="8" font-weight="700"
-                                                fill="#1D4ED8" font-family="sans-serif">DR</text>
-                                        </svg>
-                                    </div>
-                                    <div class="wa-audio-content">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#128C7E">
+                            <div class="wa-msg wa-msg-out">
+                                <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
+                                    <span
+                                        style="font-size:0.68rem; font-weight:700; color:#53BDEB; margin-right:4px;">Dr.
+                                        X</span>
+                                    <div class="wa-audio-bubble"
+                                        style="background:#005C4B; border-radius:12px 2px 12px 12px; padding:10px 12px; display:flex; align-items:center; gap:8px; max-width:210px;">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
                                             <path
                                                 d="M12 15c1.66 0 2.99-1.34 2.99-3L15 6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.42 2.72 6.23 6 6.72V22h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z" />
                                         </svg>
-                                        <div class="wa-audio-wave">
-                                            <span></span><span></span><span></span><span></span><span></span>
-                                            <span></span><span></span><span></span><span></span><span></span>
-                                            <span></span><span></span><span></span><span></span><span></span>
+                                        <div style="display:flex; align-items:center; gap:2px; flex:1;">
+                                            <span
+                                                style="width:2px; height:8px; background:rgba(255,255,255,0.5); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:14px; background:rgba(255,255,255,0.7); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:18px; background:rgba(255,255,255,0.9); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:11px; background:rgba(255,255,255,0.6); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:16px; background:rgba(255,255,255,0.8); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:9px; background:rgba(255,255,255,0.5); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:14px; background:rgba(255,255,255,0.7); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:20px; background:rgba(255,255,255,1.0); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:12px; background:rgba(255,255,255,0.6); border-radius:2px;"></span>
+                                            <span
+                                                style="width:2px; height:8px; background:rgba(255,255,255,0.5); border-radius:2px;"></span>
                                         </div>
-                                        <span class="wa-audio-time">0:08</span>
+                                        <span
+                                            style="font-size:0.65rem; color:rgba(255,255,255,0.6); white-space:nowrap;">0:08</span>
+                                        <div style="display:flex; justify-content:flex-end; gap:4px; margin-left:4px;">
+                                            <span style="font-size:0.62rem; color:rgba(255,255,255,0.45);">09:41</span>
+                                            <span style="font-size:0.7rem; color:#53BDEB;">✓✓</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="wa-msg-meta wa-meta-out">
-                                    <span class="wa-sender-name" style="color:#1D4ED8">Dr. X</span>
-                                    <span class="wa-time">09:41</span>
-                                    <span class="wa-ticks wa-ticks-read">✓✓</span>
                                 </div>
                             </div>
 
                             <!-- Mensagem 2: Íris responde (texto) -->
-                            <div class="wa-msg wa-msg-in" id="waMsg2">
+                            <div class="wa-msg wa-msg-in"
+                                style="display:flex; flex-direction:row; gap:6px; align-items:flex-start;">
                                 <div class="wa-msg-avatar-small">
                                     <svg viewBox="0 0 28 28" width="28" height="28">
                                         <circle cx="14" cy="14" r="14" fill="#00B8D4" />
@@ -1263,33 +1305,41 @@
                                             fill="#0097B2" />
                                     </svg>
                                 </div>
-                                <div class="wa-bubble wa-bubble-in">
-                                    <span class="wa-bubble-sender-name">Íris</span>
-                                    ✅ Entendido, Dr. X! Bloqueei sua agenda de amanhã das 14h às 18h.<br><br>
-                                    Enviei mensagens para os <strong>3 pacientes</strong> afetados pedindo desculpas e
-                                    oferecendo reagendamento. 😊
-                                    <div class="wa-bubble-meta">
-                                        <span class="wa-time">09:41</span>
+                                <div style="display:flex; flex-direction:column; gap:2px;">
+                                    <div class="wa-bubble wa-bubble-in">
+                                        <span
+                                            style="display:block; font-size:0.68rem; font-weight:700; color:#00B8D4; margin-bottom:3px;">Íris</span>
+                                        ✅ Entendido, Dr. X! Bloqueei sua agenda de amanhã das 14h às 18h.<br><br>
+                                        Enviei mensagens para os <strong>3 pacientes</strong> afetados pedindo desculpas
+                                        e oferecendo reagendamento. 😊
+                                        <div class="wa-bubble-meta"
+                                            style="display:flex; justify-content:flex-end; margin-top:4px;">
+                                            <span style="font-size:0.62rem; color:rgba(255,255,255,0.45);">09:41</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Mensagem 3: Dr. X pergunta sobre leads -->
-                            <div class="wa-msg wa-msg-out" id="waMsg3">
-                                <div class="wa-bubble wa-bubble-out">
-                                    Quantos leads novos essa semana?
-                                    <div class="wa-bubble-meta wa-meta-out">
-                                        <span class="wa-time">09:42</span>
-                                        <span class="wa-ticks wa-ticks-read">✓✓</span>
+                            <div class="wa-msg wa-msg-out">
+                                <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
+                                    <span
+                                        style="font-size:0.68rem; font-weight:700; color:#53BDEB; margin-right:4px;">Dr.
+                                        X</span>
+                                    <div class="wa-bubble wa-bubble-out">
+                                        Quantos leads novos essa semana?
+                                        <div class="wa-bubble-meta"
+                                            style="display:flex; justify-content:flex-end; gap:4px; margin-top:4px;">
+                                            <span style="font-size:0.62rem; color:rgba(255,255,255,0.45);">09:42</span>
+                                            <span style="font-size:0.7rem; color:#53BDEB;">✓✓</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="wa-msg-meta wa-meta-out-name">
-                                    <span class="wa-sender-name" style="color:#1D4ED8">Dr. X</span>
                                 </div>
                             </div>
 
                             <!-- Mensagem 4: Íris com relatório -->
-                            <div class="wa-msg wa-msg-in" id="waMsg4">
+                            <div class="wa-msg wa-msg-in"
+                                style="display:flex; flex-direction:row; gap:6px; align-items:flex-start;">
                                 <div class="wa-msg-avatar-small">
                                     <svg viewBox="0 0 28 28" width="28" height="28">
                                         <circle cx="14" cy="14" r="14" fill="#00B8D4" />
@@ -1305,15 +1355,19 @@
                                             fill="#0097B2" />
                                     </svg>
                                 </div>
-                                <div class="wa-bubble wa-bubble-in">
-                                    <span class="wa-bubble-sender-name">Íris</span>
-                                    📊 Relatório desta semana:<br><br>
-                                    ✅ <strong>9 agendados</strong> com sucesso<br>
-                                    🔄 <strong>3 em negociação</strong> ativa<br>
-                                    ❄️ <strong>2 leads frios</strong> — reengajamento automático iniciado<br><br>
-                                    Tudo sob controle! Posso enviar o resumo completo por e-mail? 😊
-                                    <div class="wa-bubble-meta">
-                                        <span class="wa-time">09:42</span>
+                                <div style="display:flex; flex-direction:column; gap:2px;">
+                                    <div class="wa-bubble wa-bubble-in">
+                                        <span
+                                            style="display:block; font-size:0.68rem; font-weight:700; color:#00B8D4; margin-bottom:3px;">Íris</span>
+                                        📊 Relatório desta semana:<br><br>
+                                        ✅ <strong>9 agendados</strong> com sucesso<br>
+                                        🔄 <strong>3 em negociação</strong> ativa<br>
+                                        ❄️ <strong>2 leads frios</strong> — reengajamento automático iniciado<br><br>
+                                        Tudo sob controle! Posso enviar o resumo completo por e-mail? 😊
+                                        <div class="wa-bubble-meta"
+                                            style="display:flex; justify-content:flex-end; margin-top:4px;">
+                                            <span style="font-size:0.62rem; color:rgba(255,255,255,0.45);">09:42</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
