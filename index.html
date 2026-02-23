@@ -1448,47 +1448,14 @@
             }
         }
 
-        /* ─── AVATAR ÍRIS — CORREÇÃO DEFINITIVA ─── */
-        .iris-avatar-wrap {
+        /* ─── AVATAR ÍRIS — CORREÇÃO DEFINITIVA (SVG INLINE) ─── */
+        .iris-avatar-svg {
             width: 44px !important;
             height: 44px !important;
             min-width: 44px !important;
-            min-height: 44px !important;
             border-radius: 50% !important;
-            overflow: hidden !important;
             flex-shrink: 0 !important;
             display: block !important;
-            position: relative !important;
-            background: #00B8D4 !important;
-            /* fallback ciano se imagem falhar */
-            border: 2px solid rgba(0, 184, 212, 0.5) !important;
-        }
-
-        .iris-avatar-img {
-            width: 44px !important;
-            height: 44px !important;
-            object-fit: cover !important;
-            object-position: center top !important;
-            /* foca no rosto */
-            display: block !important;
-            opacity: 1 !important;
-            transform: none !important;
-            animation: none !important;
-            visibility: visible !important;
-            filter: none !important;
-        }
-
-        .iris-avatar-fallback {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #00B8D4;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: flex;
-            /* Adicionado display flex para centrar */
-            align-items: center;
             justify-content: center;
         }
 
@@ -1866,12 +1833,46 @@
                 <div class="hero-visual reveal">
                     <div class="wa-card">
                         <div class="wa-header">
-                            <div class="iris-avatar-wrap">
-                                <img src="./iris.png" alt="Íris" class="iris-avatar-img" width="44" height="44"
-                                    loading="eager"
-                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                                <div class="iris-avatar-fallback" style="display:none;">Í</div>
-                            </div>
+                            <svg class="iris-avatar-svg" viewBox="0 0 44 44" width="44" height="44"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Íris — Secretária IA">
+                                <!-- Fundo circular com gradiente ciano da marca -->
+                                <defs>
+                                    <linearGradient id="irisGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#00D4E8" />
+                                        <stop offset="100%" stop-color="#0097B2" />
+                                    </linearGradient>
+                                    <linearGradient id="irisGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#00B8D4" stop-opacity="0.3" />
+                                        <stop offset="100%" stop-color="#006E82" stop-opacity="0.3" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Círculo de fundo -->
+                                <circle cx="22" cy="22" r="22" fill="url(#irisGrad)" />
+                                <!-- Anel decorativo interno sutil -->
+                                <circle cx="22" cy="22" r="19" fill="none" stroke="rgba(255,255,255,0.15)"
+                                    stroke-width="1" />
+                                <!-- Símbolo: olho estilizado (representa "Íris" — parte do olho) -->
+                                <!-- Silhueta do rosto: oval -->
+                                <ellipse cx="22" cy="20" rx="8" ry="9" fill="rgba(255,255,255,0.9)" />
+                                <!-- Cabelo: arco superior escuro -->
+                                <path d="M14 18 Q14 10 22 10 Q30 10 30 18 Q28 13 22 13 Q16 13 14 18Z" fill="#2C2C2E" />
+                                <!-- Olhos -->
+                                <circle cx="19" cy="19" r="1.5" fill="#2C2C2E" />
+                                <circle cx="25" cy="19" r="1.5" fill="#2C2C2E" />
+                                <!-- Brilho nos olhos -->
+                                <circle cx="19.6" cy="18.5" r="0.5" fill="white" />
+                                <circle cx="25.6" cy="18.5" r="0.5" fill="white" />
+                                <!-- Sorriso suave -->
+                                <path d="M18.5 22.5 Q22 25.5 25.5 22.5" stroke="#2C2C2E" stroke-width="1.2" fill="none"
+                                    stroke-linecap="round" />
+                                <!-- Pescoço e gola do uniforme (teal) -->
+                                <path d="M17 28 Q19 26.5 22 27 Q25 26.5 27 28 L28 32 Q22 35 16 32Z" fill="#0097B2" />
+                                <!-- Gola branca -->
+                                <path d="M20 27 L22 30 L24 27" stroke="white" stroke-width="1" fill="none" />
+                                <!-- Borda do círculo -->
+                                <circle cx="22" cy="22" r="21" fill="none" stroke="rgba(255,255,255,0.25)"
+                                    stroke-width="1.5" />
+                            </svg>
                             <div class="wa-status">
                                 <h4>Íris · ESG Tecnologia</h4>
                                 <span>● online agora</span>
