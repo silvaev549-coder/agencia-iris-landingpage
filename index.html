@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;1,400;1,500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600;1,700&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap"
         rel="stylesheet">
 
     <!-- Icons -->
@@ -74,58 +74,35 @@
             --grad-cyan: linear-gradient(135deg, #00B8D4 0%, #0097B2 100%);
             --grad-dark: linear-gradient(145deg, #1A1A1E 0%, #252529 60%, #1E2A2E 100%);
 
+            /* ── Tipografia ─────────────────────────────────── */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Nunito Sans', 'Segoe UI', sans-serif;
+            --font-weight-light: 300;
+            --font-weight-regular: 400;
+            --font-weight-medium: 600;
+            --font-weight-bold: 700;
+            --font-weight-black: 800;
+
             --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Reset & Base */
-        * {
+        /* BASE */
+        *,
+        body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Cursor personalizado — ciano suave nos elementos interativos */
-        a,
-        button,
-        [role="button"],
-        .faq-question,
-        .btn-primary,
-        .btn-cta {
-            cursor: none !important;
-        }
-
-        #custom-cursor {
-            width: 12px;
-            height: 12px;
-            background: var(--cyan, #00B8D4);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 99999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-            mix-blend-mode: multiply;
-        }
-
-        #custom-cursor.hovering {
-            width: 36px;
-            height: 36px;
-            background: rgba(0, 184, 212, 0.25);
-            border: 2px solid var(--cyan, #00B8D4);
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
             background-color: var(--bg-base);
             color: var(--text-body);
-            line-height: 1.75;
-            /* Alterado de 1.7 */
+            line-height: 1.78;
+            /* Updated from 1.75 */
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -139,14 +116,6 @@
             position: relative;
         }
 
-        h1,
-        h2,
-        h3 {
-            font-family: 'Outfit', sans-serif;
-            color: var(--text-heading);
-            line-height: 1.3;
-        }
-
         a {
             text-decoration: none;
             transition: var(--transition);
@@ -157,95 +126,139 @@
             height: auto;
         }
 
-        .eyebrow {
-            font-size: 0.82rem;
-            /* Alterado de 0.78rem */
-            font-weight: 800;
-            /* Alterado de 700 */
+        /* TÍTULOS PRINCIPAIS — Playfair Display */
+        h1,
+        .hero-title,
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: var(--font-weight-bold);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--text-heading);
+        }
+
+        /* H1 — HERO */
+        h1,
+        .hero-title {
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+        }
+
+        /* Palavras em itálico dentro do H1 — Playfair Italic */
+        h1 em,
+        .hero-title em,
+        .hero-title i {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: var(--font-weight-medium);
+            color: var(--cyan, #00B8D4);
+        }
+
+        /* H2 — SEÇÕES */
+        h2,
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            color: var(--text-heading);
+        }
+
+        /* H3 — CARDS */
+        h3,
+        .card-title,
+        .heading-md {
+            font-family: var(--font-body);
+            font-size: clamp(1.15rem, 2vw, 1.4rem);
+            font-weight: var(--font-weight-bold);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            color: var(--text-heading);
+        }
+
+        /* SUBTÍTULOS DE SEÇÃO */
+        .section-sub,
+        .hero-sub,
+        .lead {
+            font-family: var(--font-body);
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            font-weight: var(--font-weight-regular);
+            line-height: 1.75;
+            letter-spacing: 0.01em;
+            color: var(--text-body);
+        }
+
+        /* CORPO */
+        p,
+        li,
+        td,
+        label {
+            font-family: var(--font-body);
+            font-size: clamp(0.98rem, 1.5vw, 1.08rem);
+            font-weight: var(--font-weight-regular);
+            line-height: 1.78;
+        }
+
+        .eyebrow,
+        .section-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: var(--font-weight-black);
             letter-spacing: 3px;
-            /* Alterado de 2.5px */
             text-transform: uppercase;
             color: var(--cyan);
             display: block;
             margin-bottom: 14px;
-            /* Alterado de 12px */
-        }
-
-        .heading-xl {
-            font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-            /* Alterado de clamp(2.2rem, 5vw, 3.8rem) */
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .heading-lg {
-            font-size: clamp(2rem, 4vw, 3rem);
-            /* Alterado de clamp(1.7rem, 3.5vw, 2.6rem) */
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .heading-md {
-            font-size: clamp(1.2rem, 2vw, 1.45rem);
-            /* Alterado de clamp(1.1rem, 2vw, 1.3rem) */
-            font-weight: 600;
-            line-height: 1.35;
-        }
-
-        .lead {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            /* Alterado de clamp(1rem, 2vw, 1.2rem) */
-            color: var(--text-body);
-            line-height: 1.7;
-        }
-
-        p,
-        li {
-            line-height: 1.75;
-            font-size: clamp(1rem, 1.5vw, 1.1rem);
-            /* Base size increased */
         }
 
         .italic-accent {
-            font-family: 'Lora', serif;
+            font-family: var(--font-display);
             font-style: italic;
+            font-weight: var(--font-weight-medium);
             color: var(--cyan);
             font-size: 1.08em;
-            /* Rule 5: weight/size increase for final phrase */
             display: inline;
         }
 
         .highlight-pain {
             color: #DC2626;
-            /* vermelho — dor */
-            font-weight: 700;
+            font-weight: var(--font-weight-black);
+            font-style: normal;
         }
 
         .highlight-benefit {
-            color: var(--cyan);
-            /* ciano — solução */
-            font-weight: 700;
+            color: var(--cyan, #00B8D4);
+            font-weight: var(--font-weight-black);
+            font-style: normal;
+        }
+
+        /* Destaques dentro de Playfair Display devem manter a fonte */
+        h1 .highlight-pain,
+        h2 .highlight-pain,
+        h1 .highlight-benefit,
+        h2 .highlight-benefit {
+            font-family: var(--font-display);
+            font-style: italic;
         }
 
         /* Buttons */
-        .btn {
+        .btn,
+        button,
+        .btn-primary,
+        .btn-cta {
+            font-family: var(--font-body);
             display: inline-flex !important;
-            /* Rule 4 */
             align-items: center !important;
             justify-content: center;
             gap: 10px !important;
             padding: 17px 38px;
-            /* Alterado de 15px 34px */
             border-radius: 10px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            /* Alterado de 1.05rem */
+            font-weight: var(--font-weight-bold);
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
             cursor: pointer;
             border: none;
             transition: var(--transition);
-            letter-spacing: 0.2px;
+            letter-spacing: 0.02em;
             position: relative !important;
-            /* Rule 2 */
             animation: ctaGlowPulse 2.5s ease-in-out infinite !important;
         }
 
@@ -343,9 +356,13 @@
         }
 
         .nav-link {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-body);
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-medium);
+            font-size: 0.92rem;
+            letter-spacing: 0.01em;
+            color: var(--graphite);
+            text-decoration: none;
+            transition: var(--transition);
         }
 
         .nav-link:hover {
@@ -398,18 +415,12 @@
             left: -5%;
         }
 
-        .badge-live {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--cyan-light);
-            border: 1px solid var(--border-cyan);
-            border-radius: 999px;
-            padding: 6px 16px 6px 10px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--cyan-dark);
-            margin-bottom: 24px;
+        .badge,
+        [class*="badge"] {
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-bold);
+            font-size: 0.72rem;
+            letter-spacing: 0.5px;
         }
 
         .pulse-dot {
@@ -549,6 +560,15 @@
         }
 
         /* 3. Números */
+        footer,
+        .footer {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            background: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 80px 0 40px;
+        }
+
         .stats {
             background: var(--bg-dark);
             color: white;
@@ -850,14 +870,17 @@
         }
 
         /* Terminal */
-        .terminal {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(0, 184, 212, 0.3);
-            border-radius: 16px;
-            padding: 24px;
-            font-family: monospace;
+        .terminal,
+        [class*="terminal"] {
+            font-family: 'Courier New', 'Courier', monospace;
             font-size: 0.85rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            background: black;
+            color: #00B8D4;
+            padding: 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            min-height: 240px;
+            position: relative;
         }
 
         .term-header {
@@ -959,13 +982,6 @@
         }
 
         /* 9. Footer */
-        .footer {
-            background: var(--bg-dark);
-            padding: 60px 0 40px;
-            color: rgba(255, 255, 255, 0.6);
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
         .footer-row {
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr;
@@ -1532,8 +1548,9 @@
         }
 
         .ticker-track span {
-            font-size: 0.82rem;
+            font-family: var(--font-body);
             font-weight: 500;
+            font-size: 0.82rem;
             color: rgba(255, 255, 255, 0.85);
             letter-spacing: 0.3px;
         }
