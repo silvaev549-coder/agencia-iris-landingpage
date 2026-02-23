@@ -738,6 +738,305 @@
                 gap: 20px;
             }
         }
+
+        /* ══ SEÇÃO SOBRE NÓS ══ */
+        .secao-sobre {
+            background: #F7F9FC;
+            padding: 100px 0;
+        }
+
+        .sobre-topo {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 64px;
+        }
+
+        .sobre-intro {
+            margin-top: 20px;
+            color: #3D3D40;
+        }
+
+        /* Grade de valores */
+        .sobre-valores {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 72px;
+        }
+
+        .valor-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: center;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .valor-card:hover {
+            border-color: rgba(0, 184, 212, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 184, 212, 0.10);
+            transform: translateY(-4px);
+        }
+
+        .valor-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .valor-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1A1A1E;
+            margin-bottom: 12px;
+        }
+
+        .valor-card p {
+            font-size: 0.92rem;
+            color: #3D3D40;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* Divisor */
+        .sobre-divisor {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #00B8D4, #0097B2);
+            border-radius: 2px;
+            margin: 0 auto 64px;
+        }
+
+        /* Título da equipe */
+        .sobre-equipe-titulo {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        /* Grade da equipe */
+        .equipe-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* Card de membro */
+        .membro-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .membro-card:hover {
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
+            transform: translateY(-4px);
+            border-color: rgba(0, 184, 212, 0.25);
+        }
+
+        /* Card do fundador — destaque maior */
+        .membro-destaque {
+            border: 2px solid rgba(0, 184, 212, 0.25);
+            background: linear-gradient(145deg, #FFFFFF 0%, #F0FBFD 100%);
+        }
+
+        /* Foto / placeholder */
+        .membro-foto-wrap {
+            margin-bottom: 20px;
+        }
+
+        .membro-foto {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+            border: 3px solid rgba(0, 184, 212, 0.3);
+        }
+
+        .membro-foto-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px dashed rgba(0, 184, 212, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 184, 212, 0.06);
+            position: relative;
+        }
+
+        .membro-foto-placeholder--alt1 {
+            background: rgba(0, 200, 150, 0.06);
+            border-color: rgba(0, 200, 150, 0.3);
+        }
+
+        .membro-foto-placeholder--alt2 {
+            background: rgba(100, 130, 255, 0.06);
+            border-color: rgba(100, 130, 255, 0.3);
+        }
+
+        .foto-placeholder-label {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.62rem;
+            color: #94A3B8;
+            white-space: nowrap;
+        }
+
+        /* Badge fundador */
+        .membro-badge-fundador {
+            display: inline-block;
+            background: rgba(0, 184, 212, 0.12);
+            color: #00B8D4;
+            border: 1px solid rgba(0, 184, 212, 0.25);
+            border-radius: 999px;
+            padding: 3px 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .membro-nome {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1A1A1E;
+            margin: 0 0 4px;
+        }
+
+        .membro-cargo {
+            font-size: 0.85rem;
+            color: #00B8D4;
+            font-weight: 600;
+            margin: 0 0 12px;
+        }
+
+        .membro-bio {
+            font-size: 0.9rem;
+            color: #3D3D40;
+            line-height: 1.65;
+            margin: 0 0 16px;
+        }
+
+        /* Skill tags */
+        .membro-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .skill-tag {
+            background: #EEF3F9;
+            color: #3D3D40;
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        /* Social links do membro */
+        .membro-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .membro-social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #EEF3F9;
+            color: #94A3B8;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .membro-social-link:hover {
+            background: #00B8D4;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* CTA da seção */
+        .sobre-cta {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 48px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .sobre-cta p {
+            font-size: 1.05rem;
+            color: #3D3D40;
+            margin-bottom: 20px;
+        }
+
+        .btn-sobre-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00B8D4, #0097B2);
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 6px 24px rgba(0, 184, 212, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .btn-sobre-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(0, 184, 212, 0.45);
+        }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width: 1024px) {
+            .equipe-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .membro-destaque {
+                grid-column: 1 / -1;
+            }
+
+            .sobre-valores {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .secao-sobre {
+                padding: 64px 0;
+            }
+
+            .equipe-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .membro-destaque {
+                grid-column: auto;
+            }
+
+            .sobre-valores {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -754,6 +1053,7 @@
                 <a href="#funciona" class="nav-link">Como Funciona</a>
                 <a href="#features" class="nav-link">Funcionalidades</a>
                 <a href="#sistema" class="nav-link">O Sistema</a>
+                <a href="#sobre" class="nav-link">Sobre Nós</a>
                 <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20conhecer%20a%20%C3%8Dris%20para%20minha%20cl%C3%ADnica"
                     class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">
                     <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"
@@ -1650,6 +1950,200 @@
                         class="highlight-benefit">15 minutos</strong>
                 </p>
             </div>
+        </div>
+    </section>
+
+    <!-- ══ SOBRE NÓS ══ -->
+    <section id="sobre" class="secao-sobre">
+        <div class="container">
+
+            <!-- TOPO: Missão da agência -->
+            <div class="sobre-topo reveal">
+                <div class="section-eyebrow">SOBRE NÓS</div>
+                <h2 class="section-title">
+                    Tecnologia que entende<br>
+                    <em>o lado humano da medicina.</em>
+                </h2>
+                <p class="section-sub sobre-intro">
+                    A ESG Tecnologia nasceu da convicção de que a maior barreira para o crescimento
+                    das clínicas não é falta de pacientes — é falta de tempo e estrutura para atendê-los bem.
+                    Nossa missão é usar Inteligência Artificial para devolver ao médico o que é mais precioso:
+                    o foco no paciente.
+                </p>
+            </div>
+
+            <!-- GRADE DE VALORES / DIFERENCIAIS DA AGÊNCIA -->
+            <div class="sobre-valores">
+                <div class="valor-card reveal">
+                    <div class="valor-icon">🎯</div>
+                    <h3>Implementação 100% Personalizada</h3>
+                    <p>Cada sistema é construído do zero para a realidade da sua clínica.
+                        Não vendemos plataformas genéricas — entregamos soluções que funcionam
+                        no seu contexto específico.</p>
+                </div>
+                <div class="valor-card reveal">
+                    <div class="valor-icon">🔬</div>
+                    <h3>Metodologia Testada em Campo</h3>
+                    <p>Nossas automações foram desenvolvidas e refinadas em operações reais.
+                        Cada fluxo da Íris passou por ciclos de teste com cenários reais de clínicas
+                        antes de chegar ao seu WhatsApp.</p>
+                </div>
+                <div class="valor-card reveal">
+                    <div class="valor-icon">🤝</div>
+                    <h3>Parceria de Longo Prazo</h3>
+                    <p>Não entregamos um sistema e sumimos. Acompanhamos a operação, ajustamos
+                        os fluxos conforme sua clínica cresce e estamos disponíveis quando você precisar.</p>
+                </div>
+            </div>
+
+            <!-- DIVISOR -->
+            <div class="sobre-divisor"></div>
+
+            <!-- EQUIPE -->
+            <div class="sobre-equipe-titulo reveal">
+                <div class="section-eyebrow">A EQUIPE</div>
+                <h2 class="section-title">Especialistas dedicados<br>à sua operação</h2>
+            </div>
+
+            <div class="equipe-grid">
+
+                <!-- CARD EVANDRO — FUNDADOR -->
+                <div class="membro-card membro-destaque reveal">
+                    <div class="membro-foto-wrap">
+                        <div class="membro-foto-placeholder">
+                            <svg viewBox="0 0 80 80" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="40" fill="#0D2A3E" />
+                                <ellipse cx="40" cy="35" rx="16" ry="18" fill="rgba(0,184,212,0.15)" />
+                                <ellipse cx="40" cy="34" rx="12" ry="13" fill="rgba(255,255,255,0.12)" />
+                                <circle cx="35" cy="32" r="2.5" fill="rgba(0,184,212,0.6)" />
+                                <circle cx="45" cy="32" r="2.5" fill="rgba(0,184,212,0.6)" />
+                                <path d="M34 39 Q40 43 46 39" stroke="rgba(0,184,212,0.5)" stroke-width="2" fill="none"
+                                    stroke-linecap="round" />
+                                <path d="M24 58 Q30 50 40 52 Q50 50 56 58 L58 70 Q40 76 22 70Z"
+                                    fill="rgba(0,184,212,0.2)" />
+                                <text x="40" y="45" text-anchor="middle" font-size="14" font-weight="700"
+                                    fill="rgba(0,184,212,0.7)" font-family="sans-serif">ESG</text>
+                            </svg>
+                            <span class="foto-placeholder-label">Foto em breve</span>
+                        </div>
+                    </div>
+                    <div class="membro-info">
+                        <div class="membro-badge-fundador">Fundador & CEO</div>
+                        <h3 class="membro-nome">Evandro Silva Gallina</h3>
+                        <p class="membro-cargo">Especialista em Sistemas de IA & Automação</p>
+                        <p class="membro-bio">
+                            13 anos de experiência em gestão, comunicação estratégica e tecnologia.
+                            Especialista em automação com N8N, criação de agentes de IA para WhatsApp
+                            e sistemas CRM para negócios. Combina visão técnica com experiência
+                            em vendas consultivas e comunicação institucional para entregar sistemas
+                            que realmente funcionam na prática.
+                        </p>
+                        <div class="membro-skills">
+                            <span class="skill-tag">N8N & Automação</span>
+                            <span class="skill-tag">Agentes de IA</span>
+                            <span class="skill-tag">WhatsApp API</span>
+                            <span class="skill-tag">RAG Agents</span>
+                            <span class="skill-tag">CRM Design</span>
+                            <span class="skill-tag">Marketing Digital</span>
+                        </div>
+                        <div class="membro-social">
+                            <a href="https://www.instagram.com/evandrosilvagallina/" target="_blank" rel="noopener"
+                                class="membro-social-link" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/evandro-sillva-gallina-83097b1aa" target="_blank"
+                                rel="noopener" class="membro-social-link" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD ESPECIALISTA IA -->
+                <div class="membro-card reveal">
+                    <div class="membro-foto-wrap">
+                        <div class="membro-foto-placeholder membro-foto-placeholder--alt1">
+                            <svg viewBox="0 0 80 80" width="80" height="80">
+                                <circle cx="40" cy="40" r="40" fill="#0F2D1E" />
+                                <ellipse cx="40" cy="34" rx="12" ry="13" fill="rgba(255,255,255,0.1)" />
+                                <path d="M24 58 Q30 50 40 52 Q50 50 56 58 L58 70 Q40 76 22 70Z"
+                                    fill="rgba(0,200,150,0.15)" />
+                                <text x="40" y="45" text-anchor="middle" font-size="22" fill="rgba(0,200,150,0.5)"
+                                    font-family="sans-serif">⚡</text>
+                            </svg>
+                            <span class="foto-placeholder-label">Foto em breve</span>
+                        </div>
+                    </div>
+                    <div class="membro-info">
+                        <p class="membro-cargo">Engenheiro de IA & Automação</p>
+                        <h3 class="membro-nome">Especialista N8N</h3>
+                        <p class="membro-bio">
+                            Responsável pela arquitetura dos fluxos de automação e pela integração
+                            dos sistemas de IA com WhatsApp, Google Calendar e Supabase.
+                            Garante que cada automação funcione com precisão cirúrgica.
+                        </p>
+                        <div class="membro-skills">
+                            <span class="skill-tag">N8N Avançado</span>
+                            <span class="skill-tag">APIs & Webhooks</span>
+                            <span class="skill-tag">Supabase</span>
+                            <span class="skill-tag">LLM Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD ESPECIALISTA CRM -->
+                <div class="membro-card reveal">
+                    <div class="membro-foto-wrap">
+                        <div class="membro-foto-placeholder membro-foto-placeholder--alt2">
+                            <svg viewBox="0 0 80 80" width="80" height="80">
+                                <circle cx="40" cy="40" r="40" fill="#1A1A2E" />
+                                <ellipse cx="40" cy="34" rx="12" ry="13" fill="rgba(255,255,255,0.1)" />
+                                <path d="M24 58 Q30 50 40 52 Q50 50 56 58 L58 70 Q40 76 22 70Z"
+                                    fill="rgba(100,100,255,0.15)" />
+                                <text x="40" y="45" text-anchor="middle" font-size="22" fill="rgba(100,130,255,0.5)"
+                                    font-family="sans-serif">📊</text>
+                            </svg>
+                            <span class="foto-placeholder-label">Foto em breve</span>
+                        </div>
+                    </div>
+                    <div class="membro-info">
+                        <p class="membro-cargo">Estrategista de CRM & Dados</p>
+                        <h3 class="membro-nome">Especialista em CRM</h3>
+                        <p class="membro-bio">
+                            Projeta a arquitetura dos painéis CRM e garante que cada dado
+                            coletado pela Íris se transforme em inteligência acionável para
+                            o gestor da clínica tomar decisões mais rápidas e precisas.
+                        </p>
+                        <div class="membro-skills">
+                            <span class="skill-tag">CRM Design</span>
+                            <span class="skill-tag">Análise de Dados</span>
+                            <span class="skill-tag">Dashboards</span>
+                            <span class="skill-tag">Supabase</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- fim equipe-grid -->
+
+            <!-- CTA da seção -->
+            <div class="sobre-cta reveal">
+                <p>Quer conhecer a equipe e ver como podemos ajudar a sua clínica?</p>
+                <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20conhecer%20a%20equipe%20ESG%20e%20saber%20como%20a%20%C3%8Dris%20pode%20ajudar%20minha%20cl%C3%ADnica"
+                    target="_blank" rel="noopener" class="btn-sobre-cta">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="flex-shrink:0">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Falar com a equipe ESG →
+                </a>
+            </div>
+
         </div>
     </section>
 
