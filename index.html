@@ -25,6 +25,587 @@
     <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ══════════════════════════════════════════
+   SEÇÃO SISTEMA — WHATSAPP DEMO
+   ══════════════════════════════════════════ */
+
+        .secao-sistema {
+            background: linear-gradient(145deg, #0D1F3C 0%, #1A3A5C 100%);
+            padding: 100px 0;
+        }
+
+        .sistema-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        /* Textos do lado esquerdo — cor branca (seção escura) */
+        .secao-sistema .section-eyebrow {
+            color: #00B8D4;
+        }
+
+        .secao-sistema .section-title {
+            color: #FFFFFF;
+        }
+
+        .secao-sistema p {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        .sistema-pilares {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .pilar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .pilar-icon {
+            font-size: 1.1rem;
+        }
+
+        /* ── PHONE FRAME ── */
+        .whatsapp-demo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .phone-frame {
+            width: 300px;
+            border-radius: 36px;
+            overflow: hidden;
+            background: #111B21;
+            box-shadow:
+                0 0 0 8px #1a2a30,
+                0 0 0 10px #0d1f2d,
+                0 32px 80px rgba(0, 0, 0, 0.6),
+                0 8px 32px rgba(0, 184, 212, 0.15);
+            display: flex;
+            flex-direction: column;
+            max-height: 580px;
+        }
+
+        /* Status bar */
+        .phone-statusbar {
+            background: #1F2C34;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 16px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .status-icons {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-time {
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        /* Header WhatsApp */
+        .wa-header {
+            background: #1F2C34;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .wa-back {
+            cursor: pointer;
+            padding: 2px 6px 2px 0;
+        }
+
+        .wa-contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .wa-avatar-iris {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid rgba(0, 184, 212, 0.4);
+        }
+
+        .wa-contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wa-contact-name {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .wa-contact-status {
+            color: #00B8D4;
+            font-size: 0.72rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .wa-online-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #25D366;
+            display: inline-block;
+            animation: pulseDot 2s ease infinite;
+        }
+
+        @keyframes pulseDot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.3);
+            }
+        }
+
+        .wa-actions {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        /* Corpo da conversa */
+        .wa-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            /* Papel de parede WhatsApp simulado */
+            background-color: #0B141A;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(0, 184, 212, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(37, 211, 102, 0.03) 0%, transparent 50%);
+            scrollbar-width: none;
+        }
+
+        .wa-body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Carimbo de data */
+        .wa-date-stamp {
+            text-align: center;
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.55);
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 3px 10px;
+            align-self: center;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Mensagens */
+        .wa-msg {
+            display: flex;
+            flex-direction: column;
+            max-width: 85%;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .wa-msg.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wa-msg-in {
+            align-self: flex-start;
+            align-items: flex-start;
+            flex-direction: row;
+            gap: 6px;
+        }
+
+        .wa-msg-out {
+            align-self: flex-end;
+            align-items: flex-end;
+        }
+
+        .wa-msg-avatar-small {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            align-self: flex-end;
+        }
+
+        /* Balões */
+        .wa-bubble {
+            padding: 8px 12px 6px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            position: relative;
+            max-width: 220px;
+            word-wrap: break-word;
+        }
+
+        .wa-bubble-in {
+            background: #1E2D34;
+            color: rgba(255, 255, 255, 0.9);
+            border-top-left-radius: 2px;
+        }
+
+        .wa-bubble-out {
+            background: #005C4B;
+            color: rgba(255, 255, 255, 0.92);
+            border-top-right-radius: 2px;
+        }
+
+        .wa-bubble strong {
+            color: white;
+            font-weight: 700;
+        }
+
+        .wa-bubble-sender-name {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #00B8D4;
+            margin-bottom: 3px;
+        }
+
+        /* Metadados (hora + ticks) */
+        .wa-bubble-meta {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+        }
+
+        .wa-time {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .wa-ticks {
+            font-size: 0.7rem;
+        }
+
+        .wa-ticks-read {
+            color: #53BDEB;
+        }
+
+        /* Mensagem de áudio */
+        .wa-msg-audio .wa-bubble-out,
+        .wa-audio-bubble {
+            background: #005C4B;
+            border-radius: 8px;
+            border-top-right-radius: 2px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 220px;
+        }
+
+        .wa-audio-avatar-dr {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .wa-audio-content {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .wa-audio-wave {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 20px;
+            flex: 1;
+        }
+
+        .wa-audio-wave span {
+            width: 2px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.6);
+            animation: audioWave 1.2s ease-in-out infinite;
+        }
+
+        .wa-audio-wave span:nth-child(1) {
+            height: 6px;
+            animation-delay: 0s;
+        }
+
+        .wa-audio-wave span:nth-child(2) {
+            height: 12px;
+            animation-delay: 0.1s;
+        }
+
+        .wa-audio-wave span:nth-child(3) {
+            height: 18px;
+            animation-delay: 0.2s;
+        }
+
+        .wa-audio-wave span:nth-child(4) {
+            height: 10px;
+            animation-delay: 0.3s;
+        }
+
+        .wa-audio-wave span:nth-child(5) {
+            height: 16px;
+            animation-delay: 0.4s;
+        }
+
+        .wa-audio-wave span:nth-child(6) {
+            height: 8px;
+            animation-delay: 0.5s;
+        }
+
+        .wa-audio-wave span:nth-child(7) {
+            height: 14px;
+            animation-delay: 0.6s;
+        }
+
+        .wa-audio-wave span:nth-child(8) {
+            height: 20px;
+            animation-delay: 0.7s;
+        }
+
+        .wa-audio-wave span:nth-child(9) {
+            height: 12px;
+            animation-delay: 0.8s;
+        }
+
+        .wa-audio-wave span:nth-child(10) {
+            height: 8px;
+            animation-delay: 0.9s;
+        }
+
+        .wa-audio-wave span:nth-child(11) {
+            height: 16px;
+            animation-delay: 1.0s;
+        }
+
+        .wa-audio-wave span:nth-child(12) {
+            height: 6px;
+            animation-delay: 1.1s;
+        }
+
+        .wa-audio-wave span:nth-child(13) {
+            height: 12px;
+            animation-delay: 0.2s;
+        }
+
+        .wa-audio-wave span:nth-child(14) {
+            height: 18px;
+            animation-delay: 0.4s;
+        }
+
+        .wa-audio-wave span:nth-child(15) {
+            height: 8px;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes audioWave {
+
+            0%,
+            100% {
+                transform: scaleY(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scaleY(1.4);
+                opacity: 1;
+            }
+        }
+
+        .wa-audio-time {
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.6);
+            white-space: nowrap;
+        }
+
+        .wa-msg-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 3px;
+            justify-content: flex-end;
+        }
+
+        .wa-sender-name {
+            font-size: 0.68rem;
+            font-weight: 700;
+        }
+
+        /* Indicador digitando */
+        .wa-typing {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            align-self: flex-start;
+        }
+
+        .wa-typing-bubble {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 14px !important;
+            min-width: 52px;
+        }
+
+        .typing-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            animation: typingBounce 1.4s ease infinite;
+        }
+
+        .typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingBounce {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+
+            30% {
+                transform: translateY(-6px);
+                opacity: 1;
+            }
+        }
+
+        /* Input bar */
+        .wa-inputbar {
+            background: #1F2C34;
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .wa-input-field {
+            flex: 1;
+            background: #2A3942;
+            border-radius: 24px;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wa-input-placeholder {
+            flex: 1;
+            font-size: 0.82rem;
+            color: #8696A0;
+        }
+
+        .wa-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #00A884;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Legenda */
+        .wa-demo-legenda {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.35);
+            font-style: italic;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width: 1024px) {
+            .sistema-layout {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .phone-frame {
+                width: 280px;
+            }
+
+            .whatsapp-demo-wrap {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .secao-sistema {
+                padding: 64px 0;
+            }
+
+            .phone-frame {
+                width: 100%;
+                max-width: 320px;
+                border-radius: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -512,64 +1093,283 @@
         </div>
     </section>
 
-    <!-- 7. SISTEMA (DARK) -->
-    <section class="sistema" id="sistema">
+    <!-- ═══ SEÇÃO: DR. X COMANDA A ÍRIS PELO WHATSAPP ═══ -->
+    <section class="secao-sistema" id="sistema">
         <div class="container">
-            <div class="sistema-row">
-                <div class="reveal">
-                    <span class="eyebrow" style="color: var(--cyan);">O DIFERENCIAL</span>
-                    <h2 class="heading-lg" style="color: white; margin-bottom: 24px;">Ela parece humana.<br>Porque foi
-                        feita para ser.</h2>
-                    <p style="color: rgba(255,255,255,0.75);">A Íris não é um chatbot de menus. Ela interpreta o
-                        contexto, entende áudios e responde como uma secretária experiente — com empatia e precisão.</p>
-                    <p style="color: rgba(255,255,255,0.75); margin-top: 16px;">O médico comanda tudo pelo WhatsApp
-                        pessoal: bloqueia agenda, reagenda pacientes ou pede relatórios apenas enviando um áudio.</p>
 
-                    <div class="pill-group">
-                        <div class="pill-item">
-                            <i class="ph ph-brain pill-icon"></i>
-                            <span>IA de última geração em cada conversa</span>
-                        </div>
-                        <div class="pill-item">
-                            <i class="ph ph-lightning pill-icon"></i>
-                            <span>Respostas em < 5s</span>
-                        </div>
-                        <div class="pill-item">
-                            <i class="ph ph-lock pill-icon"></i>
-                            <span>Controle total por voz</span>
-                        </div>
+            <!-- Textos da esquerda -->
+            <div class="sistema-layout">
+
+                <div class="sistema-texto reveal">
+                    <div class="section-eyebrow">O DIFERENCIAL</div>
+                    <h2 class="section-title">Ela parece humana.<br>Porque foi feita para ser.</h2>
+                    <p>A Íris não é um chatbot de menus. Ela interpreta o contexto, entende áudios
+                        e responde como uma secretária experiente — com empatia e precisão.</p>
+                    <p>O médico comanda tudo pelo WhatsApp pessoal: bloqueia agenda,
+                        reagenda pacientes ou pede relatórios apenas enviando um áudio.</p>
+                    <div class="sistema-pilares">
+                        <div class="pilar"><span class="pilar-icon">🧠</span><span>IA de última geração em cada
+                                conversa</span></div>
+                        <div class="pilar"><span class="pilar-icon">⚡</span><span>Respostas em &lt; 5s</span></div>
+                        <div class="pilar"><span class="pilar-icon">🔒</span><span>Controle total por voz</span></div>
                     </div>
                 </div>
 
-                <div class="reveal">
-                    <div class="terminal" id="terminal-demo">
-                        <div class="term-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="term-title">Íris · Painel de Controle</span>
+                <!-- NOVO VISUAL: WHATSAPP REAL em vez de terminal -->
+                <div class="whatsapp-demo-wrap reveal">
+
+                    <!-- Cabeçalho do dispositivo (moldura do celular simulada) -->
+                    <div class="phone-frame">
+
+                        <!-- Barra de status do celular -->
+                        <div class="phone-statusbar">
+                            <span class="status-time">09:42</span>
+                            <div class="status-icons">
+                                <svg width="15" height="10" viewBox="0 0 15 10" fill="white" opacity="0.9">
+                                    <rect x="0" y="4" width="3" height="6" rx="0.5" />
+                                    <rect x="4" y="2.5" width="3" height="7.5" rx="0.5" />
+                                    <rect x="8" y="1" width="3" height="9" rx="0.5" />
+                                    <rect x="12" y="0" width="3" height="10" rx="0.5" />
+                                </svg>
+                                <svg width="16" height="11" viewBox="0 0 16 11" fill="white" opacity="0.9">
+                                    <path
+                                        d="M8 2.4C10.4 2.4 12.5 3.4 14 5L15.5 3.5C13.6 1.3 10.9 0 8 0C5.1 0 2.4 1.3 0.5 3.5L2 5C3.5 3.4 5.6 2.4 8 2.4Z" />
+                                    <path
+                                        d="M8 5.5C9.5 5.5 10.9 6.1 11.9 7.1L13.4 5.6C12 4.1 10.1 3.2 8 3.2C5.9 3.2 4 4.1 2.6 5.6L4.1 7.1C5.1 6.1 6.5 5.5 8 5.5Z" />
+                                    <circle cx="8" cy="9.5" r="1.5" />
+                                </svg>
+                                <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+                                    <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white"
+                                        stroke-opacity="0.4" />
+                                    <rect x="2" y="2" width="16" height="8" rx="2" fill="white" />
+                                    <path d="M23 4.5V7.5C23.8 7.2 24.5 6.4 24.5 6C24.5 5.6 23.8 4.8 23 4.5Z"
+                                        fill="white" opacity="0.4" />
+                                </svg>
+                            </div>
                         </div>
-                        <div class="term-line" style="opacity:1"><span class="term-user">> Dr. X:</span> "Íris,
-                            bloqueia minha agenda de amanhã à tarde"</div>
-                        <div class="term-line" id="term-row-2"><span class="term-iris">✓ Agenda bloqueada:</span> 14h,
-                            15h30, 17h</div>
-                        <div class="term-line" id="term-row-3"><span class="term-iris">✓ Mensagens enviadas para 3
-                                pacientes</span></div>
-                        <div class="term-line" style="color:rgba(255,255,255,0.2)">—</div>
-                        <div class="term-line" id="term-row-4"><span class="term-user">> Dr. X:</span> "Quantos leads
-                            novos essa semana?"</div>
-                        <div class="term-line" id="term-row-5"><span class="term-iris">✓ 14 novos contatos
-                                mapeados</span></div>
-                        <div class="term-line" id="term-row-6"><span class="term-iris">✓ 9 agendados | 3 em negociação |
-                                2 reengajamentos</span></div>
-                        <div class="term-line" style="opacity:1; margin-top: 10px;">▌<span class="term-cursor"></span>
+
+                        <!-- Header do WhatsApp -->
+                        <div class="wa-header">
+                            <div class="wa-back">
+                                <svg width="10" height="17" viewBox="0 0 10 17" fill="none">
+                                    <path d="M8.5 1L1.5 8.5L8.5 16" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="wa-contact">
+                                <!-- Avatar da Íris -->
+                                <div class="wa-avatar-iris">
+                                    <svg viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="igSistema" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00D4E8" />
+                                                <stop offset="100%" stop-color="#0097B2" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="20" cy="20" r="20" fill="url(#igSistema)" />
+                                        <circle cx="20" cy="20" r="17" fill="none" stroke="rgba(255,255,255,0.15)"
+                                            stroke-width="1" />
+                                        <ellipse cx="20" cy="18" rx="7" ry="8" fill="rgba(255,255,255,0.92)" />
+                                        <path
+                                            d="M13 16.5 Q13 9.5 20 9.5 Q27 9.5 27 16.5 Q25 11.5 20 11.5 Q15 11.5 13 16.5Z"
+                                            fill="#2C2C2E" />
+                                        <circle cx="17.5" cy="17.5" r="1.3" fill="#2C2C2E" />
+                                        <circle cx="22.5" cy="17.5" r="1.3" fill="#2C2C2E" />
+                                        <circle cx="18.1" cy="17" r="0.45" fill="white" />
+                                        <circle cx="23.1" cy="17" r="0.45" fill="white" />
+                                        <path d="M17 21 Q20 23.5 23 21" stroke="#2C2C2E" stroke-width="1.1" fill="none"
+                                            stroke-linecap="round" />
+                                        <path d="M15.5 25.5 Q17 24.5 20 25 Q23 24.5 24.5 25.5 L25.5 29 Q20 32 14.5 29Z"
+                                            fill="#0097B2" />
+                                        <path d="M18.5 25 L20 27.5 L21.5 25" stroke="white" stroke-width="0.9"
+                                            fill="none" />
+                                    </svg>
+                                </div>
+                                <div class="wa-contact-info">
+                                    <span class="wa-contact-name">Íris · ESG Tecnologia</span>
+                                    <span class="wa-contact-status">
+                                        <span class="wa-online-dot"></span>online agora
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="wa-actions">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" opacity="0.85">
+                                    <path
+                                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" opacity="0.85">
+                                    <circle cx="12" cy="5" r="2" />
+                                    <circle cx="12" cy="12" r="2" />
+                                    <circle cx="12" cy="19" r="2" />
+                                </svg>
+                            </div>
                         </div>
-                    </div>
-                    <p class="terminal-legend">* "Dr. X" representa qualquer médico ou gestor da clínica.</p>
-                </div>
-            </div>
+
+                        <!-- Corpo da conversa — fundo papel de parede WhatsApp -->
+                        <div class="wa-body">
+
+                            <!-- Carimbo de data -->
+                            <div class="wa-date-stamp">HOJE</div>
+
+                            <!-- Mensagem 1: Dr. X envia áudio -->
+                            <div class="wa-msg wa-msg-out wa-msg-audio" id="waMsg1">
+                                <div class="wa-audio-bubble">
+                                    <div class="wa-audio-avatar-dr">
+                                        <svg viewBox="0 0 32 32" width="32" height="32">
+                                            <circle cx="16" cy="16" r="16" fill="#1D4ED8" />
+                                            <ellipse cx="16" cy="14" rx="6" ry="6.5" fill="rgba(255,255,255,0.9)" />
+                                            <path d="M10 13 Q10 7 16 7 Q22 7 22 13 Q20.5 9 16 9 Q11.5 9 10 13Z"
+                                                fill="#1a1a2e" />
+                                            <path d="M9 22 Q12 19.5 16 20 Q20 19.5 23 22 L24 28 Q16 31 8 28Z"
+                                                fill="#1D4ED8" />
+                                            <text x="16" y="17.5" text-anchor="middle" font-size="8" font-weight="700"
+                                                fill="#1D4ED8" font-family="sans-serif">DR</text>
+                                        </svg>
+                                    </div>
+                                    <div class="wa-audio-content">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#128C7E">
+                                            <path
+                                                d="M12 15c1.66 0 2.99-1.34 2.99-3L15 6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.42 2.72 6.23 6 6.72V22h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z" />
+                                        </svg>
+                                        <div class="wa-audio-wave">
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                        </div>
+                                        <span class="wa-audio-time">0:08</span>
+                                    </div>
+                                </div>
+                                <div class="wa-msg-meta wa-meta-out">
+                                    <span class="wa-sender-name" style="color:#1D4ED8">Dr. X</span>
+                                    <span class="wa-time">09:41</span>
+                                    <span class="wa-ticks wa-ticks-read">✓✓</span>
+                                </div>
+                            </div>
+
+                            <!-- Mensagem 2: Íris responde (texto) -->
+                            <div class="wa-msg wa-msg-in" id="waMsg2">
+                                <div class="wa-msg-avatar-small">
+                                    <svg viewBox="0 0 28 28" width="28" height="28">
+                                        <circle cx="14" cy="14" r="14" fill="#00B8D4" />
+                                        <ellipse cx="14" cy="12.5" rx="5" ry="5.5" fill="rgba(255,255,255,0.9)" />
+                                        <path
+                                            d="M9 11.5 Q9 6.5 14 6.5 Q19 6.5 19 11.5 Q17.5 8.5 14 8.5 Q10.5 8.5 9 11.5Z"
+                                            fill="#2C2C2E" />
+                                        <circle cx="12.2" cy="12" r="1" fill="#2C2C2E" />
+                                        <circle cx="15.8" cy="12" r="1" fill="#2C2C2E" />
+                                        <path d="M11.5 15 Q14 17 16.5 15" stroke="#2C2C2E" stroke-width="0.9"
+                                            fill="none" stroke-linecap="round" />
+                                        <path d="M10.5 19 Q12 18 14 18.5 Q16 18 17.5 19 L18 22 Q14 24 10 22Z"
+                                            fill="#0097B2" />
+                                    </svg>
+                                </div>
+                                <div class="wa-bubble wa-bubble-in">
+                                    <span class="wa-bubble-sender-name">Íris</span>
+                                    ✅ Entendido, Dr. X! Bloqueei sua agenda de amanhã das 14h às 18h.<br><br>
+                                    Enviei mensagens para os <strong>3 pacientes</strong> afetados pedindo desculpas e
+                                    oferecendo reagendamento. 😊
+                                    <div class="wa-bubble-meta">
+                                        <span class="wa-time">09:41</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mensagem 3: Dr. X pergunta sobre leads -->
+                            <div class="wa-msg wa-msg-out" id="waMsg3">
+                                <div class="wa-bubble wa-bubble-out">
+                                    Quantos leads novos essa semana?
+                                    <div class="wa-bubble-meta wa-meta-out">
+                                        <span class="wa-time">09:42</span>
+                                        <span class="wa-ticks wa-ticks-read">✓✓</span>
+                                    </div>
+                                </div>
+                                <div class="wa-msg-meta wa-meta-out-name">
+                                    <span class="wa-sender-name" style="color:#1D4ED8">Dr. X</span>
+                                </div>
+                            </div>
+
+                            <!-- Mensagem 4: Íris com relatório -->
+                            <div class="wa-msg wa-msg-in" id="waMsg4">
+                                <div class="wa-msg-avatar-small">
+                                    <svg viewBox="0 0 28 28" width="28" height="28">
+                                        <circle cx="14" cy="14" r="14" fill="#00B8D4" />
+                                        <ellipse cx="14" cy="12.5" rx="5" ry="5.5" fill="rgba(255,255,255,0.9)" />
+                                        <path
+                                            d="M9 11.5 Q9 6.5 14 6.5 Q19 6.5 19 11.5 Q17.5 8.5 14 8.5 Q10.5 8.5 9 11.5Z"
+                                            fill="#2C2C2E" />
+                                        <circle cx="12.2" cy="12" r="1" fill="#2C2C2E" />
+                                        <circle cx="15.8" cy="12" r="1" fill="#2C2C2E" />
+                                        <path d="M11.5 15 Q14 17 16.5 15" stroke="#2C2C2E" stroke-width="0.9"
+                                            fill="none" stroke-linecap="round" />
+                                        <path d="M10.5 19 Q12 18 14 18.5 Q16 18 17.5 19 L18 22 Q14 24 10 22Z"
+                                            fill="#0097B2" />
+                                    </svg>
+                                </div>
+                                <div class="wa-bubble wa-bubble-in">
+                                    <span class="wa-bubble-sender-name">Íris</span>
+                                    📊 Relatório desta semana:<br><br>
+                                    ✅ <strong>9 agendados</strong> com sucesso<br>
+                                    🔄 <strong>3 em negociação</strong> ativa<br>
+                                    ❄️ <strong>2 leads frios</strong> — reengajamento automático iniciado<br><br>
+                                    Tudo sob controle! Posso enviar o resumo completo por e-mail? 😊
+                                    <div class="wa-bubble-meta">
+                                        <span class="wa-time">09:42</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Indicador "Íris está digitando..." -->
+                            <div class="wa-typing" id="waTyping">
+                                <div class="wa-msg-avatar-small">
+                                    <svg viewBox="0 0 28 28" width="28" height="28">
+                                        <circle cx="14" cy="14" r="14" fill="#00B8D4" />
+                                        <ellipse cx="14" cy="12.5" rx="5" ry="5.5" fill="rgba(255,255,255,0.9)" />
+                                        <path
+                                            d="M9 11.5 Q9 6.5 14 6.5 Q19 6.5 19 11.5 Q17.5 8.5 14 8.5 Q10.5 8.5 9 11.5Z"
+                                            fill="#2C2C2E" />
+                                    </svg>
+                                </div>
+                                <div class="wa-bubble wa-bubble-in wa-typing-bubble">
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-dot"></span>
+                                </div>
+                            </div>
+
+                        </div><!-- fim wa-body -->
+
+                        <!-- Input bar do WhatsApp (decorativo) -->
+                        <div class="wa-inputbar">
+                            <div class="wa-input-field">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="#8696A0">
+                                    <path
+                                        d="M9.5 4C5.91 4 3 6.91 3 10.5S5.91 17 9.5 17c1.61 0 3.09-.59 4.23-1.57L20 21.77 21.77 20l-6.34-6.27C16.41 12.59 17 11.11 17 9.5 17 5.91 14.09 3 10.5 3zm0 2c2.49 0 4.5 2.01 4.5 4.5S11.99 14 9.5 14 5 11.99 5 9.5 7.01 6 9.5 6z" />
+                                </svg>
+                                <span class="wa-input-placeholder">Mensagem</span>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="#8696A0">
+                                    <path
+                                        d="M12 15c1.66 0 2.99-1.34 2.99-3L15 6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.42 2.72 6.23 6 6.72V22h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z" />
+                                </svg>
+                            </div>
+                            <div class="wa-send-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path
+                                        d="M12 15c1.66 0 2.99-1.34 2.99-3L15 6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.42 2.72 6.23 6 6.72V22h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div><!-- fim phone-frame -->
+
+                    <p class="wa-demo-legenda">
+                        * "Dr. X" representa qualquer médico ou gestor da clínica
+                    </p>
+
+                </div><!-- fim whatsapp-demo-wrap -->
+            </div><!-- fim sistema-layout -->
         </div>
     </section>
+    <!-- ═══ FIM SEÇÃO SISTEMA ═══ -->
 
     <!-- 8. FAQ SECTION -->
     <section id="faq" class="section-faq">
@@ -868,6 +1668,40 @@
                 });
             }
         });
+
+        // ── ANIMAÇÃO DE ENTRADA DAS MENSAGENS DO WHATSAPP ──
+        (function () {
+            const msgs = ['waMsg1', 'waMsg2', 'waMsg3', 'waMsg4'];
+            const delays = [200, 900, 1800, 2600];
+
+            function animateChat() {
+                msgs.forEach((id, i) => {
+                    setTimeout(() => {
+                        const el = document.getElementById(id);
+                        if (el) el.classList.add('visible');
+                    }, delays[i]);
+                });
+                // Esconder o "digitando" após as mensagens aparecerem
+                setTimeout(() => {
+                    const typing = document.getElementById('waTyping');
+                    if (typing) typing.style.opacity = '0';
+                }, 3400);
+            }
+
+            // Disparar quando a seção entrar na viewport
+            const chatSection = document.getElementById('sistema');
+            if (chatSection) {
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateChat();
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                obs.observe(chatSection);
+            }
+        })();
     </script>
     <div id="custom-cursor"></div>
 </body>
