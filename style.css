@@ -756,3 +756,200 @@ li,
     font-size: 0.875rem;
     color: var(--text-muted);
 }
+
+/* ══════════════════════════════════════════════════════
+   HERO SCROLL CANVAS — Animação estilo Apple
+   ══════════════════════════════════════════════════════ */
+
+.hero-scroll-section {
+    height: 400vh;
+    position: relative;
+    background: #0a0a0a;
+    z-index: 1;
+}
+
+.hero-scroll-sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ── Overlay com texto sobre o canvas ── */
+.hero-scroll-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: none;
+    text-align: center;
+    padding: 0 24px;
+}
+
+.hero-scroll-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(2.5rem, 6vw, 5rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.04em !important;
+    color: #FFFFFF !important;
+    margin-bottom: 20px !important;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-scroll-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-scroll-subtitle {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(1rem, 2vw, 1.4rem) !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.80) !important;
+    max-width: 650px !important;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    line-height: 1.6 !important;
+    margin: 0 auto !important;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.hero-scroll-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Barra de progresso do scroll ── */
+.hero-scroll-progress {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.hero-scroll-progress.visible {
+    opacity: 1;
+}
+
+.scroll-indicator-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.scroll-indicator-bar {
+    width: 120px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.scroll-indicator-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00D4FF, #0077FF);
+    border-radius: 2px;
+    transition: width 0.05s linear;
+}
+
+/* ── Vinheta escura nas bordas do canvas ── */
+.hero-scroll-sticky::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── Loading state ── */
+.hero-scroll-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: opacity 0.5s ease;
+}
+
+.loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #00D4FF;
+    border-radius: 50%;
+    animation: loaderSpin 0.8s linear infinite;
+}
+
+@keyframes loaderSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Responsividade ── */
+@media (max-width: 1024px) {
+    .hero-scroll-section {
+        height: 350vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-scroll-section {
+        height: 300vh;
+    }
+
+    .hero-scroll-title {
+        font-size: clamp(1.8rem, 8vw, 2.8rem) !important;
+        margin-bottom: 14px !important;
+    }
+
+    .hero-scroll-subtitle {
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem) !important;
+    }
+
+    .scroll-indicator-bar {
+        width: 80px;
+    }
+}

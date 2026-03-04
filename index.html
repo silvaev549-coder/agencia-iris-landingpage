@@ -24,6 +24,10 @@
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
     <style>
         /* ══════════════════════════════════════════
@@ -1193,6 +1197,27 @@
         </div>
     </div>
 
+    <!-- HERO SCROLL CANVAS — Animação estilo Apple -->
+    <section class="hero-scroll-section" id="hero-scroll">
+        <div class="hero-scroll-sticky">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-scroll-overlay">
+                <h1 class="hero-scroll-title">Sua clínica com <span class="text-gradient">Inteligência</span></h1>
+                <p class="hero-scroll-subtitle">Atendendo, agendando e nunca perdendo um paciente.</p>
+            </div>
+            <div class="hero-scroll-progress">
+                <span class="scroll-indicator-text">Role para descobrir</span>
+                <div class="scroll-indicator-bar">
+                    <div class="scroll-indicator-fill" id="scroll-fill"></div>
+                </div>
+            </div>
+            <div class="hero-scroll-loader" id="hero-loader">
+                <div class="loader-spinner"></div>
+                <span>Carregando experiência...</span>
+            </div>
+        </div>
+    </section>
+
     <!-- 2. HERO -->
     <section class="hero" id="topo">
         <div class="hero-mesh" aria-hidden="true">
@@ -2339,6 +2364,154 @@
             }
         })();
     </script>
+
+    <!-- ══ HERO SCROLL CANVAS — GSAP ScrollTrigger ══ -->
+    <script>
+        (function () {
+            'use strict';
+
+            // Aguardar GSAP carregar
+            function waitForGSAP(cb) {
+                if (window.gsap && window.ScrollTrigger) {
+                    cb();
+                } else {
+                    setTimeout(function () { waitForGSAP(cb); }, 50);
+                }
+            }
+
+            waitForGSAP(function () {
+                gsap.registerPlugin(ScrollTrigger);
+
+                const canvas = document.getElementById('hero-canvas');
+                const ctx = canvas.getContext('2d');
+                const section = document.querySelector('.hero-scroll-section');
+                const loader = document.getElementById('hero-loader');
+                const scrollFill = document.getElementById('scroll-fill');
+                const overlay = document.querySelector('.hero-scroll-overlay');
+                const titleEl = document.querySelector('.hero-scroll-title');
+                const subtitleEl = document.querySelector('.hero-scroll-subtitle');
+                const progressEl = document.querySelector('.hero-scroll-progress');
+
+                const frameCount = 104;
+                const images = [];
+                let loadedCount = 0;
+                const currentFrame = { index: 0 };
+
+                // Gerar caminho do frame
+                function frameSrc(i) {
+                    const num = String(i).padStart(3, '0');
+                    return './frames/frame_' + num + '_delay-0.076s.jpg';
+                }
+
+                // Pré-carregar todas as imagens
+                function preloadImages() {
+                    return new Promise(function (resolve) {
+                        for (let i = 0; i < frameCount; i++) {
+                            const img = new Image();
+                            img.src = frameSrc(i);
+                            img.onload = function () {
+                                loadedCount++;
+                                if (loadedCount === frameCount) {
+                                    resolve();
+                                }
+                            };
+                            img.onerror = function () {
+                                loadedCount++;
+                                if (loadedCount === frameCount) {
+                                    resolve();
+                                }
+                            };
+                            images.push(img);
+                        }
+                    });
+                }
+
+                // Ajustar tamanho do canvas para a viewport
+                function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    drawFrame(currentFrame.index);
+                }
+
+                // Desenhar o frame no canvas (cover)
+                function drawFrame(index) {
+                    const img = images[index];
+                    if (!img || !img.complete || img.naturalWidth === 0) return;
+
+                    const cw = canvas.width;
+                    const ch = canvas.height;
+                    const iw = img.naturalWidth;
+                    const ih = img.naturalHeight;
+
+                    // Simular object-fit: cover
+                    const scale = Math.max(cw / iw, ch / ih);
+                    const sw = iw * scale;
+                    const sh = ih * scale;
+                    const sx = (cw - sw) / 2;
+                    const sy = (ch - sh) / 2;
+
+                    ctx.clearRect(0, 0, cw, ch);
+                    ctx.drawImage(img, sx, sy, sw, sh);
+                }
+
+                // Iniciar animação
+                preloadImages().then(function () {
+                    // Esconder loader
+                    if (loader) {
+                        loader.style.opacity = '0';
+                        setTimeout(function () { loader.style.display = 'none'; }, 500);
+                    }
+
+                    // Mostrar texto e indicador
+                    setTimeout(function () {
+                        if (titleEl) titleEl.classList.add('visible');
+                        if (subtitleEl) subtitleEl.classList.add('visible');
+                        if (progressEl) progressEl.classList.add('visible');
+                    }, 300);
+
+                    // Ajustar canvas
+                    resizeCanvas();
+                    window.addEventListener('resize', resizeCanvas);
+
+                    // Desenhar primeiro frame
+                    drawFrame(0);
+
+                    // GSAP ScrollTrigger — troca de frames
+                    gsap.to(currentFrame, {
+                        index: frameCount - 1,
+                        snap: 'index',
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top top',
+                            end: 'bottom bottom',
+                            scrub: 0.5,
+                            onUpdate: function (self) {
+                                drawFrame(Math.round(currentFrame.index));
+
+                                // Atualizar barra de progresso
+                                if (scrollFill) {
+                                    scrollFill.style.width = (self.progress * 100) + '%';
+                                }
+
+                                // Fade out do texto conforme scrolla
+                                if (overlay) {
+                                    const fadeProgress = Math.min(self.progress * 4, 1);
+                                    overlay.style.opacity = 1 - fadeProgress;
+                                }
+
+                                // Esconder indicador de scroll após rolar um pouco
+                                if (progressEl) {
+                                    progressEl.style.opacity = self.progress < 0.05 ? '1' : '0';
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+
     <div id="custom-cursor"></div>
 </body>
 
