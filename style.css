@@ -2127,4 +2127,188 @@ li,
     .stat-item:last-child {
         border-bottom: none;
     }
+}/* ══ MÓDULO FINANCEIRO VIP ══ */
+.financeiro-vip {
+    background: var(--bg-section);
+    padding: 120px 0;
+}
+
+.financeiro-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.financeiro-box {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.fin-item {
+    display: flex;
+    gap: 20px;
+}
+
+.fin-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--cyan);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+.fin-item h3 {
+    font-size: 1.25rem !important;
+    margin-bottom: 8px !important;
+}
+
+.fin-item p {
+    font-size: 1rem !important;
+    color: var(--text-muted) !important;
+    margin: 0 !important;
+}
+
+/* Glassmorphism Visual Card */
+.fin-card-glass {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.fin-card-glass::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    animation: rotateFin 10s linear infinite;
+}
+
+@keyframes rotateFin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fin-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-heading);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.fin-card-header i {
+    color: var(--emerald);
+    font-size: 1.2rem;
+}
+
+.fin-card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.fin-status-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.dot-active {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 10px var(--amber);
+    animation: pulseAmber 2s infinite;
+}
+
+@keyframes pulseAmber {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fin-amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+}
+
+.fin-patient {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.fin-action-pill {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+    .financeiro-wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 48px;
+    }
+
+    .fin-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fin-card-glass {
+        max-width: 450px;
+        margin: 0 auto;
+    }
 }
