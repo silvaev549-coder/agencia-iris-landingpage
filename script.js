@@ -20,7 +20,6 @@
         const scrollFill = document.getElementById('scroll-fill');
         const overlay = document.querySelector('.hero-scroll-overlay');
         const titleEl = document.querySelector('.hero-scroll-title');
-        const endTitleEl = document.querySelector('.hero-scroll-end-title');
         const subtitleEl = document.querySelector('.hero-scroll-subtitle');
         const progressEl = document.querySelector('.hero-scroll-progress');
 
@@ -128,24 +127,43 @@
 
                         const p = self.progress;
 
-                        // 1. Lógica do TÍTULO (Foca no início)
-                        // Aparece de 0 a 0.2, some de 0.3 a 0.5
+                        // Troca o texto de forma invisível no meio do scroll
+                        if (titleEl) {
+                            if (p < 0.5) {
+                                if (titleEl.getAttribute('data-stage') !== 'start') {
+                                    titleEl.innerHTML = 'Sua clínica com <span class="text-gradient">Inteligência</span>';
+                                    titleEl.setAttribute('data-stage', 'start');
+                                }
+                            } else {
+                                if (titleEl.getAttribute('data-stage') !== 'end') {
+                                    titleEl.innerHTML = 'Sua clínica com <span class="text-gradient">mais inteligência</span>';
+                                    titleEl.setAttribute('data-stage', 'end');
+                                }
+                            }
+                        }
+
+                        // Lógica de Fade In/Out do Título único
                         let titleOpacity = 0;
                         let titleScale = 0.95;
                         let titleBlur = 10;
 
                         if (p < 0.2) {
-                            titleOpacity = p / 0.2; // Fade in
+                            titleOpacity = p / 0.2; // Fade in inicio
                             titleScale = 0.95 + (p / 0.2) * 0.05;
                             titleBlur = 10 - (p / 0.2) * 10;
                         } else if (p >= 0.2 && p < 0.3) {
-                            titleOpacity = 1; // Mantém visível
+                            titleOpacity = 1; // Mantém no inicio
                             titleScale = 1;
                             titleBlur = 0;
                         } else if (p >= 0.3 && p < 0.5) {
-                            titleOpacity = 1 - (p - 0.3) / 0.2; // Fade out
+                            titleOpacity = 1 - (p - 0.3) / 0.2; // Fade out inicio
                             titleScale = 1 + ((p - 0.3) / 0.2) * 0.05;
                             titleBlur = ((p - 0.3) / 0.2) * 10;
+                        } else if (p >= 0.7) {
+                            const prog = Math.min((p - 0.7) / 0.3, 1);
+                            titleOpacity = prog; // Fade in brilhante no final
+                            titleScale = 0.95 + (prog * 0.05);
+                            titleBlur = 10 - (prog * 10);
                         }
 
                         if (titleEl) {
@@ -154,30 +172,10 @@
                             titleEl.style.filter = 'blur(' + titleBlur + 'px)';
                         }
 
-                        // 2. Lógica do TÍTULO FINAL
-                        let endOpacity = 0;
-                        let endScale = 0.95;
-                        let endBlur = 10;
-
-                        if (p > 0.7) {
-                            const prog = Math.min((p - 0.7) / 0.3, 1);
-                            endOpacity = prog;
-                            endScale = 0.95 + (prog * 0.05);
-                            endBlur = 10 - (prog * 10);
-                        }
-
-                        if (endTitleEl) {
-                            endTitleEl.style.opacity = endOpacity;
-                            endTitleEl.style.transform = 'translate(-50%, calc(-50% + ' + (40 - endOpacity * 40) + 'px)) scale(' + endScale + ')';
-                            endTitleEl.style.filter = 'blur(' + endBlur + 'px)';
-                        }
-
-                        // 3. Intensidade da Vinheta (Contraste dinâmico)
-                        // Aumenta quando QUALQUER título está visível
-                        const vignetteOpacity = Math.max(titleOpacity, endOpacity) * 0.6;
+                        // Vinheta aumenta junto com a opacidade do título para dar contraste
                         const vignette = document.getElementById('hero-vignette');
                         if (vignette) {
-                            vignette.style.opacity = vignetteOpacity;
+                            vignette.style.opacity = titleOpacity * 0.6;
                         }
 
                         // Esconder indicador de scroll após rolar um pouco
