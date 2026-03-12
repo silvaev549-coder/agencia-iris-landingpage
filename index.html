@@ -144,8 +144,7 @@
                         sua é elegível.</p>
 
                     <div class="hero-cta-group">
-                        <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20submeter%20minha%20cl%C3%ADnica%20para%20avalia%C3%A7%C3%A3o%20da%20sua%20assessoria%20de%20automa%C3%A7%C3%A3o."
-                            class="btn btn-primary">
+                        <a href="#auditoria-form" class="btn btn-primary">
                             <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"
                                 style="flex-shrink:0">
                                 <path
@@ -475,8 +474,7 @@
 
                 <p class="video-cta-text">
                     Quer ver uma demonstração personalizada para a sua clínica?
-                    <a href="https://wa.me/5532984587255?text=Ol%C3%A1%20Evandro%2C%20quero%20submeter%20minha%20cl%C3%ADnica%20para%20avalia%C3%A7%C3%A3o%20da%20sua%20assessoria%20de%20automa%C3%A7%C3%A3o."
-                        target="_blank" rel="noopener">
+                    <a href="#auditoria-form">
                         Aplicar para Assessoria →
                     </a>
                 </p>
@@ -1153,216 +1151,301 @@
             </div>
 
         </div>
-    </section>
+        <!-- 8. FORMULÁRIO DE AUDITORIA -->
+        <section id="auditoria-form" style="background: var(--bg-surface); padding: 80px 0;">
+            <div class="container" style="max-width: 800px;">
+                <div class="section-header reveal" style="text-align: center; margin-bottom: 40px;">
+                    <span class="eyebrow"
+                        style="color: var(--cyan); font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">PROCESSO
+                        SELETIVO</span>
+                    <h2 class="heading-lg" style="margin-top: 16px; font-weight: 900; letter-spacing: -0.04em;">Solicite
+                        sua Auditoria</h2>
+                    <p class="lead" style="margin-top: 16px;">Preencha o formulário abaixo para submeter sua clínica à
+                        nossa avaliação. Analisaremos seu perfil e entraremos em contato.</p>
+                </div>
 
-    <!-- 9. FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-row reveal">
-                <div class="footer-col">
-                    <img src="./LOGO1.jpg" alt="Logo ESG Tecnologia" style="height: 40px;">
-                    <p class="footer-tagline">Sistemas de IA que transformam negócios de médicos e gestores de elite.
-                    </p>
+                <form action="https://formsubmit.co/silvaevandro815@gmail.com" method="POST" class="reveal"
+                    style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); backdrop-filter: blur(10px);">
+                    <!-- Honeypot -->
+                    <input type="text" name="_honey" style="display:none">
+                    <!-- Disable Captcha -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Success Page -->
+                    <input type="hidden" name="_next" value="https://agencia.evandrosilvagallina.cloud">
+
+                    <div style="margin-bottom: 24px;">
+                        <label for="nome"
+                            style="display: block; margin-bottom: 8px; font-weight: 600; color: #E2E8F0;">Nome
+                            Completo</label>
+                        <input type="text" id="nome" name="Nome" required
+                            style="width: 100%; padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;"
+                            onfocus="this.style.borderColor='var(--cyan)'"
+                            onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label for="clinica"
+                            style="display: block; margin-bottom: 8px; font-weight: 600; color: #E2E8F0;">Nome da
+                            Clínica</label>
+                        <input type="text" id="clinica" name="Clínica" required
+                            style="width: 100%; padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;"
+                            onfocus="this.style.borderColor='var(--cyan)'"
+                            onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label for="whatsapp"
+                            style="display: block; margin-bottom: 8px; font-weight: 600; color: #E2E8F0;">WhatsApp para
+                            retorno</label>
+                        <input type="text" id="whatsapp" name="WhatsApp" required placeholder="(XX) 9XXXX-XXXX"
+                            style="width: 100%; padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;"
+                            onfocus="this.style.borderColor='var(--cyan)'"
+                            onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label for="faturamento"
+                            style="display: block; margin-bottom: 8px; font-weight: 600; color: #E2E8F0;">Qual é o
+                            faturamento médio mensal da clínica?</label>
+                        <select id="faturamento" name="Faturamento" required
+                            style="width: 100%; padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s; cursor: pointer;"
+                            onfocus="this.style.borderColor='var(--cyan)'"
+                            onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                            <option value="" disabled selected style="color: black;">Selecione uma faixa</option>
+                            <option value="Abaixo de 50k" style="color: black;">Abaixo de R$ 50.000</option>
+                            <option value="50k a 100k" style="color: black;">Entre R$ 50.000 e R$ 100.000</option>
+                            <option value="100k a 500k" style="color: black;">Entre R$ 100.000 e R$ 500.000</option>
+                            <option value="Acima de 500k" style="color: black;">Acima de R$ 500.000</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 32px;">
+                        <label for="gargalo"
+                            style="display: block; margin-bottom: 8px; font-weight: 600; color: #E2E8F0;">Qual o
+                            principal gargalo atual na sua recepção/agendamento?</label>
+                        <textarea id="gargalo" name="Gargalo Principal" required rows="4"
+                            style="width: 100%; padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem; outline: none; resize: vertical; transition: border-color 0.3s;"
+                            onfocus="this.style.borderColor='var(--cyan)'"
+                            onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; padding: 20px; font-size: 1.125rem; font-weight: 800; display: flex; justify-content: center; border: none; cursor: pointer;">
+                        Solicitar Minha Auditoria
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 9. FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-row reveal">
+                    <div class="footer-col">
+                        <img src="./LOGO1.jpg" alt="Logo ESG Tecnologia" style="height: 40px;">
+                        <p class="footer-tagline">Sistemas de IA que transformam negócios de médicos e gestores de
+                            elite.
+                        </p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Fale com Evandro</h4>
+                        <a href="#auditoria-form" class="footer-link"
+                            style="color: var(--cyan); font-weight: 600;">Aplicar Agora</a>
+                        <p style="font-size: 0.85rem;">Atendimento humanizado direto com o especialista.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>ESG Tecnologia</h4>
+                        <p class="footer-link">© 2026 Evandro Silva Gallina</p>
+                        <p class="footer-link">Especialista em Sistemas de IA</p>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Fale com Evandro</h4>
-                    <a href="https://wa.me/5532984587255" class="footer-link"
-                        style="color: var(--cyan); font-weight: 600;">(32) 98458-7255</a>
-                    <p style="font-size: 0.85rem;">Atendimento humanizado direto com o especialista.</p>
+
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/evandrosilvagallina/" target="_blank" rel="noopener noreferrer"
+                        class="social-link social-instagram" aria-label="Instagram de Evandro Silva Gallina">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/evandro-sillva-gallina-83097b1aa" target="_blank"
+                        rel="noopener noreferrer" class="social-link social-linkedin"
+                        aria-label="LinkedIn de Evandro Silva Gallina">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
                 </div>
-                <div class="footer-col">
-                    <h4>ESG Tecnologia</h4>
-                    <p class="footer-link">© 2026 Evandro Silva Gallina</p>
-                    <p class="footer-link">Especialista em Sistemas de IA</p>
+                <div class="footer-bottom">
+                    A Íris é uma marca da ESG Tecnologia. Todos os direitos reservados.
                 </div>
             </div>
+        </footer>
 
-            <div class="footer-social">
-                <a href="https://www.instagram.com/evandrosilvagallina/" target="_blank" rel="noopener noreferrer"
-                    class="social-link social-instagram" aria-label="Instagram de Evandro Silva Gallina">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                    </svg>
-                </a>
-
-                <a href="https://www.linkedin.com/in/evandro-sillva-gallina-83097b1aa" target="_blank"
-                    rel="noopener noreferrer" class="social-link social-linkedin"
-                    aria-label="LinkedIn de Evandro Silva Gallina">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                        <path
-                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                </a>
-            </div>
-            <div class="footer-bottom">
-                A Íris é uma marca da ESG Tecnologia. Todos os direitos reservados.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Header Scroll
-            const header = document.querySelector('.header');
-            window.addEventListener('scroll', () => {
-                header.classList.toggle('scrolled', window.scrollY > 50);
-            });
-
-            // 2. Mobile Menu Toggle
-            const toggle = document.querySelector('.mobile-toggle');
-            const nav = document.querySelector('.nav-links');
-            if (toggle) {
-                toggle.addEventListener('click', () => {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column';
-                        nav.style.position = 'absolute';
-                        nav.style.top = '70px';
-                        nav.style.left = '0';
-                        nav.style.width = '100%';
-                        nav.style.background = 'white';
-                        nav.style.padding = '24px';
-                        nav.style.borderBottom = '1px solid var(--border)';
-                    }
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // 1. Header Scroll
+                const header = document.querySelector('.header');
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
                 });
-            }
 
-            // 3. Scroll Reveal with Intersection Observer
-            const observerOptions = {
-                threshold: 0.1, // Ajustado para 0.1 conforme solicitado
-                rootMargin: "0px 0px -40px 0px"
-            };
-
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    // NUNCA processar elementos dentro do header fixo ou nav
-                    if (entry.target.closest('header') || entry.target.closest('nav')) return;
-
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal').forEach(el => {
-                // NUNCA adicionar observer em elementos do header ou nav
-                if (!el.closest('header') && !el.closest('nav')) {
-                    revealObserver.observe(el);
-                }
-            });
-
-            // 4. WhatsApp Chat Animation
-            const waChat = document.getElementById('wa-chat');
-            const chatObserver = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    const bubbles = waChat.querySelectorAll('.wa-bubble');
-                    bubbles.forEach(bubble => {
-                        const delay = bubble.getAttribute('data-delay');
-                        setTimeout(() => bubble.classList.add('active'), delay);
-                    });
-                }
-            }, { threshold: 0.5 });
-            chatObserver.observe(waChat);
-
-            // 6. Terminal Animation
-            const terminal = document.getElementById('terminal-demo');
-            const termObserver = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    const rows = [2, 3, 4, 5, 6];
-                    rows.forEach((num, idx) => {
-                        setTimeout(() => {
-                            const row = document.getElementById(`term-row-${num}`);
-                            if (row) row.style.opacity = '1';
-                        }, (idx + 1) * 800);
-                    });
-                }
-            }, { threshold: 0.5 });
-            termObserver.observe(terminal);
-
-            // 7. Smooth Scroll for Anchors
-            document.querySelectorAll('a[href^="#"]').forEach(a => {
-                a.addEventListener('click', e => {
-                    const href = a.getAttribute('href');
-                    if (href === '#' || href === '#topo') {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-
-            // ── FAQ ACCORDION ──
-            document.querySelectorAll('.faq-question').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const isOpen = btn.getAttribute('aria-expanded') === 'true';
-                    // Fechar todos
-                    document.querySelectorAll('.faq-question').forEach(b => {
-                        b.setAttribute('aria-expanded', 'false');
-                        b.nextElementSibling.classList.remove('open');
-                    });
-                    // Abrir o clicado (se estava fechado)
-                    if (!isOpen) {
-                        btn.setAttribute('aria-expanded', 'true');
-                        btn.nextElementSibling.classList.add('open');
-                    }
-                });
-            });
-
-            // ── CURSOR PERSONALIZADO ──
-            const cursor = document.getElementById('custom-cursor');
-            if (cursor && window.matchMedia('(pointer: fine)').matches) {
-                document.addEventListener('mousemove', e => {
-                    cursor.style.left = e.clientX + 'px';
-                    cursor.style.top = e.clientY + 'px';
-                });
-                document.querySelectorAll('a, button, .faq-question').forEach(el => {
-                    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-                    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-                });
-            }
-        });
-
-        // ── ANIMAÇÃO DE ENTRADA DAS MENSAGENS DO WHATSAPP ──
-        (function () {
-            const msgs = ['waMsg1', 'waMsg2', 'waMsg3', 'waMsg4'];
-            const delays = [200, 900, 1800, 2600];
-
-            function animateChat() {
-                msgs.forEach((id, i) => {
-                    setTimeout(() => {
-                        const el = document.getElementById(id);
-                        if (el) el.classList.add('visible');
-                    }, delays[i]);
-                });
-                // Esconder o "digitando" após as mensagens aparecerem
-                setTimeout(() => {
-                    const typing = document.getElementById('waTyping');
-                    if (typing) typing.style.opacity = '0';
-                }, 3400);
-            }
-
-            // Disparar quando a seção entrar na viewport
-            const chatSection = document.getElementById('sistema');
-            if (chatSection) {
-                const obs = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateChat();
-                            obs.unobserve(entry.target);
+                // 2. Mobile Menu Toggle
+                const toggle = document.querySelector('.mobile-toggle');
+                const nav = document.querySelector('.nav-links');
+                if (toggle) {
+                    toggle.addEventListener('click', () => {
+                        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                        if (nav.style.display === 'flex') {
+                            nav.style.flexDirection = 'column';
+                            nav.style.position = 'absolute';
+                            nav.style.top = '70px';
+                            nav.style.left = '0';
+                            nav.style.width = '100%';
+                            nav.style.background = 'white';
+                            nav.style.padding = '24px';
+                            nav.style.borderBottom = '1px solid var(--border)';
                         }
                     });
-                }, { threshold: 0.3 });
-                obs.observe(chatSection);
-            }
-        })();
-    </script>
+                }
 
-    <div id="custom-cursor"></div>
-    <script src="script.js" defer></script>
+                // 3. Scroll Reveal with Intersection Observer
+                const observerOptions = {
+                    threshold: 0.1, // Ajustado para 0.1 conforme solicitado
+                    rootMargin: "0px 0px -40px 0px"
+                };
+
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // NUNCA processar elementos dentro do header fixo ou nav
+                        if (entry.target.closest('header') || entry.target.closest('nav')) return;
+
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.reveal').forEach(el => {
+                    // NUNCA adicionar observer em elementos do header ou nav
+                    if (!el.closest('header') && !el.closest('nav')) {
+                        revealObserver.observe(el);
+                    }
+                });
+
+                // 4. WhatsApp Chat Animation
+                const waChat = document.getElementById('wa-chat');
+                const chatObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        const bubbles = waChat.querySelectorAll('.wa-bubble');
+                        bubbles.forEach(bubble => {
+                            const delay = bubble.getAttribute('data-delay');
+                            setTimeout(() => bubble.classList.add('active'), delay);
+                        });
+                    }
+                }, { threshold: 0.5 });
+                chatObserver.observe(waChat);
+
+                // 6. Terminal Animation
+                const terminal = document.getElementById('terminal-demo');
+                const termObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        const rows = [2, 3, 4, 5, 6];
+                        rows.forEach((num, idx) => {
+                            setTimeout(() => {
+                                const row = document.getElementById(`term-row-${num}`);
+                                if (row) row.style.opacity = '1';
+                            }, (idx + 1) * 800);
+                        });
+                    }
+                }, { threshold: 0.5 });
+                termObserver.observe(terminal);
+
+                // 7. Smooth Scroll for Anchors
+                document.querySelectorAll('a[href^="#"]').forEach(a => {
+                    a.addEventListener('click', e => {
+                        const href = a.getAttribute('href');
+                        if (href === '#' || href === '#topo') {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else if (href.startsWith('#')) {
+                            e.preventDefault();
+                            const target = document.querySelector(href);
+                            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                });
+
+                // ── FAQ ACCORDION ──
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+                        // Fechar todos
+                        document.querySelectorAll('.faq-question').forEach(b => {
+                            b.setAttribute('aria-expanded', 'false');
+                            b.nextElementSibling.classList.remove('open');
+                        });
+                        // Abrir o clicado (se estava fechado)
+                        if (!isOpen) {
+                            btn.setAttribute('aria-expanded', 'true');
+                            btn.nextElementSibling.classList.add('open');
+                        }
+                    });
+                });
+
+                // ── CURSOR PERSONALIZADO ──
+                const cursor = document.getElementById('custom-cursor');
+                if (cursor && window.matchMedia('(pointer: fine)').matches) {
+                    document.addEventListener('mousemove', e => {
+                        cursor.style.left = e.clientX + 'px';
+                        cursor.style.top = e.clientY + 'px';
+                    });
+                    document.querySelectorAll('a, button, .faq-question').forEach(el => {
+                        el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                        el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+                    });
+                }
+            });
+
+            // ── ANIMAÇÃO DE ENTRADA DAS MENSAGENS DO WHATSAPP ──
+            (function () {
+                const msgs = ['waMsg1', 'waMsg2', 'waMsg3', 'waMsg4'];
+                const delays = [200, 900, 1800, 2600];
+
+                function animateChat() {
+                    msgs.forEach((id, i) => {
+                        setTimeout(() => {
+                            const el = document.getElementById(id);
+                            if (el) el.classList.add('visible');
+                        }, delays[i]);
+                    });
+                    // Esconder o "digitando" após as mensagens aparecerem
+                    setTimeout(() => {
+                        const typing = document.getElementById('waTyping');
+                        if (typing) typing.style.opacity = '0';
+                    }, 3400);
+                }
+
+                // Disparar quando a seção entrar na viewport
+                const chatSection = document.getElementById('sistema');
+                if (chatSection) {
+                    const obs = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                animateChat();
+                                obs.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    obs.observe(chatSection);
+                }
+            })();
+        </script>
+
+        <div id="custom-cursor"></div>
+        <script src="script.js" defer></script>
 </body>
 
 </html>
