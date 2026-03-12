@@ -140,6 +140,20 @@ h1,
     margin: 0 auto 40px auto !important;
 }
 
+/* Títulos Superiores de Seção (Maior Autoridade) */
+.eyebrow,
+.section-eyebrow {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 1.2rem !important;
+    /* Maior e robusto */
+    font-weight: 900 !important;
+    color: var(--cyan) !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-bottom: 16px !important;
+}
+
 /* Títulos das Seções (Dores, Soluções) */
 h2,
 .section-title {

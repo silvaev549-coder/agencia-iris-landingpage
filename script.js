@@ -132,12 +132,12 @@
                         let titleScale = 0.95;
                         let titleBlur = 10;
 
-                        if (p >= 0.7 && p < 1.0) {
+                        if (p >= 0.7 && p <= 1.0) {
                             let prog = 0;
                             if (p < 0.85) {
                                 prog = (p - 0.7) / 0.15; // Fade In (70% a 85%)
                             } else {
-                                prog = 1 - ((p - 0.85) / 0.15); // Fade Out (85% a 100%)
+                                prog = 1; // Fica até o fim
                             }
 
                             titleOpacity = prog;
