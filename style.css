@@ -900,6 +900,26 @@ li,
     will-change: transform, opacity, filter;
 }
 
+.hero-scroll-end-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(2.5rem, 6vw, 5rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.04em !important;
+    color: #FFFFFF !important;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 30px)) scale(0.95);
+    opacity: 0;
+    filter: blur(10px);
+    will-change: transform, opacity, filter;
+    text-align: center;
+    width: 100%;
+    padding: 0 24px;
+}
+
 .hero-scroll-title.visible {
     opacity: 1;
     transform: translateY(0);
@@ -2127,7 +2147,9 @@ li,
     .stat-item:last-child {
         border-bottom: none;
     }
-}/* ══ MÓDULO FINANCEIRO VIP ══ */
+}
+
+/* ══ MÓDULO FINANCEIRO VIP ══ */
 .financeiro-vip {
     background: var(--bg-section);
     padding: 120px 0;

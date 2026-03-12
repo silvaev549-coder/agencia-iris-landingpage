@@ -20,6 +20,7 @@
         const scrollFill = document.getElementById('scroll-fill');
         const overlay = document.querySelector('.hero-scroll-overlay');
         const titleEl = document.querySelector('.hero-scroll-title');
+        const endTitleEl = document.querySelector('.hero-scroll-end-title');
         const subtitleEl = document.querySelector('.hero-scroll-subtitle');
         const progressEl = document.querySelector('.hero-scroll-progress');
 
@@ -153,9 +154,27 @@
                             titleEl.style.filter = 'blur(' + titleBlur + 'px)';
                         }
 
+                        // 2. Lógica do TÍTULO FINAL
+                        let endOpacity = 0;
+                        let endScale = 0.95;
+                        let endBlur = 10;
+
+                        if (p > 0.7) {
+                            const prog = Math.min((p - 0.7) / 0.3, 1);
+                            endOpacity = prog;
+                            endScale = 0.95 + (prog * 0.05);
+                            endBlur = 10 - (prog * 10);
+                        }
+
+                        if (endTitleEl) {
+                            endTitleEl.style.opacity = endOpacity;
+                            endTitleEl.style.transform = 'translate(-50%, calc(-50% + ' + (40 - endOpacity * 40) + 'px)) scale(' + endScale + ')';
+                            endTitleEl.style.filter = 'blur(' + endBlur + 'px)';
+                        }
+
                         // 3. Intensidade da Vinheta (Contraste dinâmico)
-                        // Aumenta quando o título está visível
-                        const vignetteOpacity = titleOpacity * 0.6;
+                        // Aumenta quando QUALQUER título está visível
+                        const vignetteOpacity = Math.max(titleOpacity, endOpacity) * 0.6;
                         const vignette = document.getElementById('hero-vignette');
                         if (vignette) {
                             vignette.style.opacity = vignetteOpacity;
