@@ -276,13 +276,10 @@ h3,
     text-shadow: none !important;
 }
 
-.text-glow-gradient {
-    background: linear-gradient(to right, #60A5FA, #67E8F9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 900;
-    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.6));
+.text-glow-white {
+    color: #FFFFFF !important;
+    font-weight: 800;
+    filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.6));
     display: inline-block;
 }
 
