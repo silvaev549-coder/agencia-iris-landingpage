@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     // Aguardar GSAP carregar
@@ -166,4 +166,32 @@
             });
         });
     });
+
+    // ── FORMULÁRIO COM FEEDBACK VISUAL PREMIUM ──
+    const form = document.querySelector('form[action^="https://formsubmit.co"]');
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            const btn = form.querySelector('button[type="submit"]');
+            if (btn) {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="ph ph-spinner" style="animation: spin 1s linear infinite;"></i> Processando...';
+                btn.style.opacity = '0.8';
+                btn.style.pointerEvents = 'none';
+                
+                // O form será submetido normalmente pelo formsubmit, 
+                // a animação ficará ativa até o redirecionamento.
+            }
+        });
+    }
+
 })();
+
+// CSS para o spinner do botão
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+`;
+document.head.appendChild(style);
