@@ -195,3 +195,57 @@ style.innerHTML = `
 }
 `;
 document.head.appendChild(style);
+
+// ── EXIT INTENT ALGORITHM ──
+document.addEventListener("DOMContentLoaded", () => {
+    const exitPopup = document.getElementById("exit-popup");
+    const closePopupBtn = document.getElementById("close-exit-popup");
+    const btnExitPopup = document.getElementById("btn-exit-popup");
+    let hasTriggered = false;
+
+    if (exitPopup) {
+        // Função para abrir
+        const triggerPopup = () => {
+            if (!hasTriggered && !sessionStorage.getItem("exitIntentShown")) {
+                exitPopup.classList.add("active");
+                hasTriggered = true;
+                sessionStorage.setItem("exitIntentShown", "true");
+            }
+        };
+
+        // Detectar saída do mouse (Desktop)
+        document.addEventListener("mouseleave", (e) => {
+            if (e.clientY < 10) {
+                triggerPopup();
+            }
+        });
+
+        // Detectar rolagem rápida para cima ou tempo de tela (Mobile Fallback)
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", () => {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (lastScrollTop > st && (lastScrollTop - st) > 100 && st < 300) {
+                // Rolagem rápida para o topo
+                triggerPopup();
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
+        });
+
+        // Timer Fallback (Caso o usuário fique ocioso por 45 segundos)
+        setTimeout(triggerPopup, 45000);
+
+        // Funções de fechar
+        const closePopup = () => {
+            exitPopup.classList.remove("active");
+        };
+
+        if (closePopupBtn) closePopupBtn.addEventListener("click", closePopup);
+        if (btnExitPopup) btnExitPopup.addEventListener("click", closePopup);
+        
+        exitPopup.addEventListener("click", (e) => {
+            if (e.target === exitPopup) {
+                closePopup();
+            }
+        });
+    }
+});

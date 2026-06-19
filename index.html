@@ -2,6 +2,24 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7ZBKZSHJ0"></script>
     <script>
@@ -1446,6 +1464,19 @@
         <a href="#auditoria-form" class="whatsapp-float" aria-label="Fale conosco">
             <i class="ph-fill ph-whatsapp-logo"></i>
         </a>
+
+        <!-- Exit Intent Popup -->
+        <div id="exit-popup" class="exit-popup-overlay">
+            <div class="exit-popup-content glass-card">
+                <button id="close-exit-popup" class="exit-popup-close" aria-label="Fechar"><i class="ph ph-x"></i></button>
+                <div class="exit-popup-header">
+                    <i class="ph-fill ph-warning-circle" style="color: #F59E0B; font-size: 3rem; margin-bottom: 15px; display: inline-block;"></i>
+                    <h2 style="margin-bottom: 15px;">Aguarde! Não deixe sua clínica para trás.</h2>
+                </div>
+                <p style="margin-bottom: 25px; color: var(--text-muted); line-height: 1.6;">Nossos agentes de IA reduzem o no-show em até 40% e garantem que <strong>nenhum paciente</strong> fique sem resposta no WhatsApp. Agende uma Demonstração Gratuita agora e veja a Íris funcionando ao vivo.</p>
+                <a href="#auditoria-form" class="btn-primary" id="btn-exit-popup" style="width: 100%; text-align: center; justify-content: center;">Agendar Demonstração Gratuita</a>
+            </div>
+        </div>
 </body>
 
 </html>
