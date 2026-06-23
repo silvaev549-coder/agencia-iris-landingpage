@@ -213,26 +213,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        // Detectar saída do mouse (Desktop)
+        // Detectar saída do mouse (Desktop) - Ameaça real de fechamento
         document.addEventListener("mouseleave", (e) => {
-            if (e.clientY < 10) {
+            if (e.clientY <= 10) {
                 triggerPopup();
             }
         });
-
-        // Detectar rolagem rápida para cima ou tempo de tela (Mobile Fallback)
-        let lastScrollTop = 0;
-        window.addEventListener("scroll", () => {
-            let st = window.pageYOffset || document.documentElement.scrollTop;
-            if (lastScrollTop > st && (lastScrollTop - st) > 100 && st < 300) {
-                // Rolagem rápida para o topo
-                triggerPopup();
-            }
-            lastScrollTop = st <= 0 ? 0 : st;
-        });
-
-        // Timer Fallback (Caso o usuário fique ocioso por 45 segundos)
-        setTimeout(triggerPopup, 45000);
 
         // Funções de fechar
         const closePopup = () => {
