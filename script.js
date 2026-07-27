@@ -235,3 +235,61 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// ── LGPD COOKIE CONSENT ──
+document.addEventListener("DOMContentLoaded", () => {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptCookiesBtn = document.getElementById("accept-cookies");
+
+    if (cookieBanner && acceptCookiesBtn) {
+        // Verifica se o usuário já aceitou antes
+        if (!localStorage.getItem("lgpd_consent")) {
+            // Pequeno delay para a animação
+            setTimeout(() => {
+                cookieBanner.style.display = "flex";
+                // Força reflow para ativar a transição
+                cookieBanner.offsetHeight;
+                cookieBanner.classList.add("active");
+            }, 1000);
+        }
+
+        acceptCookiesBtn.addEventListener("click", () => {
+            localStorage.setItem("lgpd_consent", "true");
+            cookieBanner.classList.remove("active");
+            
+            // Aguarda a transição terminar antes de ocultar
+            setTimeout(() => {
+                cookieBanner.style.display = "none";
+            }, 400);
+        });
+    }
+});
+
+// ── CAPTURA SILENCIOSA DE UTMS ──
+document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Mapeamento dos parâmetros UTM da URL para os IDs dos inputs ocultos
+    const utmMapping = {
+        'utm_source': 'utm_source',
+        'utm_medium': 'utm_medium',
+        'utm_campaign': 'utm_campaign'
+    };
+
+    // Preenche os inputs se a UTM existir na URL, senão busca se já existia salvo no sessionStorage de navegação prévia
+    for (const [param, inputId] of Object.entries(utmMapping)) {
+        const input = document.getElementById(inputId);
+        if (input) {
+            let utmValue = urlParams.get(param);
+            if (utmValue) {
+                input.value = utmValue;
+                sessionStorage.setItem(param, utmValue);
+            } else {
+                let savedUtm = sessionStorage.getItem(param);
+                if (savedUtm) {
+                    input.value = savedUtm;
+                }
+            }
+        }
+    }
+});
