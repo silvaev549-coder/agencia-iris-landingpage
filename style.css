@@ -3318,3 +3318,457 @@ li,
         transform: translateY(-6px);
     }
 }
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   HIGH CONTRAST & TYPOGRAPHY FIXES FOR DARK SECTIONS (ESG TECNOLOGIA)
+   Elimina qualquer texto invisível ou escuro sobre fundo escuro
+   ══════════════════════════════════════════════════════════════════════ */
+
+.secao-cases,
+.secao-planos,
+.secao-video-topo,
+.growth-marketing,
+.section-crm,
+.cta-final,
+.section-dark {
+    background: #070C18 !important;
+    color: #F8FAFC !important;
+}
+
+/* Headings Brilhantes em Seções Escuras */
+.secao-cases h2,
+.secao-cases .heading-lg,
+.secao-planos h2,
+.secao-planos .heading-lg,
+.secao-video-topo h2,
+.secao-video-topo .heading-lg,
+.growth-marketing h2,
+.growth-marketing .heading-lg,
+.section-crm h2,
+.section-crm .section-title,
+.cta-final h2,
+.cta-final .heading-lg,
+.section-dark h2,
+.section-dark .heading-lg {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Subtítulos e Leads com Alto Contraste */
+.secao-cases .lead,
+.secao-cases p.lead,
+.secao-planos .lead,
+.secao-planos p.lead,
+.secao-video-topo .lead,
+.secao-video-topo p.lead,
+.growth-marketing .lead,
+.section-crm .section-sub,
+.cta-final .lead,
+.section-dark .lead {
+    color: #CBD5E1 !important;
+}
+
+/* Eyebrows com Brilho Neon Cyan */
+.secao-cases .eyebrow,
+.secao-planos .eyebrow,
+.secao-video-topo .eyebrow,
+.growth-marketing .eyebrow,
+.section-crm .section-eyebrow,
+.cta-final .eyebrow,
+.section-dark .eyebrow {
+    color: #00D4FF !important;
+    font-weight: 800 !important;
+    letter-spacing: 2px !important;
+    text-shadow: 0 0 16px rgba(0, 212, 255, 0.45) !important;
+}
+
+/* Títulos e Textos dos Cards de Cases */
+.case-card {
+    background: rgba(15, 23, 42, 0.85) !important;
+    border: 1px solid rgba(0, 184, 212, 0.22) !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+}
+
+.case-card:hover {
+    border-color: #00B8D4 !important;
+    box-shadow: 0 16px 40px rgba(0, 184, 212, 0.2) !important;
+}
+
+.case-title {
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+}
+
+.case-desc {
+    color: #CBD5E1 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+}
+
+.kpi-num {
+    color: #00D4FF !important;
+    font-weight: 900 !important;
+}
+
+.kpi-label {
+    color: #94A3B8 !important;
+    font-weight: 700 !important;
+}
+
+/* Títulos e Textos dos Planos */
+.plano-title {
+    color: #FFFFFF !important;
+    font-weight: 900 !important;
+}
+
+.plano-desc {
+    color: #CBD5E1 !important;
+}
+
+.plano-features li {
+    color: #E2E8F0 !important;
+}
+
+.plano-features li i {
+    color: #00D4FF !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   ESTILOS DA SEÇÃO DE VÍDEO NO TOPO (APPLE GLASSMORPHISM)
+   ══════════════════════════════════════════════════════════════════════ */
+
+.secao-video-topo {
+    padding: 90px 0;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: radial-gradient(circle at 50% 25%, rgba(0, 184, 212, 0.12) 0%, rgba(7, 12, 24, 0.98) 75%, #070C18 100%) !important;
+}
+
+.video-apple-frame {
+    max-width: 960px;
+    margin: 0 auto;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.7), 0 0 45px rgba(0, 212, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-apple-frame:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 212, 255, 0.6);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 60px rgba(0, 212, 255, 0.25);
+}
+
+.video-frame-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 22px;
+    background: rgba(11, 19, 43, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.frame-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.frame-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.frame-dots span:nth-child(1) { background: #FF5F56; box-shadow: 0 0 6px #FF5F56; }
+.frame-dots span:nth-child(2) { background: #FFBD2E; box-shadow: 0 0 6px #FFBD2E; }
+.frame-dots span:nth-child(3) { background: #27C93F; box-shadow: 0 0 6px #27C93F; }
+
+.frame-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #F1F5F9;
+    letter-spacing: 0.02em;
+}
+
+.frame-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #00D4FF;
+    background: rgba(0, 212, 255, 0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.video-responsive-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-footer-cta {
+    text-align: center;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.video-cta-subtext {
+    color: #CBD5E1;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   RESPONSIVIDADE COMPLETA PARA TABLETS, ANDROID E IPHONES
+   Garante 0% de corte ou overflow horizontal em qualquer resolução
+   ══════════════════════════════════════════════════════════════════════ */
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Tablets (iPad Air, Mini, Pro, Galaxy Tab - até 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    .hero-row {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 40px !important;
+    }
+
+    .hero-content {
+        max-width: 100% !important;
+    }
+
+    .hero-cta-group {
+        justify-content: center !important;
+    }
+
+    .hero-visual {
+        width: 100% !important;
+        max-width: 520px !important;
+        margin: 0 auto !important;
+    }
+
+    .cases-grid {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .planos-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 540px !important;
+        margin: 40px auto 0 !important;
+        gap: 28px !important;
+    }
+
+    .plano-card-destaque {
+        transform: none !important;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .crm-layout {
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+
+    .crm-texto {
+        text-align: center !important;
+    }
+
+    .crm-features-list li {
+        text-align: left !important;
+    }
+
+    .growth-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px !important;
+    }
+}
+
+/* Smartphones (Android & iPhone - até 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+
+    .heading-xl {
+        font-size: 2.15rem !important;
+        line-height: 1.15 !important;
+    }
+
+    .heading-lg {
+        font-size: 1.85rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .hero-stage-apple {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .apple-wa-card {
+        padding: 16px !important;
+        border-radius: 18px !important;
+    }
+
+    .apple-wa-body {
+        max-height: 380px !important;
+    }
+
+    .wa-chat-bubble {
+        max-width: 92% !important;
+        font-size: 0.84rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .apple-crm-card {
+        padding: 14px 16px !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 16px !important;
+    }
+
+    .stat-item {
+        padding: 20px 14px !important;
+    }
+
+    .stat-numero {
+        font-size: 2.5rem !important;
+    }
+
+    .growth-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .equipe-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .video-frame-bar {
+        padding: 10px 14px !important;
+    }
+
+    .frame-title {
+        font-size: 0.72rem !important;
+    }
+
+    .video-apple-frame {
+        border-radius: 16px !important;
+    }
+
+    /* Previne zoom automático do iOS Safari em inputs */
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Telas Pequenas (iPhone SE, Galaxy Mini - até 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .heading-xl {
+        font-size: 1.85rem !important;
+    }
+
+    .heading-lg {
+        font-size: 1.6rem !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .hero-cta-group {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .hero-cta-group .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 14px 20px !important;
+    }
+
+    .apple-wa-header {
+        gap: 10px !important;
+    }
+
+    .apple-wa-name {
+        font-size: 0.82rem !important;
+    }
+
+    .case-highlights {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+
+    .ig-card-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+    }
+
+    .btn-ig-view {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .crm-mockup {
+        width: 100% !important;
+        overflow-x: auto !important;
+    }
+
+    .crm-row, .crm-row-header {
+        min-width: 320px;
+    }
+}

@@ -224,6 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("form-diagnostico");
     const modalSucesso = document.getElementById("modal-sucesso-apple");
     const btnFechar = document.getElementById("btn-fechar-sucesso");
+    const btnWaDireto = document.getElementById("btn-wa-direto");
 
     if (form && modalSucesso) {
         form.addEventListener("submit", async (e) => {
@@ -241,8 +242,34 @@ document.addEventListener("DOMContentLoaded", () => {
             const dataObj = {};
             formData.forEach((val, key) => dataObj[key] = val);
 
+            // Monta mensagem direta para o WhatsApp pessoal de Evandro Gallina (5532984587255)
+            const waNome = dataObj['Nome'] || '';
+            const waEmpresa = dataObj['Empresa_ou_Marca'] || dataObj['Empresa_ou_Clinica'] || '';
+            const waSegmento = dataObj['Segmento'] || '';
+            const waCanal = dataObj['Canal_Desejado'] || '';
+            const waContato = dataObj['WhatsApp'] || '';
+            const waFaturamento = dataObj['Faturamento'] || '';
+            const waGargalo = dataObj['Gargalo Principal'] || '';
+
+            const waMsg = `Olá Evandro Gallina! Acabei de solicitar um Diagnóstico Comercial no site da ESG Tecnologia:
+
+👤 *Nome:* ${waNome}
+🏢 *Empresa:* ${waEmpresa}
+💼 *Segmento:* ${waSegmento}
+📱 *Canal Desejado:* ${waCanal}
+💬 *Meu WhatsApp:* ${waContato}
+💰 *Faturamento Médio:* ${waFaturamento}
+⚠️ *Principal Gargalo:* ${waGargalo}
+
+Gostaria de agendar uma reunião comercial para avaliarmos a implementação dos Agentes de IA!`;
+
+            const waUrl = `https://wa.me/5532984587255?text=${encodeURIComponent(waMsg)}`;
+            if (btnWaDireto) {
+                btnWaDireto.href = waUrl;
+            }
+
             try {
-                // Envia de forma segura via FormSubmit AJAX (sem redirecionar a tela)
+                // Envia de forma segura via FormSubmit AJAX (backup por e-mail)
                 await fetch("https://formsubmit.co/ajax/silvaevandro815@gmail.com", {
                     method: "POST",
                     headers: {
@@ -255,10 +282,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Abre o Modal Apple Style
                 modalSucesso.classList.add("active");
                 form.reset();
+
+                // Redireciona opcionalmente para o WhatsApp após 2s se o lead desejar
+                setTimeout(() => {
+                    window.open(waUrl, '_blank');
+                }, 2000);
             } catch (err) {
                 console.error("Erro ao submeter:", err);
                 // Fallback: se falhar o AJAX, abre o modal mesmo assim para não frustrar o lead
                 modalSucesso.classList.add("active");
+                setTimeout(() => {
+                    window.open(waUrl, '_blank');
+                }, 2000);
             } finally {
                 if (submitBtn) {
                     submitBtn.disabled = false;
