@@ -2562,3 +2562,123 @@ li,
         width: 100%;
     }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   SEÇÃO CASOS REAIS EM PRODUÇÃO (ESG TECNOLOGIA)
+   ═══════════════════════════════════════════════════════════ */
+.secao-cases {
+    padding: 100px 0;
+    background: var(--bg-dark);
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.case-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(12px);
+}
+
+.case-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--cyan);
+    box-shadow: 0 16px 36px rgba(0, 212, 255, 0.12);
+}
+
+.case-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.case-status-live {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--emerald);
+    letter-spacing: 1px;
+}
+
+.case-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-white);
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.case-desc {
+    font-size: 0.95rem;
+    color: var(--graphite-light);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.case-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.case-kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.kpi-num {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--cyan);
+}
+
+.kpi-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--graphite-light);
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+.case-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1024px) {
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+}
