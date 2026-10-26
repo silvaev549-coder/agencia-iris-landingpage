@@ -293,3 +293,188 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+
+// ══════════════════════════════════════════════════════════════════════
+// APPLE-STYLE LIVE WHATSAPP & CRM REALTIME SIMULATOR (ESG TECNOLOGIA)
+// ══════════════════════════════════════════════════════════════════════
+document.addEventListener("DOMContentLoaded", () => {
+    const waStream = document.getElementById("apple-wa-stream");
+    const typing = document.getElementById("apple-wa-typing");
+    const crmStage = document.querySelector(".crm-stage-pill");
+
+    if (!waStream) return;
+
+    const b1 = document.getElementById("wb-1");
+    const b2 = document.getElementById("wb-2");
+    const b3 = document.getElementById("wb-3");
+    const b4 = document.getElementById("wb-4");
+    const b5 = document.getElementById("wb-5");
+    const b6 = document.getElementById("wb-6");
+
+    const allBubbles = [b1, b2, b3, b4, b5, b6];
+
+    function runChatAnimation() {
+        // Reset all
+        allBubbles.forEach(b => {
+            if (b) {
+                b.style.display = "none";
+                b.style.opacity = "0";
+                b.style.transform = "translateY(10px)";
+            }
+        });
+        if (typing) typing.style.display = "none";
+        if (crmStage) {
+            crmStage.textContent = "Novo Lead";
+            crmStage.style.background = "rgba(0, 184, 212, 0.2)";
+            crmStage.style.color = "#00B8D4";
+        }
+
+        // Step 1: User message 1
+        setTimeout(() => {
+            if (b1) {
+                b1.style.display = "block";
+                b1.style.opacity = "1";
+                b1.style.transform = "translateY(0)";
+            }
+        }, 500);
+
+        // Step 2: Agent typing
+        setTimeout(() => {
+            if (typing) typing.style.display = "flex";
+        }, 1600);
+
+        // Step 3: Agent bubble 2
+        setTimeout(() => {
+            if (typing) typing.style.display = "none";
+            if (b2) {
+                b2.style.display = "block";
+                b2.style.opacity = "1";
+                b2.style.transform = "translateY(0)";
+            }
+        }, 2800);
+
+        // Step 4: Agent bubble 3
+        setTimeout(() => {
+            if (b3) {
+                b3.style.display = "block";
+                b3.style.opacity = "1";
+                b3.style.transform = "translateY(0)";
+            }
+        }, 3900);
+
+        // Step 5: User response 4
+        setTimeout(() => {
+            if (b4) {
+                b4.style.display = "block";
+                b4.style.opacity = "1";
+                b4.style.transform = "translateY(0)";
+            }
+        }, 5500);
+
+        // Step 6: Agent typing again
+        setTimeout(() => {
+            if (typing) typing.style.display = "flex";
+        }, 6800);
+
+        // Step 7: Agent bubble 5
+        setTimeout(() => {
+            if (typing) typing.style.display = "none";
+            if (b5) {
+                b5.style.display = "block";
+                b5.style.opacity = "1";
+                b5.style.transform = "translateY(0)";
+            }
+        }, 8200);
+
+        // Step 8: Agent closing CTA bubble 6
+        setTimeout(() => {
+            if (b6) {
+                b6.style.display = "block";
+                b6.style.opacity = "1";
+                b6.style.transform = "translateY(0)";
+            }
+            if (crmStage) {
+                crmStage.textContent = "Qualificado ★";
+                crmStage.style.background = "rgba(16, 185, 129, 0.2)";
+                crmStage.style.color = "#10B981";
+            }
+        }, 9600);
+    }
+
+    // Run on visibility
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            runChatAnimation();
+            // Re-run periodically
+            setInterval(runChatAnimation, 24000);
+            observer.disconnect();
+        }
+    }, { threshold: 0.2 });
+
+    observer.observe(waStream);
+});
+
+// ══════════════════════════════════════════════════════════════════════
+// FORMULÁRIO DE AUDITORIA & MODAL DE SUCESSO APPLE STYLE
+// ══════════════════════════════════════════════════════════════════════
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form-diagnostico");
+    const modalSucesso = document.getElementById("modal-sucesso-apple");
+    const btnFechar = document.getElementById("btn-fechar-sucesso");
+
+    if (form && modalSucesso) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn ? submitBtn.innerHTML : "Enviar";
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = "Processando Diagnóstico...";
+            }
+
+            const formData = new FormData(form);
+            const dataObj = {};
+            formData.forEach((val, key) => dataObj[key] = val);
+
+            try {
+                // Envia de forma segura via FormSubmit AJAX (sem redirecionar a tela)
+                await fetch("https://formsubmit.co/ajax/silvaevandro815@gmail.com", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(dataObj)
+                });
+
+                // Abre o Modal Apple Style
+                modalSucesso.classList.add("active");
+                form.reset();
+            } catch (err) {
+                console.error("Erro ao submeter:", err);
+                // Fallback: se falhar o AJAX, abre o modal mesmo assim para não frustrar o lead
+                modalSucesso.classList.add("active");
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            }
+        });
+
+        if (btnFechar) {
+            btnFechar.addEventListener("click", () => {
+                modalSucesso.classList.remove("active");
+            });
+        }
+
+        modalSucesso.addEventListener("click", (e) => {
+            if (e.target === modalSucesso) {
+                modalSucesso.classList.remove("active");
+            }
+        });
+    }
+});

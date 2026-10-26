@@ -243,20 +243,91 @@
                 </div>
 
                 <div class="hero-visual reveal">
-                    <div class="wa-card">
-                        <div class="wa-header">
-                            <img src="./Íris (Secretária de IA).png" alt="Íris — Secretária IA" class="membro-foto"
-                                style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--cyan-dark); object-fit: cover;">
-                            <div class="wa-status">
-                                <h4>Íris · ESG Tecnologia</h4>
-                                <span>● online agora</span>
+                    <div class="hero-stage-apple">
+                        <!-- Floating Pill Top -->
+                        <div class="apple-float-pill">
+                            <span class="pulse-dot-cyan"></span>
+                            <span class="pill-text">IA Ativa 24/7 · Sem Fila de Espera</span>
+                            <div class="sound-wave-bars">
+                                <i></i><i></i><i></i><i></i><i></i>
                             </div>
                         </div>
-                        <div class="wa-body" id="wa-chat">
-                            <div class="wa-bubble wa-sent" data-delay="600">Olá! Quero um ecossistema de vendas com IA igual ao do Marcão Personal 🚀</div>
-                            <div class="wa-bubble wa-received" data-delay="1600">Olá! Excelente escolha 👊 Construímos a sua operação própria na sua própria VPS privada.</div>
-                            <div class="wa-bubble wa-sent" data-delay="2800">Vocês integram WhatsApp, Instagram e CRM com recuperação de Pix?</div>
-                            <div class="wa-bubble wa-received" data-delay="3800">Sim! Atendimento 24/7 com voz, visão computacional e motor M8 de recuperação. Vamos agendar seu diagnóstico? 🎯</div>
+
+                        <!-- WhatsApp Interactive Card -->
+                        <div class="apple-wa-card">
+                            <div class="apple-wa-header">
+                                <img src="./LOGO1.jpg" alt="ESG Tecnologia" class="apple-wa-avatar">
+                                <div class="apple-wa-info">
+                                    <div class="apple-wa-name">Íris · Agente de Vendas ESG <span class="apple-verified">✓</span></div>
+                                    <div class="apple-wa-status">
+                                        <span class="online-indicator"></span>online · VPS Privada
+                                    </div>
+                                </div>
+                                <div class="apple-wa-chip">SOBERANA</div>
+                            </div>
+                            
+                            <div class="apple-wa-body" id="apple-wa-stream">
+                                <!-- Dynamic Chat Stream via script.js -->
+                                <div class="wa-chat-bubble wa-bubble-user" id="wb-1">
+                                    Olá! Vi o case do Marcão Personal e quero saber se funciona para a minha empresa 🚀
+                                    <span class="wa-time">09:41</span>
+                                </div>
+                                
+                                <div class="wa-chat-bubble wa-bubble-agent" id="wb-2">
+                                    Olá! Funciona com excelência 👊 Não alugamos robôs genéricos: construímos a sua própria operação soberana em VPS dedicada.
+                                    <span class="wa-time">09:41</span>
+                                </div>
+                                
+                                <div class="wa-chat-bubble wa-bubble-agent" id="wb-3">
+                                    Qual é o seu nicho hoje e onde sua equipe mais perde tempo ou vendas?
+                                    <span class="wa-time">09:42</span>
+                                </div>
+
+                                <div class="wa-chat-bubble wa-bubble-user" id="wb-4">
+                                    Temos uma clínica de estética. Recebemos muitos directs e WhatsApps, mas à noite e finais de semana não tem ninguém para responder.
+                                    <span class="wa-time">09:42</span>
+                                </div>
+
+                                <div class="wa-chat-bubble wa-bubble-agent" id="wb-5">
+                                    Exatamente onde atacamos: o agente atende em &lt; 5s, tira dúvidas com áudios humanizados, agenda na grade e avisa no CRM. 🎯
+                                    <span class="wa-time">09:43</span>
+                                </div>
+
+                                <div class="wa-chat-bubble wa-bubble-agent" id="wb-6">
+                                    Quer ver como ficaria na prática no seu negócio? Podemos rodar um diagnóstico comercial esta semana.
+                                    <span class="wa-time">09:43</span>
+                                </div>
+
+                                <div class="wa-typing-apple" id="apple-wa-typing">
+                                    <span></span><span></span><span></span>
+                                    <small>Íris está digitando...</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Realtime CRM Card -->
+                        <div class="apple-crm-card">
+                            <div class="apple-crm-top">
+                                <span class="apple-crm-badge">SUPABASE REALTIME</span>
+                                <span class="apple-crm-sync">● Sincronizado</span>
+                            </div>
+                            <div class="apple-crm-lead-title" id="apple-crm-lead">
+                                <strong>Clínica Estética & Bem-Estar</strong>
+                                <span class="crm-stage-pill">Qualificado ★</span>
+                            </div>
+                            <div class="apple-crm-rows">
+                                <div class="crm-row-item">
+                                    <span>Canal de Origem:</span>
+                                    <strong>WhatsApp & Instagram Direct</strong>
+                                </div>
+                                <div class="crm-row-item">
+                                    <span>Próximo Passo:</span>
+                                    <strong>Diagnóstico com Evandro Gallina</strong>
+                                </div>
+                            </div>
+                            <div class="apple-crm-footer">
+                                <span>Zero perda de dados · 100% LGPD</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -470,6 +541,29 @@
                         <span class="tech-pill">Supabase CRM</span>
                         <span class="tech-pill">n8n Engine</span>
                     </div>
+
+                    <!-- SHOWROOM INSTAGRAM REAL MARCÃO PERSONAL -->
+                    <div class="case-ig-showcase">
+                        <div class="ig-card-header">
+                            <div class="ig-profile-info">
+                                <div class="ig-avatar-ring">
+                                    <img src="./LOGO1.jpg" alt="Marcão Personal" class="ig-avatar-img">
+                                </div>
+                                <div>
+                                    <div class="ig-username">@marcaopersonalfitness <span class="apple-verified">✓</span></div>
+                                    <div class="ig-meta-sub">Ecossistema de IA Ativo em Produção</div>
+                                </div>
+                            </div>
+                            <a href="https://www.instagram.com/marcaopersonalfitness?utm_source=ig_web_button_share_sheet&cplk=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-ig-view">
+                                Ver Instagram Real ↗
+                            </a>
+                        </div>
+                        <div class="ig-card-body">
+                            <p class="ig-highlight-text">
+                                🔥 <strong>Automação Completa Homologada:</strong> O sistema publica Reels e posts diários de forma 100% automática (Workflows n8n I2 e I3) e o <strong>Agente de Vendas no Direct</strong> atende cada comentário e mensagem instantaneamente, tirando dúvidas e direcionando para o checkout.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- CARD CASE 2: ÍRIS SECRETÁRIA DE IA (HEALTHCARE & CLÍNICAS) -->
@@ -539,6 +633,100 @@
         </div>
     </section>
     <!-- ═══ FIM SEÇÃO CASOS REAIS ═══ -->
+
+    <!-- ═══ SEÇÃO: MODELOS DE IMPLEMENTAÇÃO (3 PLANOS SEM PREÇO ABERTO) ═══ -->
+    <section class="secao-planos" id="planos">
+        <div class="container">
+            <div class="section-header reveal" style="text-align: center;">
+                <span class="eyebrow">MODELOS DE ASSESSORIA</span>
+                <h2 class="heading-lg">Arquiteturas de IA Própria Construídas Sob Medida</h2>
+                <p class="lead" style="max-width: 720px; margin: 16px auto 0;">
+                    Não alugamos ferramentas genéricas nem cobramos taxas abusivas por atendente. Entregamos a <strong>sua própria infraestrutura de IA</strong> sob medida para a escala e o faturamento do seu negócio.
+                </p>
+            </div>
+
+            <div class="planos-grid reveal">
+                <!-- PLANO 1: ESSENCIAL -->
+                <div class="plano-card glass-card">
+                    <div class="plano-badge">ATENDIMENTO & QUALIFICAÇÃO</div>
+                    <h3 class="plano-title">Operação Essencial</h3>
+                    <p class="plano-desc">Ideal para clínicas e negócios que perdem vendas diariamente por demora no primeiro contato pelo WhatsApp.</p>
+                    
+                    <div class="plano-pricing-box">
+                        <span class="plano-price-label">Setup + Retainer Mensal</span>
+                        <div class="plano-price-val">Sob Medida</div>
+                        <span class="plano-price-note">Orçamento definido no diagnóstico comercial</span>
+                    </div>
+
+                    <ul class="plano-features">
+                        <li><i class="ph-fill ph-check-circle"></i> 1 Agente de Vendas no WhatsApp 24/7</li>
+                        <li><i class="ph-fill ph-check-circle"></i> Infraestrutura Privada (VPS Ubuntu Dedicada)</li>
+                        <li><i class="ph-fill ph-check-circle"></i> Regra de Ouro dos Balões Curtos (2 a 4 ágeis)</li>
+                        <li><i class="ph-fill ph-check-circle"></i> Simulação de Digitação & Delays Naturais</li>
+                        <li><i class="ph-fill ph-check-circle"></i> Triagem Inteligente & Agendamento em Calendário</li>
+                        <li><i class="ph-fill ph-check-circle"></i> Suporte Contínuo & Ajustes de Prompt</li>
+                    </ul>
+
+                    <a href="#auditoria-form" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;">
+                        Solicitar Proposta Sob Medida →
+                    </a>
+                </div>
+
+                <!-- PLANO 2: OMNICHANNEL (DESTAQUE) -->
+                <div class="plano-card plano-card-destaque glass-card">
+                    <div class="plano-popular-tag">MAIS PROCURADO PELAS EMPRESAS</div>
+                    <div class="plano-badge badge-cyan">MÁXIMA CONVERSÃO COMERCIAL</div>
+                    <h3 class="plano-title">Ecossistema Omnichannel</h3>
+                    <p class="plano-desc">A máquina completa de tração e fechamento de vendas. Integra WhatsApp, Instagram Direct e CRM em tempo real.</p>
+                    
+                    <div class="plano-pricing-box">
+                        <span class="plano-price-label">Setup de Engenharia + Retainer</span>
+                        <div class="plano-price-val text-gradient">Sob Medida</div>
+                        <span class="plano-price-note">Dimensionado conforme volume de leads</span>
+                    </div>
+
+                    <ul class="plano-features">
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Tudo da Operação Essencial +</strong></li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Agente para Instagram Direct & Comentários</strong></li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>CRM Soberano em Tempo Real (Supabase)</strong></li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Motor de Recuperação M8 (Pix/Boletos em 15m/2h)</strong></li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Régua M9 de Reativação Automática de Leads Frios</strong></li>
+                        <li><i class="ph-fill ph-check-circle"></i> Painel Comercial Executivo com Métricas</li>
+                    </ul>
+
+                    <a href="#auditoria-form" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+                        Solicitar Diagnóstico Comercial →
+                    </a>
+                </div>
+
+                <!-- PLANO 3: ENTERPRISE -->
+                <div class="plano-card glass-card">
+                    <div class="plano-badge">EXCLUSIVIDADE & MULTIMODAL</div>
+                    <h3 class="plano-title">Soberania Enterprise</h3>
+                    <p class="plano-desc">Arquitetura avançada para marcas de alto volume, hospitais, clínicas renomadas e e-commerce high-ticket.</p>
+                    
+                    <div class="plano-pricing-box">
+                        <span class="plano-price-label">Engenharia Sob Demanda</span>
+                        <div class="plano-price-val">Customizada</div>
+                        <span class="plano-price-note">Plano executivo com SLA e exclusividade</span>
+                    </div>
+
+                    <ul class="plano-features">
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Tudo do Ecossistema Omnichannel +</strong></li>
+                        <li><i class="ph-fill ph-check-circle"></i> Multi-Agentes com Funções Especializadas</li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Visão Computacional Multimodal (Exames/Balanças)</strong></li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Clonagem de Voz Neural (Áudio PTT Nativo)</strong></li>
+                        <li><i class="ph-fill ph-check-circle"></i> Painel Coolify v4 + Docker Isolado (Blindagem LGPD)</li>
+                        <li><i class="ph-fill ph-check-circle"></i> Acompanhamento Estratégico com Evandro Gallina</li>
+                    </ul>
+
+                    <a href="#auditoria-form" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;">
+                        Agendar Reunião com Evandro →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 5. GROWTH MARKETING - A Nova Inteligência de Vendas -->
     <section class="growth-marketing" id="growth">
@@ -1136,16 +1324,13 @@
 
             <!-- TOPO: Missão da agência -->
             <div class="sobre-topo reveal">
-                <div class="section-eyebrow">SOBRE NÓS</div>
+                <div class="section-eyebrow">QUEM SOMOS & SOBERANIA TÉCNICA</div>
                 <h2 class="section-title">
-                    Tecnologia que entende<br>
-                    <em>o lado humano da medicina.</em>
+                    Engenharia de IA Soberana<br>
+                    <em>para Negócios de Alta Performance.</em>
                 </h2>
                 <p class="section-sub sobre-intro">
-                    A ESG Tecnologia nasceu da convicção de que a maior barreira para o crescimento
-                    das clínicas não é falta de pacientes — é falta de tempo e estrutura para atendê-los bem.
-                    Nossa missão é usar Inteligência Artificial para devolver ao médico o que é mais precioso:
-                    o foco no paciente.
+                    A ESG Tecnologia nasceu com uma missão inegociável: <strong>libertar empresários do gargalo do atendimento manual e das mensalidades abusivas de ferramentas alugadas</strong>. Construímos a sua própria operação de Inteligência Artificial dentro da sua própria infraestrutura privada, com soberania total de dados, segurança LGPD e agentes focados em fechamento de vendas.
                 </p>
             </div>
 
@@ -1299,7 +1484,7 @@
                         nossa avaliação. Analisaremos seu perfil e entraremos em contato.</p>
                 </div>
 
-                <form action="https://formsubmit.co/silvaevandro815@gmail.com" method="POST" class="reveal"
+                <form id="form-diagnostico" action="https://formsubmit.co/silvaevandro815@gmail.com" method="POST" class="reveal"
                     style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); backdrop-filter: blur(10px);">
                     <!-- Honeypot -->
                     <input type="text" name="_honey" style="display:none">
@@ -1646,6 +1831,22 @@
                 </div>
             </div>
         </div>
+        <!-- Modal Sucesso Apple Style -->
+        <div id="modal-sucesso-apple" class="apple-modal-overlay">
+            <div class="apple-modal-content glass-card">
+                <div class="apple-modal-icon">
+                    <i class="ph-fill ph-check-circle"></i>
+                </div>
+                <h2>Diagnóstico Recebido com Sucesso!</h2>
+                <p>Nossa engenharia já capturou as informações da sua empresa. O Diretor <strong>Evandro Gallina</strong> acabou de receber o seu alerta e entrará em contato direto pelo seu WhatsApp para apresentar a proposta e agendar o diagnóstico.</p>
+                <div class="apple-modal-badge">
+                    <span class="pulse-dot-cyan"></span>
+                    <span>Alerta enviado para o WhatsApp de Evandro Gallina</span>
+                </div>
+                <button type="button" id="btn-fechar-sucesso" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    Entendido, Voltar ao Site
+                </button>
+            </div>
+        </div>
 </body>
-
 </html>
