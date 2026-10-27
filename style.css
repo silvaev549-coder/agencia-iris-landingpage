@@ -3772,3 +3772,489 @@ html, body {
         min-width: 320px;
     }
 }
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   CORREÇÕES CRÍTICAS DE CONTRASTE E ALINHAMENTO (PRINT 1 A 5)
+   Garante máxima legibilidade e simetria profissional perfeita
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── PRINT 1: BOTÕES DE PLANOS (BTN-OUTLINE) ── */
+.btn-outline,
+.plano-card .btn-outline {
+    color: #FFFFFF !important;
+    background: rgba(0, 212, 255, 0.08) !important;
+    border: 1.5px solid rgba(0, 212, 255, 0.6) !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.btn-outline:hover,
+.plano-card .btn-outline:hover {
+    background: #00D4FF !important;
+    color: #070C18 !important;
+    border-color: #00D4FF !important;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6), 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* ── PRINT 2: EXIT INTENT POPUP (MÁXIMO CONTRASTE) ── */
+.exit-popup-overlay {
+    background: rgba(7, 12, 24, 0.88) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.exit-popup-content {
+    background: #0B132B !important;
+    border: 1.5px solid rgba(0, 212, 255, 0.4) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 45px rgba(0, 212, 255, 0.2) !important;
+    padding: 44px 36px !important;
+    text-align: center !important;
+}
+
+.exit-popup-content h2 {
+    color: #FFFFFF !important;
+    font-size: 1.85rem !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 16px !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+.exit-popup-content p {
+    color: #E2E8F0 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 28px !important;
+}
+
+.exit-popup-content strong {
+    color: #00D4FF !important;
+    font-weight: 800 !important;
+}
+
+.exit-popup-close {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #FFFFFF !important;
+}
+
+.exit-popup-close:hover {
+    background: #FF5F56 !important;
+    border-color: #FF5F56 !important;
+    color: #FFFFFF !important;
+}
+
+#btn-exit-popup {
+    background: linear-gradient(135deg, #00D4FF, #00B8D4) !important;
+    color: #070C18 !important;
+    font-weight: 800 !important;
+    font-size: 1.05rem !important;
+    padding: 16px 28px !important;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.45) !important;
+    border-radius: 12px !important;
+}
+
+#btn-exit-popup:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 14px 40px rgba(0, 212, 255, 0.6) !important;
+}
+
+/* ── PRINT 3: GROWTH MARKETING CARDS ── */
+.growth-marketing {
+    background: #070C18 !important;
+    padding: 100px 0 !important;
+}
+
+.growth-header {
+    text-align: center !important;
+    margin-bottom: 50px !important;
+}
+
+.growth-header .eyebrow {
+    color: #00D4FF !important;
+    font-weight: 800 !important;
+    letter-spacing: 2px !important;
+}
+
+.growth-header h2 {
+    color: #FFFFFF !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+}
+
+.growth-header .lead {
+    color: #CBD5E1 !important;
+    margin: 16px auto 0 !important;
+    max-width: 760px !important;
+    text-align: center !important;
+}
+
+.growth-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 28px !important;
+}
+
+.growth-card {
+    background: rgba(15, 23, 42, 0.85) !important;
+    border: 1px solid rgba(0, 212, 255, 0.22) !important;
+    border-radius: 20px !important;
+    padding: 32px 26px !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+.growth-card:hover {
+    transform: translateY(-6px) !important;
+    border-color: #00D4FF !important;
+    box-shadow: 0 16px 45px rgba(0, 212, 255, 0.2) !important;
+}
+
+.growth-icon {
+    margin-bottom: 18px !important;
+}
+
+.growth-card h3 {
+    color: #FFFFFF !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 12px !important;
+    line-height: 1.35 !important;
+}
+
+.growth-card p {
+    color: #CBD5E1 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+.growth-card strong {
+    color: #00D4FF !important;
+    font-weight: 700 !important;
+}
+
+/* ── PRINT 4: SEÇÃO CRM & MOCKUP TABLE ── */
+.section-crm {
+    background: #070C18 !important;
+    padding: 100px 0 !important;
+}
+
+.crm-texto h2.section-title {
+    color: #FFFFFF !important;
+    font-weight: 900 !important;
+    margin-bottom: 20px !important;
+}
+
+.crm-texto .section-sub {
+    color: #CBD5E1 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 32px !important;
+}
+
+.crm-features-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+.crm-features-list li {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    background: rgba(15, 23, 42, 0.75) !important;
+    border: 1px solid rgba(0, 212, 255, 0.2) !important;
+    padding: 18px 22px !important;
+    border-radius: 16px !important;
+    transition: all 0.3s ease !important;
+}
+
+.crm-features-list li:hover {
+    border-color: rgba(0, 212, 255, 0.45) !important;
+    background: rgba(15, 23, 42, 0.95) !important;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1) !important;
+}
+
+.crm-features-list li strong {
+    display: block !important;
+    color: #FFFFFF !important;
+    font-size: 1.08rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 6px !important;
+}
+
+.crm-features-list li span {
+    color: #CBD5E1 !important;
+    font-size: 0.94rem !important;
+    line-height: 1.55 !important;
+}
+
+/* CRM Mockup Dark High-Contrast */
+.crm-mockup {
+    background: #0B132B !important;
+    border: 1.5px solid rgba(0, 212, 255, 0.35) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 212, 255, 0.15) !important;
+    overflow: hidden !important;
+}
+
+.crm-mockup-header {
+    background: #070C18 !important;
+    padding: 14px 20px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.mockup-url {
+    color: #00D4FF !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+}
+
+.crm-mockup-body {
+    padding: 16px 20px !important;
+    background: #0B132B !important;
+}
+
+.crm-row-header {
+    display: grid !important;
+    grid-template-columns: 1.4fr 1.2fr 1fr 1fr !important;
+    padding: 12px 14px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-radius: 8px !important;
+    margin-bottom: 6px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.crm-row-header span {
+    color: #94A3B8 !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em !important;
+}
+
+.crm-row {
+    display: grid !important;
+    grid-template-columns: 1.4fr 1.2fr 1fr 1fr !important;
+    padding: 14px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    align-items: center !important;
+    font-size: 0.88rem !important;
+    transition: background 0.2s ease !important;
+}
+
+.crm-row:hover {
+    background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.crm-row span {
+    color: #F8FAFC !important;
+    font-weight: 600 !important;
+}
+
+.crm-row .blur-text {
+    color: #00D4FF !important;
+    filter: blur(4px) !important;
+}
+
+.badge-agendado {
+    color: #10B981 !important;
+    background: rgba(16, 185, 129, 0.15) !important;
+    border: 1px solid rgba(16, 185, 129, 0.35) !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: fit-content !important;
+}
+
+.badge-negociacao {
+    color: #F59E0B !important;
+    background: rgba(245, 158, 11, 0.15) !important;
+    border: 1px solid rgba(245, 158, 11, 0.35) !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: fit-content !important;
+}
+
+.badge-frio {
+    color: #60A5FA !important;
+    background: rgba(96, 165, 250, 0.15) !important;
+    border: 1px solid rgba(96, 165, 250, 0.35) !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: fit-content !important;
+}
+
+.crm-caption {
+    color: #94A3B8 !important;
+    font-size: 0.82rem !important;
+    margin-top: 14px !important;
+    text-align: center !important;
+}
+
+/* ── PRINT 5: ALINHAMENTO PERFEITO DA CTA-FINAL (SEM ZIG-ZAG) ── */
+.cta-final {
+    background: radial-gradient(circle at 50% 30%, rgba(0, 184, 212, 0.12) 0%, rgba(7, 12, 24, 0.98) 70%, #070C18 100%) !important;
+    padding: 110px 0 !important;
+    text-align: center !important;
+    position: relative !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.cta-final-box {
+    max-width: 860px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.banner-urgencia {
+    background: rgba(245, 158, 11, 0.1) !important;
+    border: 1px solid rgba(245, 158, 11, 0.35) !important;
+    border-radius: 50px !important;
+    padding: 10px 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 0 auto 28px auto !important;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.1) !important;
+    max-width: 800px !important;
+}
+
+.banner-urgencia p {
+    color: #FDE68A !important;
+    font-size: 0.88rem !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.cta-final h2,
+.cta-final .heading-lg {
+    color: #FFFFFF !important;
+    text-align: center !important;
+    margin: 0 auto 20px auto !important;
+    font-weight: 900 !important;
+    font-size: clamp(2.2rem, 5vw, 3.8rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.04em !important;
+    max-width: 800px !important;
+}
+
+.cta-final .lead {
+    color: #CBD5E1 !important;
+    text-align: center !important;
+    margin: 0 auto 36px auto !important;
+    max-width: 720px !important;
+    font-size: 1.15rem !important;
+    line-height: 1.65 !important;
+}
+
+.cta-final-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.cta-final .btn-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    padding: 18px 38px !important;
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    box-shadow: 0 12px 35px rgba(0, 212, 255, 0.35) !important;
+}
+
+.cta-final .microtext {
+    color: #94A3B8 !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    font-size: 0.88rem !important;
+}
+
+/* ── CORREÇÃO DE ALINHAMENTO DO HERO (TEXTO ESQUERDA SEM DRIFT CENTRAL) ── */
+.hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+.hero-content .lead {
+    text-align: left !important;
+    margin: 20px 0 32px 0 !important;
+    max-width: 600px !important;
+}
+
+.hero-content .hero-cta-group {
+    justify-content: flex-start !important;
+}
+
+.hero-content .microtext {
+    text-align: left !important;
+    margin: 16px 0 0 0 !important;
+}
+
+@media (max-width: 1024px) {
+    .hero-content {
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .hero-content .lead {
+        text-align: center !important;
+        margin: 20px auto 32px auto !important;
+    }
+    .hero-content .hero-cta-group {
+        justify-content: center !important;
+    }
+    .hero-content .microtext {
+        text-align: center !important;
+        margin: 16px auto 0 auto !important;
+    }
+}
