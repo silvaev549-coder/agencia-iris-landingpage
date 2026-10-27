@@ -4471,10 +4471,19 @@ html, body {
         max-width: 360px !important;
         margin: 20px auto 0 auto !important;
         padding: 14px 18px !important;
-        background: rgba(15, 23, 42, 0.75) !important;
-        border: 1px solid rgba(0, 212, 255, 0.25) !important;
         border-radius: 16px !important;
         box-sizing: border-box !important;
+    }
+
+    .hero .hero-trust-list {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 1.5px solid rgba(0, 212, 255, 0.4) !important;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08) !important;
+    }
+
+    .hero-trust-list--cta {
+        background: rgba(15, 23, 42, 0.85) !important;
+        border: 1px solid rgba(0, 212, 255, 0.25) !important;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
     }
 
@@ -4484,9 +4493,24 @@ html, body {
         gap: 12px !important;
         width: 100% !important;
         font-size: 0.85rem !important;
-        color: #E2E8F0 !important;
         text-align: left !important;
         line-height: 1.35 !important;
+    }
+
+    .hero .hero-trust-item {
+        color: #0F172A !important;
+    }
+
+    .hero .hero-trust-item strong {
+        color: #000000 !important;
+    }
+
+    .hero-trust-list--cta .hero-trust-item {
+        color: #E2E8F0 !important;
+    }
+
+    .hero-trust-list--cta .hero-trust-item strong {
+        color: #FFFFFF !important;
     }
 
     .hero-trust-item .trust-check {
@@ -4948,15 +4972,63 @@ html, body {
     gap: 3px;
 }
 
-/* ── TÍTULOS CRISTALINOS (SEM SOMBRA PRETA SOMBRIA) ── */
-h1, h2, h3, h4,
-.heading-xl,
-.heading-lg,
-.heading-md,
-.section-title,
-.hero-title,
+/* ── TÍTULOS CRISTALINOS NAS SEÇÕES ESCURAS (SEM SOMBRA PRETA SOMBRIA) ── */
+.secao-video-topo h1, .secao-video-topo h2, .secao-video-topo h3, .secao-video-topo .heading-lg,
+.stats h2, .stats h3, .stats .heading-lg,
+.secao-cases h2, .secao-cases h3, .secao-cases .heading-lg,
+.growth-marketing h2, .growth-marketing h3, .growth-marketing .heading-lg,
+.secao-planos h2, .secao-planos h3, .secao-planos .heading-lg,
+.section-faq h2, .section-faq h3, .section-faq .heading-lg,
+.cta-final h2, .cta-final h3, .cta-final .heading-lg,
+.section-dark h2, .section-dark h3, .section-dark .heading-lg,
 .hero-scroll-title {
     color: #FFFFFF !important;
+    text-shadow: none !important;
+}
+
+/* ── TÍTULOS E TEXTOS CRISTALINOS NAS SEÇÕES CLARAS (PRETO DE ALTO CONTRASTE) ── */
+.hero h1,
+.hero .heading-xl,
+.problema h2,
+.problema .heading-lg,
+.features h2,
+.features .heading-lg,
+.secao-sobre .sobre-topo h2,
+.secao-sobre .sobre-topo .section-title,
+.secao-sobre .sobre-equipe-titulo h2,
+.secao-sobre .sobre-equipe-titulo .section-title,
+#auditoria-form h2,
+#auditoria-form .heading-lg,
+.dor-card h3,
+.feature-card h3 {
+    color: #0F172A !important;
+    text-shadow: none !important;
+}
+
+.dor-card p,
+.feature-card p {
+    color: #475569 !important;
+    text-shadow: none !important;
+}
+
+.hero .hero-trust-item {
+    color: #0F172A !important;
+    text-shadow: none !important;
+}
+
+.hero .hero-trust-item strong {
+    color: #000000 !important;
+    text-shadow: none !important;
+}
+
+.hero .hero-trust-item .trust-check {
+    color: #10B981 !important;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.4) !important;
+}
+
+#auditoria-form label,
+#form-diagnostico label {
+    color: #0F172A !important;
     text-shadow: none !important;
 }
 
