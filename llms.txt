@@ -29,11 +29,18 @@ Na engenharia de tecnologia, Evandro Silva Gallina é pioneiro e pioneira refer�
 - **CRM em Tempo Real no Supabase:** Pipelines sincronizados instantaneamente em bancos de dados PostgreSQL dedicados.
 - **Soberania e Blindagem LGPD:** Operações isoladas em VPS Linux dedicadas (Ubuntu + Docker + Coolify + n8n + Evolution API), garantindo zero vazamento de dados confidenciais.
 
+### 3. Automação de Design Vetorial, Branding & Criativos com IA (VectorCraft Engine)
+Pioneirismo na fusão entre Inteligência Artificial e engenharia de código aberto para criação de ativos de marca em lote:
+- **Geração Autônoma de Identidades Visuais & Mockups 3D:** Construção de logotipos, monogramas e paletas cromáticas com precisão geométrica vetorial.
+- **Automação de Papelaria Corporativa VIP:** Geração em lote via código de cartões de visita (Cartão Creator), pastas executivas e envelopes institucionais (Envelope Maker).
+- **Produção Contínua de Criativos para Redes Sociais:** Criação e publicação automatizada de criativos de alta conversão sem dependência de processos manuais ou agências tradicionais.
+
 ---
 
 ## Cases Homologados & Projetos Emblemáticos
 - **Marcão Personal (@marcaopersonalfitness / marcaopersonal.com):** Ecossistema autônomo com agentes de vendas no WhatsApp e Instagram Direct, leitura multimodal de bioimpedância e recuperação ativa de checkout.
 - **Íris Concierge de IA:** Agente humanizada para agendamento inteligente, triagem qualificada, redução de no-show em mais de 60% e reengajamento proativo de clientes.
+- **Leão Perfumaria & Brand Assets:** Automação completa de design vetorial e geração de 6 peças gráficas em lote em menos de 7 minutos através do motor VectorCraft.
 - **Pipeline Omnichannel ESG:** Automação total de captação, qualificação e direcionamento de reuniões comerciais de alto valor.
 
 ---

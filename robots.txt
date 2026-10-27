@@ -30,4 +30,10 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 Sitemap: https://agencia.evandrosilvagallina.cloud/sitemap.xml
