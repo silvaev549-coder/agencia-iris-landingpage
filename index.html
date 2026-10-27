@@ -84,7 +84,7 @@
 
     
 
-    <link rel="stylesheet" href="style.css?v=3.7">
+    <link rel="stylesheet" href="style.css?v=3.8">
 
     <!-- SEO: JSON-LD Schema Markup (White Hat SEO) -->
         <!-- Advanced GEO & SEO: Master Knowledge Graph for AI Engines (Perplexity, ChatGPT, Claude, Google) -->
@@ -1535,22 +1535,39 @@
                     });
                 });
 
-                // ── FAQ ACCORDION ──
-                document.querySelectorAll('.faq-question').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-                        // Fechar todos
-                        document.querySelectorAll('.faq-question').forEach(b => {
-                            b.setAttribute('aria-expanded', 'false');
-                            b.nextElementSibling.classList.remove('open');
+                // ── FAQ ACCORDION INTERATIVO (ABRE/FECHA COM CLIQUE) ──
+                function initFaqAccordion() {
+                    const faqButtons = document.querySelectorAll('.faq-question');
+                    faqButtons.forEach(btn => {
+                        if (btn.dataset.faqInit === 'true') return;
+                        btn.dataset.faqInit = 'true';
+
+                        btn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+                            const parentItem = btn.closest('.faq-item');
+                            const answer = btn.nextElementSibling;
+
+                            // Fecha todos os outros tópicos
+                            faqButtons.forEach(otherBtn => {
+                                otherBtn.setAttribute('aria-expanded', 'false');
+                                const otherParent = otherBtn.closest('.faq-item');
+                                if (otherParent) otherParent.classList.remove('active');
+                                if (otherBtn.nextElementSibling) {
+                                    otherBtn.nextElementSibling.classList.remove('open');
+                                }
+                            });
+
+                            // Se estava fechado, abre o clicado
+                            if (!isOpen) {
+                                btn.setAttribute('aria-expanded', 'true');
+                                if (parentItem) parentItem.classList.add('active');
+                                if (answer) answer.classList.add('open');
+                            }
                         });
-                        // Abrir o clicado (se estava fechado)
-                        if (!isOpen) {
-                            btn.setAttribute('aria-expanded', 'true');
-                            btn.nextElementSibling.classList.add('open');
-                        }
                     });
-                });
+                }
+                initFaqAccordion();
 
                 // ── CURSOR PERSONALIZADO ──
                 const cursor = document.getElementById('custom-cursor');
