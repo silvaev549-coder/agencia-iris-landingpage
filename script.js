@@ -230,6 +230,18 @@ document.addEventListener("DOMContentLoaded", () => {
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
+            // Bot Protection & Honeypot (Checklist de Segurança)
+            const honeypot = form.querySelector('input[name="_honey"]');
+            if (honeypot && honeypot.value.trim() !== '') {
+                form.reset();
+                return;
+            }
+
+            const sanitize = (str) => {
+                if (typeof str !== 'string') return '';
+                return str.replace(/[<>]/g, '').trim().slice(0, 500);
+            };
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn ? submitBtn.innerHTML : "Enviar";
 
@@ -240,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const formData = new FormData(form);
             const dataObj = {};
-            formData.forEach((val, key) => dataObj[key] = val);
+            formData.forEach((val, key) => dataObj[key] = sanitize(val));
 
             // Monta mensagem direta para o WhatsApp pessoal de Evandro Gallina (5532984587255)
             const waNome = dataObj['Nome'] || '';
