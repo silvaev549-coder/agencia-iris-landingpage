@@ -282,7 +282,26 @@ Gostaria de agendar uma reunião comercial para avaliarmos a implementação dos
 
             try {
                 // Envia de forma segura via FormSubmit AJAX (backup por e-mail)
-                await fetch("https://formsubmit.co/ajax/silvaevandro815@gmail.com", {
+                // Disparar Evento Meta Pixel & Google Analytics
+            try {
+                if (window.fbq) {
+                    fbq('track', 'Lead', {
+                        content_name: 'Diagnostico Comercial ESG Tecnologia',
+                        currency: 'BRL',
+                        value: 500.00
+                    });
+                }
+                if (window.gtag) {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'Form',
+                        'event_label': 'Diagnostico Comercial'
+                    });
+                }
+            } catch (trackingErr) {
+                console.warn('Pixel tracking error:', trackingErr);
+            }
+
+            await fetch("https://formsubmit.co/ajax/silvaevandro815@gmail.com", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
