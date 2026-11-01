@@ -3104,6 +3104,98 @@ li,
     margin: 0;
 }
 
+
+/* SHOWROOM WHATSAPP REAL (ÍRIS CONCIERGE & SECRETÁRIA MÉDICA) */
+.case-wa-showcase {
+    margin-top: 20px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(37, 211, 102, 0.4);
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15);
+}
+
+.wa-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.wa-profile-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wa-avatar-ring {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    padding: 2px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+
+.wa-avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #0F172A;
+}
+
+.wa-username {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.wa-meta-sub {
+    font-size: 0.72rem;
+    color: #94A3B8;
+}
+
+.btn-wa-view {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #FFFFFF !important;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 9px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+}
+
+.btn-wa-view:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+.wa-card-body {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 10px;
+}
+
+.wa-highlight-text {
+    font-size: 0.84rem;
+    color: #CBD5E1;
+    line-height: 1.55;
+    margin: 0;
+}
+
 /* SEÇÃO DE PLANOS & MODELOS DE ASSESSORIA */
 .secao-planos {
     padding: 100px 0;
@@ -4593,6 +4685,25 @@ html, body {
         box-sizing: border-box !important;
     }
 
+    
+    .case-wa-showcase {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 14px 16px !important;
+        border-radius: 14px !important;
+    }
+    .wa-card-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+    }
+    .btn-wa-view {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
     .case-ig-showcase {
         width: 100% !important;
         max-width: 100% !important;
@@ -5440,4 +5551,17 @@ html, body {
     text-shadow: none !important;
     margin: 0 !important;
     opacity: 0.96 !important;
+}
+
+
+/* FLOATING WHATSAPP TOOLTIP */
+@keyframes floatTooltip {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+@media (max-width: 640px) {
+    .wa-floating-tooltip {
+        display: none !important;
+    }
 }
