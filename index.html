@@ -715,30 +715,59 @@
                         <span class="tech-pill">VPS Dedicada Ubuntu</span>
                     </div>
 
-                    <!-- SHOWROOM WHATSAPP REAL DA ÍRIS (TESTE AO VIVO PARA CLÍNICAS) -->
-                    <div class="case-wa-showcase">
-                        <div class="wa-card-header">
-                            <div class="wa-profile-info">
-                                <div class="wa-avatar-ring">
-                                    <img src="./iris_avatar.webp" alt="Íris Concierge Médica" class="wa-avatar-img">
+                    <!-- SHOWROOM WHATSAPP REAL DA ÍRIS (TESTE AO VIVO PARA CLÍNICAS & GESTORES) -->
+                    <div class="case-wa-showcase" style="margin-top: 24px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(6, 78, 59, 0.25) 100%); border: 1.5px solid rgba(37, 211, 102, 0.45); border-radius: 18px; padding: 22px; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(37, 211, 102, 0.15);">
+                        <div class="wa-card-header" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
+                            <div class="wa-profile-info" style="display: flex; align-items: center; gap: 14px;">
+                                <div class="wa-avatar-ring" style="width: 52px; height: 52px; border-radius: 50%; padding: 2.5px; background: linear-gradient(135deg, #25D366 0%, #10B981 100%); box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);">
+                                    <img src="./iris_avatar.webp" alt="Íris Concierge Médica" class="wa-avatar-img" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #0F172A;">
                                 </div>
                                 <div>
-                                    <div class="wa-username">Íris · Concierge & Secretária Médica <span class="apple-verified">✓</span></div>
-                                    <div class="wa-meta-sub">WhatsApp Oficial Vivo: (32) 99801-4766 · Demonstração Liberada</div>
+                                    <div class="wa-username" style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; display: flex; align-items: center; gap: 6px;">
+                                        Íris · Concierge & Secretária Médica 
+                                        <span class="apple-verified" style="color: #25D366;">✓</span>
+                                    </div>
+                                    <div class="wa-meta-sub" style="font-size: 0.78rem; color: #94A3B8; margin-top: 2px;">
+                                        Linha Oficial Vivo: <strong style="color: #25D366;">(32) 99801-4766</strong> · Demonstração Aberta 24/7
+                                    </div>
                                 </div>
                             </div>
+                            <div style="background: rgba(37, 211, 102, 0.12); border: 1px solid rgba(37, 211, 102, 0.35); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; color: #25D366; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                                <span class="pulse-dot" style="background: #25D366; width: 7px; height: 7px;"></span>
+                                IA Conectada e Online
+                            </div>
+                        </div>
+
+                        <div class="wa-card-body" style="margin-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 14px;">
+                            <p class="wa-highlight-text" style="font-size: 0.9rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 16px;">
+                                🩺 <strong>Espaço Interativo para Médicos e Gestores de Clínicas:</strong> Converse com a Íris agora no seu WhatsApp. Mande áudios para ouvir as respostas com voz neural, simule agendamento no Google Calendar, tire dúvidas sobre procedimentos e comprove o atendimento acolhedor em múltiplos balões curtos (&lt; 5s).
+                            </p>
+
+                            <!-- BOTÃO DE DESTAQUE WHATSAPP ATRAENTE -->
                             <a href="https://wa.me/5532998014766?text=Ol%C3%A1%20%C3%8Dris%2C%20sou%20m%C3%A9dico%2Fgestor%20de%20cl%C3%ADnica%20e%20gostaria%20de%20testar%20sua%20demonstra%C3%A7%C3%A3o%20ao%20vivo." 
                                target="_blank" 
                                rel="noopener noreferrer" 
-                               class="btn-wa-view"
-                               onclick="if(window.fbq){fbq('track', 'Contact', {content_name: 'Teste Iris WhatsApp Case'}); fbq('track', 'Lead', {content_name: 'Lead WhatsApp Iris'});}">
-                                <i class="ph-fill ph-whatsapp-logo" style="font-size: 1.25rem;"></i> Testar a Íris no WhatsApp ↗
+                               class="btn-wa-interactive-cta"
+                               style="display: flex; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #FFFFFF !important; font-size: 1.05rem; font-weight: 900; padding: 16px 28px; border-radius: 14px; text-decoration: none; box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align: center;"
+                               onmouseover="this.style.transform='scale(1.02) translateY(-2px)'; this.style.boxShadow='0 12px 35px rgba(37, 211, 102, 0.6)';"
+                               onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 8px 30px rgba(37, 211, 102, 0.45)';"
+                               onclick="if(window.fbq){fbq('track', 'Contact', {content_name: 'Teste Iris WhatsApp Case Card'}); fbq('track', 'Lead', {content_name: 'Lead WhatsApp Iris'});} if(window.gtag){gtag('event', 'generate_lead', {'event_category': 'Contact', 'event_label': 'Teste Iris WhatsApp Case Card'});}">
+                                <i class="ph-fill ph-whatsapp-logo" style="font-size: 1.6rem; color: #FFFFFF;"></i>
+                                <span>TESTAR A ÍRIS AO VIVO NO WHATSAPP →</span>
                             </a>
-                        </div>
-                        <div class="wa-card-body">
-                            <p class="wa-highlight-text">
-                                🩺 <strong>Espaço Interativo para Médicos e Gestores:</strong> Clique no botão acima para conversar ao vivo com a Íris no WhatsApp. Mande mensagens de texto ou áudios gravados, veja a triagem humanizada em múltiplos balões curtos (&lt; 5s), simulação de agendamento e sincronização em tempo real com CRM.
-                            </p>
+
+                            <!-- Mini badges abaixo do botão -->
+                            <div style="display: flex; justify-content: center; gap: 16px; margin-top: 12px; flex-wrap: wrap;">
+                                <span style="font-size: 0.76rem; color: #94A3B8; display: inline-flex; align-items: center; gap: 4px;">
+                                    <i class="ph-fill ph-lightning" style="color: #F59E0B;"></i> Resposta em &lt; 5s
+                                </span>
+                                <span style="font-size: 0.76rem; color: #94A3B8; display: inline-flex; align-items: center; gap: 4px;">
+                                    <i class="ph-fill ph-microphone" style="color: #38BDF8;"></i> Entende & Responde Áudio
+                                </span>
+                                <span style="font-size: 0.76rem; color: #94A3B8; display: inline-flex; align-items: center; gap: 4px;">
+                                    <i class="ph-fill ph-calendar-check" style="color: #10B981;"></i> Agendamento Automático
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
