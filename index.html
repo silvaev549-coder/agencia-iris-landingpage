@@ -84,7 +84,7 @@
 
     
 
-    <link rel="stylesheet" href="style.css?v=3.8">
+    <link rel="stylesheet" href="style.css?v=4.5">
 
     <!-- SEO: JSON-LD Schema Markup (White Hat SEO) -->
         <!-- Advanced GEO & SEO: Master Knowledge Graph for AI Engines (Perplexity, ChatGPT, Claude, Google) -->
@@ -186,6 +186,44 @@
         }
       ]
     }
+    </script>
+
+    <!-- FAQ Accordion Instant Handler -->
+    <script>
+    function toggleFaqItem(btn) {
+        if (!btn) return;
+        var parent = btn.closest('.faq-item');
+        var answer = btn.nextElementSibling;
+        var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+        // Fechar todos os outros
+        document.querySelectorAll('.faq-question').forEach(function(otherBtn) {
+            otherBtn.setAttribute('aria-expanded', 'false');
+            var otherParent = otherBtn.closest('.faq-item');
+            if (otherParent) otherParent.classList.remove('active');
+            if (otherBtn.nextElementSibling) {
+                otherBtn.nextElementSibling.classList.remove('open');
+                otherBtn.nextElementSibling.style.maxHeight = null;
+            }
+        });
+
+        // Se estava fechado, abrir o clicado
+        if (!isExpanded) {
+            btn.setAttribute('aria-expanded', 'true');
+            if (parent) parent.classList.add('active');
+            if (answer) {
+                answer.classList.add('open');
+                answer.style.maxHeight = (answer.scrollHeight + 60) + 'px';
+            }
+        }
+    }
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.faq-question');
+        if (btn) {
+            e.preventDefault();
+            toggleFaqItem(btn);
+        }
+    });
     </script>
 
 </head>
@@ -1105,7 +1143,7 @@
             <div class="faq-list">
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaqItem(this)">
                         <span>O ecossistema e os agentes funcionam para qualquer modelo de negócio?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -1115,7 +1153,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaqItem(this)">
                         <span>Os clientes vão perceber que estão conversando com uma IA?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -1128,7 +1166,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaqItem(this)">
                         <span>Preciso saber programação ou tecnologia para usar?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -1141,7 +1179,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaqItem(this)">
                         <span>E se a Íris cometer um erro ou não souber responder algo?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -1151,7 +1189,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaqItem(this)">
                         <span>Quanto tempo leva para o sistema entrar no ar?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -1163,7 +1201,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaqItem(this)">
                         <span>A Íris funciona no meu número de WhatsApp atual?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -1176,7 +1214,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaqItem(this)">
                         <span>Por que vocês operam com vagas limitadas de projetos?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -1708,7 +1746,7 @@
         </script>
 
         <div id="custom-cursor"></div>
-        <script src="script.js" defer></script>
+        <script src="script.js?v=4.5" defer></script>
 
         <!-- WhatsApp Floating Button -->
         <a href="#auditoria-form" class="whatsapp-float" aria-label="Fale conosco">

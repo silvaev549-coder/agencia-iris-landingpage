@@ -348,32 +348,36 @@ Gostaria de agendar uma reunião comercial para avaliarmos a implementação dos
 });
 
 // ── FAQ ACCORDION HANDLER (REDUZ EXTENSÃO DO SITE) ──
-document.addEventListener('DOMContentLoaded', () => {
-    const faqButtons = document.querySelectorAll('.faq-question');
-    faqButtons.forEach(btn => {
-        if (btn.dataset.faqInit === 'true') return;
-        btn.dataset.faqInit = 'true';
+window.toggleFaqItem = window.toggleFaqItem || function(btn) {
+    if (!btn) return;
+    const parent = btn.closest('.faq-item');
+    const answer = btn.nextElementSibling;
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
 
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isOpen = btn.getAttribute('aria-expanded') === 'true';
-            const parentItem = btn.closest('.faq-item');
-            const answer = btn.nextElementSibling;
-
-            faqButtons.forEach(otherBtn => {
-                otherBtn.setAttribute('aria-expanded', 'false');
-                const otherParent = otherBtn.closest('.faq-item');
-                if (otherParent) otherParent.classList.remove('active');
-                if (otherBtn.nextElementSibling) {
-                    otherBtn.nextElementSibling.classList.remove('open');
-                }
-            });
-
-            if (!isOpen) {
-                btn.setAttribute('aria-expanded', 'true');
-                if (parentItem) parentItem.classList.add('active');
-                if (answer) answer.classList.add('open');
-            }
-        });
+    document.querySelectorAll('.faq-question').forEach(otherBtn => {
+        otherBtn.setAttribute('aria-expanded', 'false');
+        const otherParent = otherBtn.closest('.faq-item');
+        if (otherParent) otherParent.classList.remove('active');
+        if (otherBtn.nextElementSibling) {
+            otherBtn.nextElementSibling.classList.remove('open');
+            otherBtn.nextElementSibling.style.maxHeight = null;
+        }
     });
+
+    if (!isExpanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        if (parent) parent.classList.add('active');
+        if (answer) {
+            answer.classList.add('open');
+            answer.style.maxHeight = (answer.scrollHeight + 60) + 'px';
+        }
+    }
+};
+
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.faq-question');
+    if (btn) {
+        e.preventDefault();
+        window.toggleFaqItem(btn);
+    }
 });
